@@ -1,0 +1,1202 @@
+sample_id,task,target_dialect,dialect_text,standard_text,source_text,hypothesis,label,domain,split
+MCQA_0010_3,MCQA,PNB,"Giang đã đưa ra ý kiến gì với chị khi bố bảo phải cho bớt đi?
+A. Giữ chó con lại nuôi.
+B. Bán chó con.
+C. Nuôi thêm mèo.
+D. Cho chó con.","Giang đã đưa ra ý kiến gì với chị khi bố bảo phải cho bớt đi?
+A. Giữ chó con lại nuôi.
+B. Bán chó con.
+C. Nuôi thêm mèo.
+D. Cho chó con.","Giang đã đưa ra ý kiến gì với chị khi bố bảo phải cho bớt đi?
+A. Giữ chó con lại nuôi.
+B. Bán chó con.
+C. Nuôi thêm mèo.
+D. Cho chó con.",Bán chó con.,B,Daily Conversation,test
+MCQA_0010_3,MCQA,PNT2,"Giang đạ đưa ra ý kiến chi với chị khi bố bảo phải cho bớt đi? 
+A. Giự chó con lại nuôi. 
+B. Bán chó con. 
+C. Nuôi thêm mèo. 
+D. Cho chó con.","Giang đã đưa ra ý kiến gì với chị khi bố bảo phải cho bớt đi?
+A. Giữ chó con lại nuôi.
+B. Bán chó con.
+C. Nuôi thêm mèo.
+D. Cho chó con.","Giang đã đưa ra ý kiến gì với chị khi bố bảo phải cho bớt đi?
+A. Giữ chó con lại nuôi.
+B. Bán chó con.
+C. Nuôi thêm mèo.
+D. Cho chó con.",Bán chó con.,B,Daily Conversation,test
+MCQA_0010_3,MCQA,PNT3,"Giang đã nói ý kiến chi với chị khi ba bảo phải cho bớt chó con đi?
+
+A. Giữ chó con lại nuôi.
+B. Bán chó con.
+C. Nuôi thêm mèo.
+D. Cho chó con.","Giang đã đưa ra ý kiến gì với chị khi bố bảo phải cho bớt đi?
+A. Giữ chó con lại nuôi.
+B. Bán chó con.
+C. Nuôi thêm mèo.
+D. Cho chó con.","Giang đã đưa ra ý kiến gì với chị khi bố bảo phải cho bớt đi?
+A. Giữ chó con lại nuôi.
+B. Bán chó con.
+C. Nuôi thêm mèo.
+D. Cho chó con.",Bán chó con.,B,Daily Conversation,test
+MCQA_0065_5,MCQA,PNB,"Lời phản hồi nào mà chúng ta có thể nói với các bạn nhỏ lớp 6A ở Lúc-xăm-bua?
+A. Xin lỗi các bạn vì chưa thể đến thăm đất nước Lúc-xăm-bua.
+B. Trách móc các bạn vì chưa đến thăm đất nước Việt Nam.
+C. Cảm ơn các bạn vì đã yêu mến đất nước Việt Nam.
+D. Rất nhớ các bạn.","Lời phúc đáp nào mà chúng ta có thể nói với các bạn nhỏ lớp 6A ở Lúc-xăm-bua?
+A. Xin lỗi các bạn vì chưa thể đến thăm đất nước Lúc-xăm-bua.
+B. Trách móc các bạn vì chưa đến thăm đất nước Việt Nam.
+C. Cảm ơn các bạn vì đã yêu mến đất nước Việt Nam.
+D. Rất nhớ các bạn.","Lời phúc đáp nào mà chúng ta có thể nói với các bạn nhỏ lớp 6A ở Lúc-xăm-bua?
+A. Xin lỗi các bạn vì chưa thể đến thăm đất nước Lúc-xăm-bua.
+B. Trách móc các bạn vì chưa đến thăm đất nước Việt Nam.
+C. Cảm ơn các bạn vì đã yêu mến đất nước Việt Nam.
+D. Rất nhớ các bạn.",Cảm ơn các bạn vì đã yêu mến đất nước Việt Nam.,C,Daily Conversation,test
+MCQA_0065_5,MCQA,PNT2,"Lời phúc đáp mô mà nhà ta có thể nói với các bạn nhỏ lớp 6A ở Lúc-xăm-bua?
+A. Xin lỗi các bạn vì chưa thể đến thăm đất nước Lúc-xăm-bua.
+B. Trách móc các bạn vì chưa đến thăm đất nước Việt Nam.
+C. Cảm ơn các bạn vì đã yêu mến đất nước Việt Nam.
+D. Rất nhớ các bạn.","Lời phúc đáp nào mà chúng ta có thể nói với các bạn nhỏ lớp 6A ở Lúc-xăm-bua?
+A. Xin lỗi các bạn vì chưa thể đến thăm đất nước Lúc-xăm-bua.
+B. Trách móc các bạn vì chưa đến thăm đất nước Việt Nam.
+C. Cảm ơn các bạn vì đã yêu mến đất nước Việt Nam.
+D. Rất nhớ các bạn.","Lời phúc đáp nào mà chúng ta có thể nói với các bạn nhỏ lớp 6A ở Lúc-xăm-bua?
+A. Xin lỗi các bạn vì chưa thể đến thăm đất nước Lúc-xăm-bua.
+B. Trách móc các bạn vì chưa đến thăm đất nước Việt Nam.
+C. Cảm ơn các bạn vì đã yêu mến đất nước Việt Nam.
+D. Rất nhớ các bạn.",Cảm ơn các bạn vì đã yêu mến đất nước Việt Nam.,C,Daily Conversation,test
+MCQA_0065_5,MCQA,PNT3,"Lời phúc đáp mô mà miềng có thể nói với các bạn nhỏ lớp 6A ở Lúc-xăm-bua?
+A. Xin lỗi mấy bạn vì chưa thể đến thăm đất nước Lúc-xăm-bua.
+B. Trách móc mấy bạn vì chưa đến thăm đất nước Việt Nam.
+C. Cảm ơn mấy bạn vì đã yêu quý đất nước Việt Nam.
+D. Rất nhớ mấy bạn.","Lời phúc đáp nào mà chúng ta có thể nói với các bạn nhỏ lớp 6A ở Lúc-xăm-bua?
+A. Xin lỗi các bạn vì chưa thể đến thăm đất nước Lúc-xăm-bua.
+B. Trách móc các bạn vì chưa đến thăm đất nước Việt Nam.
+C. Cảm ơn các bạn vì đã yêu mến đất nước Việt Nam.
+D. Rất nhớ các bạn.","Lời phúc đáp nào mà chúng ta có thể nói với các bạn nhỏ lớp 6A ở Lúc-xăm-bua?
+A. Xin lỗi các bạn vì chưa thể đến thăm đất nước Lúc-xăm-bua.
+B. Trách móc các bạn vì chưa đến thăm đất nước Việt Nam.
+C. Cảm ơn các bạn vì đã yêu mến đất nước Việt Nam.
+D. Rất nhớ các bạn.",Cảm ơn các bạn vì đã yêu mến đất nước Việt Nam.,C,Daily Conversation,test
+MCQA_0141_3,MCQA,PNB,"Lá cọ được tác giả gọi bằng cái tên đáng yêu nào khác?
+A. Quả bóng xanh.
+B. Bầu trời xanh.
+C. Mặt trời hồng.
+D. Mặt trời xanh.","Lá cọ được tác giả gọi bằng cái tên đáng yêu nào khác?
+A. Quả bóng xanh.
+B. Bầu trời xanh.
+C. Mặt trời hồng.
+D. Mặt trời xanh.","Lá cọ được tác giả gọi bằng cái tên đáng yêu nào khác?
+A. Quả bóng xanh.
+B. Bầu trời xanh.
+C. Mặt trời hồng.
+D. Mặt trời xanh.",Mặt trời xanh.,D,Daily Conversation,test
+MCQA_0141_3,MCQA,PNT2,"Lá cọ được tác giả gọi bằng cái tên đáng yêu mô khác?
+A. Quả bóng xanh.
+B. Bầu trời xanh.
+C. Mặt trời hồng.
+D. Mặt trời xanh.","Lá cọ được tác giả gọi bằng cái tên đáng yêu nào khác?
+A. Quả bóng xanh.
+B. Bầu trời xanh.
+C. Mặt trời hồng.
+D. Mặt trời xanh.","Lá cọ được tác giả gọi bằng cái tên đáng yêu nào khác?
+A. Quả bóng xanh.
+B. Bầu trời xanh.
+C. Mặt trời hồng.
+D. Mặt trời xanh.",Mặt trời xanh.,D,Daily Conversation,test
+MCQA_0141_3,MCQA,PNT3,"Lá cọ được tác giả gọi bằng kì tên đáng yêu mô khác?
+A. Quả bóng xanh.
+B. Bầu trời xanh.
+C. Mặt trời hồng.
+D. Mặt trời xanh.","Lá cọ được tác giả gọi bằng cái tên đáng yêu nào khác?
+A. Quả bóng xanh.
+B. Bầu trời xanh.
+C. Mặt trời hồng.
+D. Mặt trời xanh.","Lá cọ được tác giả gọi bằng cái tên đáng yêu nào khác?
+A. Quả bóng xanh.
+B. Bầu trời xanh.
+C. Mặt trời hồng.
+D. Mặt trời xanh.",Mặt trời xanh.,D,Daily Conversation,test
+MCQA_0012_0,MCQA,PNB,"An đã xin làm gì sau khi bà mất?
+A. An xin nghỉ học hẳn luôn.
+B. Xin bố mẹ cho đi du lịch.
+C. Nghỉ học mấy ngày liền.
+D. Xin được đi học để đỡ buồn.","An đã xin làm gì sau khi bà mất?
+A. An xin nghỉ học hẳn luôn.
+B. Xin bố mẹ cho đi du lịch.
+C. Nghỉ học mấy ngày liền.
+D. Xin được đi học để đỡ buồn.","An đã xin làm gì sau khi bà mất?
+A. An xin nghỉ học hẳn luôn.
+B. Xin bố mẹ cho đi du lịch.
+C. Nghỉ học mấy ngày liền.
+D. Xin được đi học để đỡ buồn.",Nghỉ học mấy ngày liền.,C,Daily Conversation,test
+MCQA_0012_0,MCQA,PNT2,"An đã xin mần chi sau khi bà mất?
+A. An xin nghỉ học hẳn luôn.
+B. Xin bố mẹ cho đi du lịch.
+C. Nghỉ học mấy ngay liền.
+D. Xin được đi học để đợ buồn.","An đã xin làm gì sau khi bà mất?
+A. An xin nghỉ học hẳn luôn.
+B. Xin bố mẹ cho đi du lịch.
+C. Nghỉ học mấy ngày liền.
+D. Xin được đi học để đỡ buồn.","An đã xin làm gì sau khi bà mất?
+A. An xin nghỉ học hẳn luôn.
+B. Xin bố mẹ cho đi du lịch.
+C. Nghỉ học mấy ngày liền.
+D. Xin được đi học để đỡ buồn.",Nghỉ học mấy ngày liền.,C,Daily Conversation,test
+MCQA_0012_0,MCQA,PNT3,"An đã làm chi sau khi bà mất?
+A. An xin nghỉ học hẳn luôn.
+B. Xin ba mẹ cho đi du lịch.
+C. Nghỉ học mấy ngày liền.
+D. Xin được đi học để đỡ buồn.","An đã xin làm gì sau khi bà mất?
+A. An xin nghỉ học hẳn luôn.
+B. Xin bố mẹ cho đi du lịch.
+C. Nghỉ học mấy ngày liền.
+D. Xin được đi học để đỡ buồn.","An đã xin làm gì sau khi bà mất?
+A. An xin nghỉ học hẳn luôn.
+B. Xin bố mẹ cho đi du lịch.
+C. Nghỉ học mấy ngày liền.
+D. Xin được đi học để đỡ buồn.",Nghỉ học mấy ngày liền.,C,Daily Conversation,test
+MCQA_0041_7,MCQA,PNB,"Câu nói ""Người đâu mà lười thế!"" của anh chàng lười có gì đáng buồn cười?
+A. Chàng lười lại đi cảm ơn người khác.
+B. Chàng lười lại chịu đi nhờ người khác.
+C. Chàng lười lại đi chê người khác lười.
+D. Vì chàng lười quá chăm chỉ so với người khác.","Câu nói ""Người đâu mà lười thế!"" của anh chàng lười có gì đáng buồn cười?
+A. Chàng lười lại đi cảm ơn người khác.
+B. Chàng lười lại chịu đi nhờ người khác.
+C. Chàng lười lại đi chê người khác lười.
+D. Vì chàng lười quá siêng năng so với người khác.","Câu nói ""Người đâu mà lười thế!"" của anh chàng lười có gì đáng buồn cười?
+A. Chàng lười lại đi cảm ơn người khác.
+B. Chàng lười lại chịu đi nhờ người khác.
+C. Chàng lười lại đi chê người khác lười.
+D. Vì chàng lười quá siêng năng so với người khác.",Chàng lười lại đi chê người khác lười.,C,Daily Conversation,test
+MCQA_0041_7,MCQA,PNT2,"Câu nói ""Ngài mô mà nhác rứa!"" của anh chàng lười có chi đáng buồn cười?
+A. Chàng lười lại đi cảm ơn người khác.
+B. Chàng lười lại chịu đi nhờ người khác.
+C. Chàng lười lại đi chê người khác lười.
+D. Vì chàng lười quá siêng năng so với người khác.","Câu nói ""Người đâu mà lười thế!"" của anh chàng lười có gì đáng buồn cười?
+A. Chàng lười lại đi cảm ơn người khác.
+B. Chàng lười lại chịu đi nhờ người khác.
+C. Chàng lười lại đi chê người khác lười.
+D. Vì chàng lười quá siêng năng so với người khác.","Câu nói ""Người đâu mà lười thế!"" của anh chàng lười có gì đáng buồn cười?
+A. Chàng lười lại đi cảm ơn người khác.
+B. Chàng lười lại chịu đi nhờ người khác.
+C. Chàng lười lại đi chê người khác lười.
+D. Vì chàng lười quá siêng năng so với người khác.",Chàng lười lại đi chê người khác lười.,C,Daily Conversation,test
+MCQA_0041_7,MCQA,PNT3,"Câu nói ""Người mô mà lười rứa!"" của anh chàng lười có chi đáng buồn cười?
+A. Chàng lười lại đi cảm ơn người khác.
+B. Chàng lười lại chịu đi nhờ người khác.
+C. Chàng lười lại đi chê người khác lười.
+D. Vì chàng lười quá siêng năng so với người khác.","Câu nói ""Người đâu mà lười thế!"" của anh chàng lười có gì đáng buồn cười?
+A. Chàng lười lại đi cảm ơn người khác.
+B. Chàng lười lại chịu đi nhờ người khác.
+C. Chàng lười lại đi chê người khác lười.
+D. Vì chàng lười quá siêng năng so với người khác.","Câu nói ""Người đâu mà lười thế!"" của anh chàng lười có gì đáng buồn cười?
+A. Chàng lười lại đi cảm ơn người khác.
+B. Chàng lười lại chịu đi nhờ người khác.
+C. Chàng lười lại đi chê người khác lười.
+D. Vì chàng lười quá siêng năng so với người khác.",Chàng lười lại đi chê người khác lười.,C,Daily Conversation,test
+MCQA_0058_0,MCQA,PNB,"Sau khi rơi vào chuồng gà, đại bàng được nuôi như thế nào ?
+A. Như một con gà.
+B. Như một con đại bàng.
+C. Vừa như một con gà, vừa như một con đại bàng.
+D. Như một con chim trời được dạy bay cao.","Sau khi rơi vào ổ gà, đại bàng được nuôi như thế nào ?
+A. Như một con gà.
+B. Như một con đại bàng.
+C. Vừa như một con gà, vừa như một con đại bàng.
+D. Như một con chim trời được dạy bay cao.","Sau khi rơi vào ổ gà, đại bàng được nuôi như thế nào ?
+A. Như một con gà.
+B. Như một con đại bàng.
+C. Vừa như một con gà, vừa như một con đại bàng.
+D. Như một con chim trời được dạy bay cao.",Như một con gà.,A,Daily Conversation,test
+MCQA_0058_0,MCQA,PNT2,"Sau khi rơi vào ổ gà, đại bàng được nuôi như răng ?
+A. Như một con gà.
+B. Như một con đại bàng.
+C. Vừa như một con gà, vừa như một con đại bàng.
+D. Như một con chim trời được dạy bay cao.","Sau khi rơi vào ổ gà, đại bàng được nuôi như thế nào ?
+A. Như một con gà.
+B. Như một con đại bàng.
+C. Vừa như một con gà, vừa như một con đại bàng.
+D. Như một con chim trời được dạy bay cao.","Sau khi rơi vào ổ gà, đại bàng được nuôi như thế nào ?
+A. Như một con gà.
+B. Như một con đại bàng.
+C. Vừa như một con gà, vừa như một con đại bàng.
+D. Như một con chim trời được dạy bay cao.",Như một con gà.,A,Daily Conversation,test
+MCQA_0058_0,MCQA,PNT3,"Sau khi rớt vô ổ gà, đại bàng được nuôi như răng ?
+A. Như một con gà.
+B. Như một con đại bàng.
+C. Vừa như một con gà, vừa như một con đại bàng.
+D. Như một con chim trời được dạy bay cao.","Sau khi rơi vào ổ gà, đại bàng được nuôi như thế nào ?
+A. Như một con gà.
+B. Như một con đại bàng.
+C. Vừa như một con gà, vừa như một con đại bàng.
+D. Như một con chim trời được dạy bay cao.","Sau khi rơi vào ổ gà, đại bàng được nuôi như thế nào ?
+A. Như một con gà.
+B. Như một con đại bàng.
+C. Vừa như một con gà, vừa như một con đại bàng.
+D. Như một con chim trời được dạy bay cao.",Như một con gà.,A,Daily Conversation,test
+MCQA_0091_0,MCQA,PNB,"Tan học, trời mưa mà Hoa lại quên áo mưa, bạn đã làm gì để về nhà?
+A. Mua áo mưa rồi về nhà.
+B. Đi chung áo mưa với bạn.
+C. Cho cặp vào túi ni lông và phóng xe về nhà.
+D. Tắm dưới mưa.","Tan học, trời mưa mà Hoa lại quên áo mưa, bạn đã làm gì để về nhà?
+A. Mua áo mưa rồi về nhà.
+B. Đi chung áo mưa với bạn.
+C. Cho cặp vào túi ni lông và phóng xe về nhà.
+D. Tắm dưới mưa.","Tan học, trời mưa mà Hoa lại quên áo mưa, bạn đã làm gì để về nhà?
+A. Mua áo mưa rồi về nhà.
+B. Đi chung áo mưa với bạn.
+C. Cho cặp vào túi ni lông và phóng xe về nhà.
+D. Tắm dưới mưa.",Cho cặp vào túi ni lông và phóng xe về nhà.,C,Daily Conversation,test
+MCQA_0091_0,MCQA,PNT2,"Tan học, trời mưa mà Hoa lại quên áo mưa, bạn nớ đạ làm chi để về nhà?
+A. Mua áo mưa rồi về nhà.
+B. Đi chung áo mưa với bạn.
+C. Cho cặp vào bao ni lông và phóng xe về nhà.
+D. Tắm mưa.","Tan học, trời mưa mà Hoa lại quên áo mưa, bạn đã làm gì để về nhà?
+A. Mua áo mưa rồi về nhà.
+B. Đi chung áo mưa với bạn.
+C. Cho cặp vào túi ni lông và phóng xe về nhà.
+D. Tắm dưới mưa.","Tan học, trời mưa mà Hoa lại quên áo mưa, bạn đã làm gì để về nhà?
+A. Mua áo mưa rồi về nhà.
+B. Đi chung áo mưa với bạn.
+C. Cho cặp vào túi ni lông và phóng xe về nhà.
+D. Tắm dưới mưa.",Cho cặp vào túi ni lông và phóng xe về nhà.,C,Daily Conversation,test
+MCQA_0091_0,MCQA,PNT3,"Tan học, trời mưa mà Hoa lại quên áo mưa, bạn đã mần chi để về nhà?
+A. Mua áo mưa rồi về nhà.
+B. Đi chung áo mưa với bạn.
+C. Cho cặp vô bao xì dầu rồi phóng xe về nhà.
+D. Tắm dưới mưa.","Tan học, trời mưa mà Hoa lại quên áo mưa, bạn đã làm gì để về nhà?
+A. Mua áo mưa rồi về nhà.
+B. Đi chung áo mưa với bạn.
+C. Cho cặp vào túi ni lông và phóng xe về nhà.
+D. Tắm dưới mưa.","Tan học, trời mưa mà Hoa lại quên áo mưa, bạn đã làm gì để về nhà?
+A. Mua áo mưa rồi về nhà.
+B. Đi chung áo mưa với bạn.
+C. Cho cặp vào túi ni lông và phóng xe về nhà.
+D. Tắm dưới mưa.",Cho cặp vào túi ni lông và phóng xe về nhà.,C,Daily Conversation,test
+MCQA_0148_3,MCQA,PNB,"Bạn Dìn kể về việc đi học của học sinh như thế nào?
+A. Nhà ai nghèo thì Ủy ban xã cho tiền đi học.
+B. Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 tuần, thứ 7 lại về.
+C. Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 tháng, cuối tháng lại về.
+D. Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 ngày, tối lại về.","Bạn Dìn kể về việc đi học của học sinh như thế nào?
+A. Nhà ai nghèo thì Ủy ban xã cho tiền đi học.
+B. Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 tuần, thứ 7 lại về.
+C. Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 tháng, cuối tháng lại về.
+D. Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 ngày, tối lại về.","Bạn Dìn kể về việc đi học của học sinh như thế nào?
+A. Nhà ai nghèo thì Ủy ban xã cho tiền đi học.
+B. Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 tuần, thứ 7 lại về.
+C. Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 tháng, cuối tháng lại về.
+D. Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 ngày, tối lại về.","Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 tuần, thứ 7 lại về.",B,Daily Conversation,test
+MCQA_0148_3,MCQA,PNT2,"Bạn Dìn kể về việc đi học của học sinh à răng?
+A. Nhà ai nghèo thì Ủy ban xã cho tiền đi học.
+B. Sáng thứ 2 nhà em đến trường cùng gạo ăn 1 tuần, thứ 7 lại về.
+C. Sáng thứ 2 nhà em đến trường cùng gạo ăn 1 tháng, cuối tháng lại về.
+D. Sáng thứ 2 nhà em đến trường cùng gạo ăn 1 ngày, tối lại về.","Bạn Dìn kể về việc đi học của học sinh như thế nào?
+A. Nhà ai nghèo thì Ủy ban xã cho tiền đi học.
+B. Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 tuần, thứ 7 lại về.
+C. Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 tháng, cuối tháng lại về.
+D. Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 ngày, tối lại về.","Bạn Dìn kể về việc đi học của học sinh như thế nào?
+A. Nhà ai nghèo thì Ủy ban xã cho tiền đi học.
+B. Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 tuần, thứ 7 lại về.
+C. Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 tháng, cuối tháng lại về.
+D. Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 ngày, tối lại về.","Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 tuần, thứ 7 lại về.",B,Daily Conversation,test
+MCQA_0148_3,MCQA,PNT3,"Bạn Dìn kể về việc đi học của học sinh như răng?
+A. Nhà ai nghèo thì Ủy ban xã cho tiền đi học.
+B. Sáng thứ 2 bọn em đến trường cùng gạo ăn 1 tuần, thứ 7 lại về.
+C. Sáng thứ 2 bọn em đến trường cùng gạo ăn 1 tháng, cuối tháng lại về.
+D. Sáng thứ 2 bọn em đến trường cùng gạo ăn 1 ngày, túi lại về.","Bạn Dìn kể về việc đi học của học sinh như thế nào?
+A. Nhà ai nghèo thì Ủy ban xã cho tiền đi học.
+B. Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 tuần, thứ 7 lại về.
+C. Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 tháng, cuối tháng lại về.
+D. Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 ngày, tối lại về.","Bạn Dìn kể về việc đi học của học sinh như thế nào?
+A. Nhà ai nghèo thì Ủy ban xã cho tiền đi học.
+B. Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 tuần, thứ 7 lại về.
+C. Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 tháng, cuối tháng lại về.
+D. Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 ngày, tối lại về.","Sáng thứ 2 chúng em đến trường cùng gạo ăn 1 tuần, thứ 7 lại về.",B,Daily Conversation,test
+MCQA_0081_4,MCQA,PNB,"Vì sao bà lão trong bài thơ này vui?
+A. Vì các con đi lính mới về.
+B. Vì có cơm ăn áo mặc.
+C. Vì làng xôn xao.
+D. Vì nồi cơm nấu dở.","Vì sao bà lão trong bài thơ này vui?
+A. Vì đàn con đi lính mới về.
+B. Vì có cơm ăn áo mặt.
+C. Vì làng xôn xao.
+D. Vì nồi cơm nấu dở.","Vì sao bà lão trong bài thơ này vui?
+A. Vì đàn con đi lính mới về.
+B. Vì có cơm ăn áo mặt.
+C. Vì làng xôn xao.
+D. Vì nồi cơm nấu dở.",Vì làng xôn xao.,C,Daily Conversation,test
+MCQA_0081_4,MCQA,PNT2,"Vì răng bà lão trong bài thơ ni vui?
+A. Vì đàn con đi lính mới về.
+B. Vì có cơm ăn áo mặt.
+C. Vì làng xôn xao.
+D. Vì nồi cơm nấu dở.","Vì sao bà lão trong bài thơ này vui?
+A. Vì đàn con đi lính mới về.
+B. Vì có cơm ăn áo mặt.
+C. Vì làng xôn xao.
+D. Vì nồi cơm nấu dở.","Vì sao bà lão trong bài thơ này vui?
+A. Vì đàn con đi lính mới về.
+B. Vì có cơm ăn áo mặt.
+C. Vì làng xôn xao.
+D. Vì nồi cơm nấu dở.",Vì làng xôn xao.,C,Daily Conversation,test
+MCQA_0081_4,MCQA,PNT3,"Vì răng bà lão trong bài thơ ni vui?
+A. Vì đàn con đi lính mới về.
+B. Vì có cơm ăn áo mặt.
+C. Vì làng xôn xao.
+D. Vì nồi cơm nấu dở.","Vì sao bà lão trong bài thơ này vui?
+A. Vì đàn con đi lính mới về.
+B. Vì có cơm ăn áo mặt.
+C. Vì làng xôn xao.
+D. Vì nồi cơm nấu dở.","Vì sao bà lão trong bài thơ này vui?
+A. Vì đàn con đi lính mới về.
+B. Vì có cơm ăn áo mặt.
+C. Vì làng xôn xao.
+D. Vì nồi cơm nấu dở.",Vì làng xôn xao.,C,Daily Conversation,test
+MCQA_0077_0,MCQA,PNB,"Vì sao Bình bị cả lớp gọi là “mọt sách”?
+A. Vì cậu suốt ngày đi chơi, không chịu học hành.
+B. Vì cậu suốt ngày ngồi một mình trong lớp, không nói chuyện với ai.
+C. Vì cậu không thích tham gia trò chơi kéo co cùng cả lớp.
+D. Vì cậu suốt ngày đọc sách, không chơi với các bạn trong lớp.","Vì sao Bình bị cả lớp gọi là “mọt sách”?
+A. Vì cậu suốt ngày đi chơi, không chịu học hành.
+B. Vì cậu suốt ngày ngồi một mình trong lớp, không nói chuyện với ai.
+C. Vì cậu không thích tham gia trò chơi kéo co cùng cả lớp.
+D. Vì cậu suốt ngày đọc sách, không chơi với các bạn trong lớp.","Vì sao Bình bị cả lớp gọi là “mọt sách”?
+A. Vì cậu suốt ngày đi chơi, không chịu học hành.
+B. Vì cậu suốt ngày ngồi một mình trong lớp, không nói chuyện với ai.
+C. Vì cậu không thích tham gia trò chơi kéo co cùng cả lớp.
+D. Vì cậu suốt ngày đọc sách, không chơi với các bạn trong lớp.","Vì cậu suốt ngày đọc sách, không chơi với các bạn trong lớp.",D,Daily Conversation,test
+MCQA_0077_0,MCQA,PNT2,"Vì răng Bình bị cả lớp kêu là “mọt sách”?
+A. Tại lạo suốt ngay đi chơi, nỏ chịu học hành.
+B. Tại lạo suốt ngay ngồi một chắc trong lớp, nỏ nói chuyện với ai.
+C. Tại lạo nỏ thích tham gia trò chơi kéo co với cả lớp.
+D. Tại lạo suốt ngay đọc sách, nỏ chơi với các bạn trong lớp.","Vì sao Bình bị cả lớp gọi là “mọt sách”?
+A. Vì cậu suốt ngày đi chơi, không chịu học hành.
+B. Vì cậu suốt ngày ngồi một mình trong lớp, không nói chuyện với ai.
+C. Vì cậu không thích tham gia trò chơi kéo co cùng cả lớp.
+D. Vì cậu suốt ngày đọc sách, không chơi với các bạn trong lớp.","Vì sao Bình bị cả lớp gọi là “mọt sách”?
+A. Vì cậu suốt ngày đi chơi, không chịu học hành.
+B. Vì cậu suốt ngày ngồi một mình trong lớp, không nói chuyện với ai.
+C. Vì cậu không thích tham gia trò chơi kéo co cùng cả lớp.
+D. Vì cậu suốt ngày đọc sách, không chơi với các bạn trong lớp.","Vì cậu suốt ngày đọc sách, không chơi với các bạn trong lớp.",D,Daily Conversation,test
+MCQA_0077_0,MCQA,PNT3,"Vì răng Bình bị cả lớp gọi là “mọt sách”?
+A. Vì hắn suốt ngày đi dởi, nỏ chịu học hành.
+B. Vì hắn suốt ngày ngồi một chắc trong lớp, nỏ nói chuyện với ai.
+C. Vì hắn nỏ ưng tham gia mấy trò kéo co với cả lớp.
+D. Vì hắn suốt ngày đọc sách, nỏ dởi với mấy bạn trong lớp.","Vì sao Bình bị cả lớp gọi là “mọt sách”?
+A. Vì cậu suốt ngày đi chơi, không chịu học hành.
+B. Vì cậu suốt ngày ngồi một mình trong lớp, không nói chuyện với ai.
+C. Vì cậu không thích tham gia trò chơi kéo co cùng cả lớp.
+D. Vì cậu suốt ngày đọc sách, không chơi với các bạn trong lớp.","Vì sao Bình bị cả lớp gọi là “mọt sách”?
+A. Vì cậu suốt ngày đi chơi, không chịu học hành.
+B. Vì cậu suốt ngày ngồi một mình trong lớp, không nói chuyện với ai.
+C. Vì cậu không thích tham gia trò chơi kéo co cùng cả lớp.
+D. Vì cậu suốt ngày đọc sách, không chơi với các bạn trong lớp.","Vì cậu suốt ngày đọc sách, không chơi với các bạn trong lớp.",D,Daily Conversation,test
+MCQA_0092_1,MCQA,PNB,"Khi các bạn đến thăm Lan thì thấy bạn Lan đang làm gì?
+A. Lan giúp mẹ cắt lá để gói bánh.
+B. Lan đang học bài.
+C. Lan đi chơi bên hàng xóm.
+D. Lan đang tập viết chính tả.","Khi các bạn đến thăm Lan thì thấy bạn Lan đang làm gì?
+A. Lan giúp mẹ cắt lá để gói bánh.
+B. Lan đang học bài.
+C. Lan đi chơi bên hàng xóm.
+D. Lan đang tập viết chính tả.","Khi các bạn đến thăm Lan thì thấy bạn Lan đang làm gì?
+A. Lan giúp mẹ cắt lá để gói bánh.
+B. Lan đang học bài.
+C. Lan đi chơi bên hàng xóm.
+D. Lan đang tập viết chính tả.",Lan giúp mẹ cắt lá để gói bánh.,A,Daily Conversation,test
+MCQA_0092_1,MCQA,PNT2,"Khi các bạn đến thăm Lan thì thấy bạn Lan đang mần chi?
+A. Lan giúp mệ cắt lá để gói bánh.
+B. Lan đang học bài.
+C. Lan đi chơi bên hàng xóm.
+D. Lan đang tập viết chính tả.","Khi các bạn đến thăm Lan thì thấy bạn Lan đang làm gì?
+A. Lan giúp mẹ cắt lá để gói bánh.
+B. Lan đang học bài.
+C. Lan đi chơi bên hàng xóm.
+D. Lan đang tập viết chính tả.","Khi các bạn đến thăm Lan thì thấy bạn Lan đang làm gì?
+A. Lan giúp mẹ cắt lá để gói bánh.
+B. Lan đang học bài.
+C. Lan đi chơi bên hàng xóm.
+D. Lan đang tập viết chính tả.",Lan giúp mẹ cắt lá để gói bánh.,A,Daily Conversation,test
+MCQA_0092_1,MCQA,PNT3,"Khi mấy bạn đến thăm Lan thì thấy bạn Lan đang làm chi?
+A. Lan giúp mẹ cắt lá để gói bánh.
+B. Lan đang học bài.
+C. Lan đi chơi bên hàng xóm.
+D. Lan đang tập viết chính tả.","Khi các bạn đến thăm Lan thì thấy bạn Lan đang làm gì?
+A. Lan giúp mẹ cắt lá để gói bánh.
+B. Lan đang học bài.
+C. Lan đi chơi bên hàng xóm.
+D. Lan đang tập viết chính tả.","Khi các bạn đến thăm Lan thì thấy bạn Lan đang làm gì?
+A. Lan giúp mẹ cắt lá để gói bánh.
+B. Lan đang học bài.
+C. Lan đi chơi bên hàng xóm.
+D. Lan đang tập viết chính tả.",Lan giúp mẹ cắt lá để gói bánh.,A,Daily Conversation,test
+MCQA_0128_2,MCQA,PNB,"Người bố đã làm gì để giúp Én con bay qua sông?
+A. Đưa cho Én con một chiếc lá và bảo đó là lá thần kì, giúp Én con qua sông an toàn.
+B. Bay sát Én con để phòng ngừa con gặp nguy hiểm.
+C. Đỡ một cánh để giúp Én con bay qua.
+D. Động viên Én thật nhiều.","Người bố đã làm gì để giúp Én con bay qua sông?
+A. Đưa cho Én con một chiếc lá và bảo đó là lá thần kì, giúp Én con qua sông an toàn.
+B. Bay sát Én con để phòng ngừa con gặp nguy hiểm.
+C. Đỡ một cánh để giúp Én con bay qua.
+D. Bố động viên Én rất nhiều.","Người bố đã làm gì để giúp Én con bay qua sông?
+A. Đưa cho Én con một chiếc lá và bảo đó là lá thần kì, giúp Én con qua sông an toàn.
+B. Bay sát Én con để phòng ngừa con gặp nguy hiểm.
+C. Đỡ một cánh để giúp Én con bay qua.
+D. Bố động viên Én rất nhiều.","Đưa cho Én con một chiếc lá và bảo đó là lá thần kì, giúp Én con qua sông an toàn.",A,Daily Conversation,test
+MCQA_0128_2,MCQA,PNT2,"Người bố đã mần chi để giúp Én con bay qua sông?
+A. Đưa cho Én con một chiếc lá và bảo đó là lá thần kì, giúp Én con qua sông an toàn.
+B. Bay sát Én con để phòng ngừa con gặp nguy hiểm.
+C. Đỡ một cánh để giúp Én con bay qua.
+D. Bố động viên Én rất nhiều.","Người bố đã làm gì để giúp Én con bay qua sông?
+A. Đưa cho Én con một chiếc lá và bảo đó là lá thần kì, giúp Én con qua sông an toàn.
+B. Bay sát Én con để phòng ngừa con gặp nguy hiểm.
+C. Đỡ một cánh để giúp Én con bay qua.
+D. Bố động viên Én rất nhiều.","Người bố đã làm gì để giúp Én con bay qua sông?
+A. Đưa cho Én con một chiếc lá và bảo đó là lá thần kì, giúp Én con qua sông an toàn.
+B. Bay sát Én con để phòng ngừa con gặp nguy hiểm.
+C. Đỡ một cánh để giúp Én con bay qua.
+D. Bố động viên Én rất nhiều.","Đưa cho Én con một chiếc lá và bảo đó là lá thần kì, giúp Én con qua sông an toàn.",A,Daily Conversation,test
+MCQA_0128_2,MCQA,PNT3,"Người bố đã mần chi để giúp Én con bay qua sông?
+A. Đưa cho Én con một chiếc lá và nói đó là lá thần kì, giúp Én con qua sông an toàn.
+B. Bay sát Én con để phòng ngừa con gặp nguy hiểm.
+C. Đỡ một cánh để giúp Én con bay qua.
+D. Bố động viên Én rất nhiều.","Người bố đã làm gì để giúp Én con bay qua sông?
+A. Đưa cho Én con một chiếc lá và bảo đó là lá thần kì, giúp Én con qua sông an toàn.
+B. Bay sát Én con để phòng ngừa con gặp nguy hiểm.
+C. Đỡ một cánh để giúp Én con bay qua.
+D. Bố động viên Én rất nhiều.","Người bố đã làm gì để giúp Én con bay qua sông?
+A. Đưa cho Én con một chiếc lá và bảo đó là lá thần kì, giúp Én con qua sông an toàn.
+B. Bay sát Én con để phòng ngừa con gặp nguy hiểm.
+C. Đỡ một cánh để giúp Én con bay qua.
+D. Bố động viên Én rất nhiều.","Đưa cho Én con một chiếc lá và bảo đó là lá thần kì, giúp Én con qua sông an toàn.",A,Daily Conversation,test
+MCQA_0114_6,MCQA,PNB,"Tại sao Lân khuyên Tuấn không nên tự ý xem sổ tay của bạn?
+A. Vì cuốn sổ đó chẳng có gì đáng xem.
+B. Vì tự ý xem đồ là rất mất lịch sự.
+C. Vì cuốn sổ đó có nội dung nguy hiểm.
+D. Vì cuốn sổ đó nhìn rất xấu.","Tại sao Lân khuyên Tuấn không nên tự ý xem sổ tay của bạn?
+A. Vì cuốn sổ đó chẳng có gì đáng xem.
+B. Vì tự ý xem đồ là rất mất lịch sự.
+C. Vì cuốn sổ đó có nội dung nguy hiểm.
+D. Vì cuốn sổ đó nhìn rất xấu.","Tại sao Lân khuyên Tuấn không nên tự ý xem sổ tay của bạn?
+A. Vì cuốn sổ đó chẳng có gì đáng xem.
+B. Vì tự ý xem đồ là rất mất lịch sự.
+C. Vì cuốn sổ đó có nội dung nguy hiểm.
+D. Vì cuốn sổ đó nhìn rất xấu.",Vì tự ý xem đồ là rất mất lịch sự.,B,Daily Conversation,test
+MCQA_0114_6,MCQA,PNT2,"Tại răng Lân khuyên Tuấn nỏ nên tự ý xem sổ tay của bạn?
+A. Vì cuốn sổ nớ nỏ có chi đáng xem.
+B. Vì tự ý xem đồ là rất mất lịch sự.
+C. Vì cuốn sổ nớ có nội dung nguy hiểm.
+D. Vì cuốn sổ nớ nhìn rất xấu.","Tại sao Lân khuyên Tuấn không nên tự ý xem sổ tay của bạn?
+A. Vì cuốn sổ đó chẳng có gì đáng xem.
+B. Vì tự ý xem đồ là rất mất lịch sự.
+C. Vì cuốn sổ đó có nội dung nguy hiểm.
+D. Vì cuốn sổ đó nhìn rất xấu.","Tại sao Lân khuyên Tuấn không nên tự ý xem sổ tay của bạn?
+A. Vì cuốn sổ đó chẳng có gì đáng xem.
+B. Vì tự ý xem đồ là rất mất lịch sự.
+C. Vì cuốn sổ đó có nội dung nguy hiểm.
+D. Vì cuốn sổ đó nhìn rất xấu.",Vì tự ý xem đồ là rất mất lịch sự.,B,Daily Conversation,test
+MCQA_0114_6,MCQA,PNT3,"Tại răng Lân khuyên Tuấn không nên tự ý coi sổ tay của bạn?
+A. Vì cuốn sổ nớ nỏ có chi đáng coi.
+B. Vì tự ý coi đồ là rất mất lịch sự.
+C. Vì cuốn sổ nớ có nội dung nguy hiểm.
+D. Vì cuốn sổ nớ nhòm rất xấu.","Tại sao Lân khuyên Tuấn không nên tự ý xem sổ tay của bạn?
+A. Vì cuốn sổ đó chẳng có gì đáng xem.
+B. Vì tự ý xem đồ là rất mất lịch sự.
+C. Vì cuốn sổ đó có nội dung nguy hiểm.
+D. Vì cuốn sổ đó nhìn rất xấu.","Tại sao Lân khuyên Tuấn không nên tự ý xem sổ tay của bạn?
+A. Vì cuốn sổ đó chẳng có gì đáng xem.
+B. Vì tự ý xem đồ là rất mất lịch sự.
+C. Vì cuốn sổ đó có nội dung nguy hiểm.
+D. Vì cuốn sổ đó nhìn rất xấu.",Vì tự ý xem đồ là rất mất lịch sự.,B,Daily Conversation,test
+MCQA_0025_9,MCQA,PNB,"Thái độ của Mai như thế nào khi cô bảo cũng định cho Mai viết bút mực?
+A. Ngạc nhiên.
+B. Vui mừng.
+C. Tiếc nuối.
+D. Hối hận.","Thái độ của Mai như thế nào khi cô bảo cũng định cho Mai viết bút mực?
+A. Ngạc nhiên.
+B. Vui mừng.
+C. Tiếc nuối.
+D. Hối hận.","Thái độ của Mai như thế nào khi cô bảo cũng định cho Mai viết bút mực?
+A. Ngạc nhiên.
+B. Vui mừng.
+C. Tiếc nuối.
+D. Hối hận.",Tiếc nuối.,C,Daily Conversation,test
+MCQA_0025_9,MCQA,PNT2,"Thái độ của Mai a răng khi cô bảo cũng định cho Mai viết bút mực?
+A. Ngạc nhiên.
+B. Vui mừng.
+C. Tiếc nuối.
+D. Hối hận.","Thái độ của Mai như thế nào khi cô bảo cũng định cho Mai viết bút mực?
+A. Ngạc nhiên.
+B. Vui mừng.
+C. Tiếc nuối.
+D. Hối hận.","Thái độ của Mai như thế nào khi cô bảo cũng định cho Mai viết bút mực?
+A. Ngạc nhiên.
+B. Vui mừng.
+C. Tiếc nuối.
+D. Hối hận.",Tiếc nuối.,C,Daily Conversation,test
+MCQA_0025_9,MCQA,PNT3,"Thái độ của Mai như răng khi cô nói cũng định cho Mai viết bút mực?
+A. Ngạc nhiên.
+B. Vui mừng.
+C. Tiếc nuối.
+D. Hối hận.","Thái độ của Mai như thế nào khi cô bảo cũng định cho Mai viết bút mực?
+A. Ngạc nhiên.
+B. Vui mừng.
+C. Tiếc nuối.
+D. Hối hận.","Thái độ của Mai như thế nào khi cô bảo cũng định cho Mai viết bút mực?
+A. Ngạc nhiên.
+B. Vui mừng.
+C. Tiếc nuối.
+D. Hối hận.",Tiếc nuối.,C,Daily Conversation,test
+MCQA_0051_0,MCQA,PNB,"Em nhỏ hỏi bố điều gì khi cầm tờ lịch cũ?
+A. Ngày hôm kia đâu rồi?.
+B. Ngày hôm nay đâu rồi?.
+C. Ngày hôm kìa đâu rồi?.
+D. Ngày hôm qua đâu rồi?.","Em nhỏ hỏi bố điều gì khi cầm tờ lịch cũ?
+A. Ngày hôm kia đâu rồi?.
+B. Ngày hôm nay đâu rồi?.
+C. Ngày hôm xưa đâu rồi?.
+D. Ngày hôm qua đâu rồi?.","Em nhỏ hỏi bố điều gì khi cầm tờ lịch cũ?
+A. Ngày hôm kia đâu rồi?.
+B. Ngày hôm nay đâu rồi?.
+C. Ngày hôm xưa đâu rồi?.
+D. Ngày hôm qua đâu rồi?.",Ngày hôm qua đâu rồi?.,D,Daily Conversation,test
+MCQA_0051_0,MCQA,PNT2,"Em nhỏ hỏi bố cây chi khi cầm tờ lịch cũ?
+A. Ngày bựa nớ mô rồi?.
+B. Ngày bựa ni mô rồi?.
+C. Ngày mọi hồi mô rồi?.
+D. Ngày bựa qua mô rồi?.","Em nhỏ hỏi bố điều gì khi cầm tờ lịch cũ?
+A. Ngày hôm kia đâu rồi?.
+B. Ngày hôm nay đâu rồi?.
+C. Ngày hôm xưa đâu rồi?.
+D. Ngày hôm qua đâu rồi?.","Em nhỏ hỏi bố điều gì khi cầm tờ lịch cũ?
+A. Ngày hôm kia đâu rồi?.
+B. Ngày hôm nay đâu rồi?.
+C. Ngày hôm xưa đâu rồi?.
+D. Ngày hôm qua đâu rồi?.",Ngày hôm qua đâu rồi?.,D,Daily Conversation,test
+MCQA_0051_0,MCQA,PNT3,"Em nhỏ hỏi bọ cấy chi khi cầm tờ lịch cộ?
+A. Ngày hôm kia mô rồi?.
+B. Ngày hôm ni mô rồi?.
+C. Ngày chầu tê mô rồi?.
+D. Ngày bựa qua mô rồi?.","Em nhỏ hỏi bố điều gì khi cầm tờ lịch cũ?
+A. Ngày hôm kia đâu rồi?.
+B. Ngày hôm nay đâu rồi?.
+C. Ngày hôm xưa đâu rồi?.
+D. Ngày hôm qua đâu rồi?.","Em nhỏ hỏi bố điều gì khi cầm tờ lịch cũ?
+A. Ngày hôm kia đâu rồi?.
+B. Ngày hôm nay đâu rồi?.
+C. Ngày hôm xưa đâu rồi?.
+D. Ngày hôm qua đâu rồi?.",Ngày hôm qua đâu rồi?.,D,Daily Conversation,test
+MCQA_0151_3,MCQA,PNB,"Như thế nào thì được gọi là “nai tắm suối”?
+A. Nai bơi ở dòng suối.
+B. Nai đứng giữa nước suối.
+C. Nai uống nước ở suối.
+D. Nai đứng cạnh bờ suối.","Như thế nào thì được gọi là “nai tắm suối”?
+A. Nai bơi ở dòng suối.
+B. Nai đứng giữa nước suối.
+C. Nai uống nước ở suối.
+D. Nai đứng cạnh bờ suối.","Như thế nào thì được gọi là “nai tắm suối”?
+A. Nai bơi ở dòng suối.
+B. Nai đứng giữa nước suối.
+C. Nai uống nước ở suối.
+D. Nai đứng cạnh bờ suối.",Nai đứng giữa nước suối.,B,Daily Conversation,test
+MCQA_0151_3,MCQA,PNT2,"A răng thì được gọi là “nai tắm suối”?
+A. Nai bơi ở dòng suối.
+B. Nai đứng trửa nước suối.
+C. Nai uống nước ở suối.
+D. Nai đứng cạnh bờ suối.","Như thế nào thì được gọi là “nai tắm suối”?
+A. Nai bơi ở dòng suối.
+B. Nai đứng giữa nước suối.
+C. Nai uống nước ở suối.
+D. Nai đứng cạnh bờ suối.","Như thế nào thì được gọi là “nai tắm suối”?
+A. Nai bơi ở dòng suối.
+B. Nai đứng giữa nước suối.
+C. Nai uống nước ở suối.
+D. Nai đứng cạnh bờ suối.",Nai đứng giữa nước suối.,B,Daily Conversation,test
+MCQA_0151_3,MCQA,PNT3,"Dư răng thì được gọi là “nai tắm suối”?
+A. Nai bơi ở dòng suối.
+B. Nai đứng giữa nước suối.
+C. Nai uống nác ở suối.
+D. Nai đứng cạnh bờ suối.","Như thế nào thì được gọi là “nai tắm suối”?
+A. Nai bơi ở dòng suối.
+B. Nai đứng giữa nước suối.
+C. Nai uống nước ở suối.
+D. Nai đứng cạnh bờ suối.","Như thế nào thì được gọi là “nai tắm suối”?
+A. Nai bơi ở dòng suối.
+B. Nai đứng giữa nước suối.
+C. Nai uống nước ở suối.
+D. Nai đứng cạnh bờ suối.",Nai đứng giữa nước suối.,B,Daily Conversation,test
+MCQA_0140_3,MCQA,PNB,"Cách hành xử của Pu-skin cho thấy ông là người như thế nào?
+A. Ông là người nhạy cảm và rất dễ rung động.
+B. Ông là người nhanh trí và là một nhà thơ tài năng.
+C. Ông là người học rất giỏi và được thầy bạn yêu mến.
+D. Ông là người có hiểu biết rộng và tốt bụng.","Cách hành xử của Pu-skin cho thấy ông là người như thế nào?
+A. Ông là người nhạy cảm và rất dễ rung động.
+B. Ông là người nhanh trí và là một nhà thơ tài năng.
+C. Ông là người học rất giỏi và được thầy bạn yêu mến.
+D. Ông là người có hiểu biết rộng và tốt bụng.","Cách hành xử của Pu-skin cho thấy ông là người như thế nào?
+A. Ông là người nhạy cảm và rất dễ rung động.
+B. Ông là người nhanh trí và là một nhà thơ tài năng.
+C. Ông là người học rất giỏi và được thầy bạn yêu mến.
+D. Ông là người có hiểu biết rộng và tốt bụng.",Ông là người nhanh trí và là một nhà thơ tài năng.,B,Daily Conversation,test
+MCQA_0140_3,MCQA,PNT2,"Cách hành xử của Pu-skin cho thấy ông là người a răng?
+A. Ông là người nhạy cảm và rất dễ rung động.
+B. Ông là người nhanh trí và là một nhà thơ tài năng.
+C. Ông là người học rất giỏi và được thầy bạn yêu mến.
+D. Ông là người có hiểu biết rộng và tốt bụng.","Cách hành xử của Pu-skin cho thấy ông là người như thế nào?
+A. Ông là người nhạy cảm và rất dễ rung động.
+B. Ông là người nhanh trí và là một nhà thơ tài năng.
+C. Ông là người học rất giỏi và được thầy bạn yêu mến.
+D. Ông là người có hiểu biết rộng và tốt bụng.","Cách hành xử của Pu-skin cho thấy ông là người như thế nào?
+A. Ông là người nhạy cảm và rất dễ rung động.
+B. Ông là người nhanh trí và là một nhà thơ tài năng.
+C. Ông là người học rất giỏi và được thầy bạn yêu mến.
+D. Ông là người có hiểu biết rộng và tốt bụng.",Ông là người nhanh trí và là một nhà thơ tài năng.,B,Daily Conversation,test
+MCQA_0140_3,MCQA,PNT3,"Cách hành xử của Pu-skin cho thấy ông là người như răng?
+A. Ông là người nhạy cảm với rất dễ rung động.
+B. Ông là người nhanh trí với là một nhà thơ tài năng.
+C. Ông là người học rất giỏi với được thầy bạn yêu mến.
+D. Ông là người có hiểu biết rộng và tốt bụng.","Cách hành xử của Pu-skin cho thấy ông là người như thế nào?
+A. Ông là người nhạy cảm và rất dễ rung động.
+B. Ông là người nhanh trí và là một nhà thơ tài năng.
+C. Ông là người học rất giỏi và được thầy bạn yêu mến.
+D. Ông là người có hiểu biết rộng và tốt bụng.","Cách hành xử của Pu-skin cho thấy ông là người như thế nào?
+A. Ông là người nhạy cảm và rất dễ rung động.
+B. Ông là người nhanh trí và là một nhà thơ tài năng.
+C. Ông là người học rất giỏi và được thầy bạn yêu mến.
+D. Ông là người có hiểu biết rộng và tốt bụng.",Ông là người nhanh trí và là một nhà thơ tài năng.,B,Daily Conversation,test
+MCQA_0138_5,MCQA,PNB,"Điều gì đã xảy ra khi lừa vẫn phải tiếp tục mang đồ nặng?
+A. Lừa từ đó ghét ngựa và không nói chuyện với ngựa nữa.
+B. Lừa kiệt sức, trút bỏ hết đồ đạc trên lưng và chạy trốn.
+C. Lừa bị gãy chân và không thể tiếp tục chở đồ đạc được nữa.
+D. Lừa kiệt sức, ngã gục xuống và chết bên vệ đường.","Điều gì đã xảy ra khi lừa vẫn phải tiếp tục mang đồ nặng?
+A. Lừa từ đó ghét ngựa và không nói chuyện với ngựa nữa.
+B. Lừa kiệt sức, trút bỏ hết đồ đạc trên lưng và chạy trốn.
+C. Lừa bị gãy chân và không thể tiếp tục chở đồ đạc được nữa.
+D. Lừa kiệt sức, ngã gục xuống và chết bên vệ đường.","Điều gì đã xảy ra khi lừa vẫn phải tiếp tục mang đồ nặng?
+A. Lừa từ đó ghét ngựa và không nói chuyện với ngựa nữa.
+B. Lừa kiệt sức, trút bỏ hết đồ đạc trên lưng và chạy trốn.
+C. Lừa bị gãy chân và không thể tiếp tục chở đồ đạc được nữa.
+D. Lừa kiệt sức, ngã gục xuống và chết bên vệ đường.","Lừa kiệt sức, ngã gục xuống và chết bên vệ đường.",D,Daily Conversation,test
+MCQA_0138_5,MCQA,PNT2,"Điều chi đạ xảy ra khi lừa vẫn phải tiếp tục mang đồ nặng?
+A. Lừa từ đó ghét ngựa và nỏ nói chuyện với ngựa nữa.
+B. Lừa kiệt sức, trút bỏ hết đồ đạc trên lưng và chạy trốn.
+C. Lừa bị gãy chân và không thể tiếp tục chở đồ đạc được nữa.
+D. Lừa kiệt sức, ngã gục xuống và chết bên vệ đường.","Điều gì đã xảy ra khi lừa vẫn phải tiếp tục mang đồ nặng?
+A. Lừa từ đó ghét ngựa và không nói chuyện với ngựa nữa.
+B. Lừa kiệt sức, trút bỏ hết đồ đạc trên lưng và chạy trốn.
+C. Lừa bị gãy chân và không thể tiếp tục chở đồ đạc được nữa.
+D. Lừa kiệt sức, ngã gục xuống và chết bên vệ đường.","Điều gì đã xảy ra khi lừa vẫn phải tiếp tục mang đồ nặng?
+A. Lừa từ đó ghét ngựa và không nói chuyện với ngựa nữa.
+B. Lừa kiệt sức, trút bỏ hết đồ đạc trên lưng và chạy trốn.
+C. Lừa bị gãy chân và không thể tiếp tục chở đồ đạc được nữa.
+D. Lừa kiệt sức, ngã gục xuống và chết bên vệ đường.","Lừa kiệt sức, ngã gục xuống và chết bên vệ đường.",D,Daily Conversation,test
+MCQA_0138_5,MCQA,PNT3,"Điều chi đã xảy ra khi lừa vẫn phải tiếp tục mang đồ nặng?
+A. Lừa từ đó ghét ngựa rồi không nói chuyện với ngựa nữa.
+B. Lừa kiệt sức, trút bỏ hết đồ đạc trên lưng rồi chạy trốn.
+C. Lừa bị gãy chân nên không thể tiếp tục chở đồ đạc được nữa.
+D. Lừa kiệt sức, ngã gục xuống rồi chết bên vệ đường.","Điều gì đã xảy ra khi lừa vẫn phải tiếp tục mang đồ nặng?
+A. Lừa từ đó ghét ngựa và không nói chuyện với ngựa nữa.
+B. Lừa kiệt sức, trút bỏ hết đồ đạc trên lưng và chạy trốn.
+C. Lừa bị gãy chân và không thể tiếp tục chở đồ đạc được nữa.
+D. Lừa kiệt sức, ngã gục xuống và chết bên vệ đường.","Điều gì đã xảy ra khi lừa vẫn phải tiếp tục mang đồ nặng?
+A. Lừa từ đó ghét ngựa và không nói chuyện với ngựa nữa.
+B. Lừa kiệt sức, trút bỏ hết đồ đạc trên lưng và chạy trốn.
+C. Lừa bị gãy chân và không thể tiếp tục chở đồ đạc được nữa.
+D. Lừa kiệt sức, ngã gục xuống và chết bên vệ đường.","Lừa kiệt sức, ngã gục xuống và chết bên vệ đường.",D,Daily Conversation,test
+MCQA_0072_2,MCQA,PNB,"Việc lặp đi lặp lại nhiều lần những cụm từ ""Ai trồng cây"", ""Người đó có"", ""Em trồng cây"" có tác dụng gì?
+A. Tạo nên thông điệp nhắc nhở mọi người có ý thức trồng cây xanh.
+B. Tạo thành điệp khúc khiến bài thơ có vần điệu, dễ nhớ, dễ thuộc.
+C. Tạo điệp khúc khiến bài thơ có nhịp điệu và gửi gắm thông điệp: mọi người hãy có ý thức trồng cây xanh để bảo vệ môi trường sống.
+D. Tất cả các ý trên.","Việc lặp đi lặp lại nhiều lần những cụm từ ""Ai trồng cây"", ""Người đó có"", ""Em trồng cây"" có tác dụng gì?
+A. Tạo nên thông điệp nhắc nhở mọi người có ý thức trồng cây xanh.
+B. Tạo thành điệp khúc khiến bài thơ có vẫn điệu, dễ nhớ, dễ thuộc.
+C. Tạo điệp khúc khiến bài thơ có nhịp điệu và gửi gắm thông điệp: mọi người hãy có ý thức trồng cây xanh để bảo vệ môi trường sống.
+D. Tất cả các ý trên.","Việc lặp đi lặp lại nhiều lần những cụm từ ""Ai trồng cây"", ""Người đó có"", ""Em trồng cây"" có tác dụng gì?
+A. Tạo nên thông điệp nhắc nhở mọi người có ý thức trồng cây xanh.
+B. Tạo thành điệp khúc khiến bài thơ có vẫn điệu, dễ nhớ, dễ thuộc.
+C. Tạo điệp khúc khiến bài thơ có nhịp điệu và gửi gắm thông điệp: mọi người hãy có ý thức trồng cây xanh để bảo vệ môi trường sống.
+D. Tất cả các ý trên.",Tạo điệp khúc khiến bài thơ có nhịp điệu và gửi gắm thông điệp: mọi người hãy có ý thức trồng cây xanh để bảo vệ môi trường sống.,C,Daily Conversation,test
+MCQA_0072_2,MCQA,PNT2,"Việc lặp đi lặp lại nhiều lần những cụm từ ""Ai trồng cây"", ""Người đó có"", ""Em trồng cây"" có tác dụng chi?
+A. Tạo nên thông điệp nhắc nhở mọi người có ý thức trồng cây xanh.
+B. Tạo thành điệp khúc khiến bài thơ có vẫn điệu, dễ nhớ, dễ thuộc.
+C. Tạo điệp khúc khiến bài thơ có nhịp điệu và gửi gắm thông điệp: mọi người hãy có ý thức trồng cây xanh để bảo vệ môi trường sống.
+D. Tất cả các ý trên.","Việc lặp đi lặp lại nhiều lần những cụm từ ""Ai trồng cây"", ""Người đó có"", ""Em trồng cây"" có tác dụng gì?
+A. Tạo nên thông điệp nhắc nhở mọi người có ý thức trồng cây xanh.
+B. Tạo thành điệp khúc khiến bài thơ có vẫn điệu, dễ nhớ, dễ thuộc.
+C. Tạo điệp khúc khiến bài thơ có nhịp điệu và gửi gắm thông điệp: mọi người hãy có ý thức trồng cây xanh để bảo vệ môi trường sống.
+D. Tất cả các ý trên.","Việc lặp đi lặp lại nhiều lần những cụm từ ""Ai trồng cây"", ""Người đó có"", ""Em trồng cây"" có tác dụng gì?
+A. Tạo nên thông điệp nhắc nhở mọi người có ý thức trồng cây xanh.
+B. Tạo thành điệp khúc khiến bài thơ có vẫn điệu, dễ nhớ, dễ thuộc.
+C. Tạo điệp khúc khiến bài thơ có nhịp điệu và gửi gắm thông điệp: mọi người hãy có ý thức trồng cây xanh để bảo vệ môi trường sống.
+D. Tất cả các ý trên.",Tạo điệp khúc khiến bài thơ có nhịp điệu và gửi gắm thông điệp: mọi người hãy có ý thức trồng cây xanh để bảo vệ môi trường sống.,C,Daily Conversation,test
+MCQA_0072_2,MCQA,PNT3,"Việc lặp đi lặp lại nhiều lần mấy cụm từ ""Ai trồng cơn"", ""Người nớ có"", ""Em trồng cơn"" có tác dụng chi?
+A. Mần nên thông điệp nhắc nhở mọi người có ý thức trồng cơn xanh.
+B. Mần thành điệp khúc mần bài thơ có vẫn điệu, dễ nhớ, dễ thuộc.
+C. Mần điệp khúc mần bài thơ có nhịp điệu với gửi gắm thông điệp: mọi người hãy có ý thức trồng cơn xanh để bảo vệ môi trường sống.
+D. Tất cả các ý trên.","Việc lặp đi lặp lại nhiều lần những cụm từ ""Ai trồng cây"", ""Người đó có"", ""Em trồng cây"" có tác dụng gì?
+A. Tạo nên thông điệp nhắc nhở mọi người có ý thức trồng cây xanh.
+B. Tạo thành điệp khúc khiến bài thơ có vẫn điệu, dễ nhớ, dễ thuộc.
+C. Tạo điệp khúc khiến bài thơ có nhịp điệu và gửi gắm thông điệp: mọi người hãy có ý thức trồng cây xanh để bảo vệ môi trường sống.
+D. Tất cả các ý trên.","Việc lặp đi lặp lại nhiều lần những cụm từ ""Ai trồng cây"", ""Người đó có"", ""Em trồng cây"" có tác dụng gì?
+A. Tạo nên thông điệp nhắc nhở mọi người có ý thức trồng cây xanh.
+B. Tạo thành điệp khúc khiến bài thơ có vẫn điệu, dễ nhớ, dễ thuộc.
+C. Tạo điệp khúc khiến bài thơ có nhịp điệu và gửi gắm thông điệp: mọi người hãy có ý thức trồng cây xanh để bảo vệ môi trường sống.
+D. Tất cả các ý trên.",Tạo điệp khúc khiến bài thơ có nhịp điệu và gửi gắm thông điệp: mọi người hãy có ý thức trồng cây xanh để bảo vệ môi trường sống.,C,Daily Conversation,test
+MCQA_0013_4,MCQA,PNB,"Hoa viết thư cho bố vào lúc nào?
+A. Khi Hoa và mẹ đã ăn cơm xong.
+B. Khi em Nụ đang chơi trong nôi.
+C. Khi Hoa làm xong bài tập.
+D. Khi em Nụ đã ngủ, còn mẹ thì chưa về.","Hoa viết thư cho bố vào thời điểm nào?
+A. Khi Hoa và mẹ đã ăn cơm xong.
+B. Khi em Nụ đang chơi trong nôi.
+C. Khi Hoa làm xong bài tập.
+D. Khi em Nụ đã ngủ, mẹ chưa về.","Hoa viết thư cho bố vào thời điểm nào?
+A. Khi Hoa và mẹ đã ăn cơm xong.
+B. Khi em Nụ đang chơi trong nôi.
+C. Khi Hoa làm xong bài tập.
+D. Khi em Nụ đã ngủ, mẹ chưa về.","Khi em Nụ đã ngủ, mẹ chưa về.",D,Daily Conversation,test
+MCQA_0013_4,MCQA,PNT2,"Hoa viết thư cho bố vô thời điểm mô?
+A. Khi Hoa và mẹ đạ ăn cơm xong.
+B. Khi em Nụ đang chơi trong nôi.
+C. Khi Hoa mần xong bài tập.
+D. Khi em Nụ dạ ngủ, mẹ chưa về.","Hoa viết thư cho bố vào thời điểm nào?
+A. Khi Hoa và mẹ đã ăn cơm xong.
+B. Khi em Nụ đang chơi trong nôi.
+C. Khi Hoa làm xong bài tập.
+D. Khi em Nụ đã ngủ, mẹ chưa về.","Hoa viết thư cho bố vào thời điểm nào?
+A. Khi Hoa và mẹ đã ăn cơm xong.
+B. Khi em Nụ đang chơi trong nôi.
+C. Khi Hoa làm xong bài tập.
+D. Khi em Nụ đã ngủ, mẹ chưa về.","Khi em Nụ đã ngủ, mẹ chưa về.",D,Daily Conversation,test
+MCQA_0013_4,MCQA,PNT3,"Hoa viết thư cho ba khi mô?
+A. Khi Hoa với mẹ đã ăn cơm xong.
+B. Khi em Nụ đang chơi trong nôi.
+C. Khi Hoa làm xong bài tập.
+D. Khi em Nụ đã ngủ, mẹ chưa về.","Hoa viết thư cho bố vào thời điểm nào?
+A. Khi Hoa và mẹ đã ăn cơm xong.
+B. Khi em Nụ đang chơi trong nôi.
+C. Khi Hoa làm xong bài tập.
+D. Khi em Nụ đã ngủ, mẹ chưa về.","Hoa viết thư cho bố vào thời điểm nào?
+A. Khi Hoa và mẹ đã ăn cơm xong.
+B. Khi em Nụ đang chơi trong nôi.
+C. Khi Hoa làm xong bài tập.
+D. Khi em Nụ đã ngủ, mẹ chưa về.","Khi em Nụ đã ngủ, mẹ chưa về.",D,Daily Conversation,test
+MCQA_0048_2,MCQA,PNB,"Muốn con mình ngủ ngon giấc, người mẹ đã làm gì?
+A. Mẹ hát ru, đưa võng và quạt cho con.
+B. Mẹ kể chuyện cho con nghe trước khi đi ngủ.
+C. Mẹ mua cho con nhiều gấu bông.
+D. Mẹ bật quạt cho con mát.","Muốn con mình ngủ ngon giấc, người mẹ đã làm gì?
+A. Mẹ hát ru, đưa võng và quạt cho con.
+B. Mẹ kể chuyện cho nghe trước khi đi ngủ.
+C. Mẹ mua cho con nhiều gấu bông.
+D. Mẹ bật quạt cho con mát.","Muốn con mình ngủ ngon giấc, người mẹ đã làm gì?
+A. Mẹ hát ru, đưa võng và quạt cho con.
+B. Mẹ kể chuyện cho nghe trước khi đi ngủ.
+C. Mẹ mua cho con nhiều gấu bông.
+D. Mẹ bật quạt cho con mát.","Mẹ hát ru, đưa võng và quạt cho con.",A,Daily Conversation,test
+MCQA_0048_2,MCQA,PNT2,"Muốn con mình ngủ ngon giấc, người mẹ đã mần chi?
+A. Mẹ hát ru, đưa võng và quạt cho con.
+B. Mẹ kể chuyện cho nghe trước khi đi ngủ.
+C. Mẹ mua cho con nhiều gấu bông.
+D. Mẹ bật quạt cho con mát.","Muốn con mình ngủ ngon giấc, người mẹ đã làm gì?
+A. Mẹ hát ru, đưa võng và quạt cho con.
+B. Mẹ kể chuyện cho nghe trước khi đi ngủ.
+C. Mẹ mua cho con nhiều gấu bông.
+D. Mẹ bật quạt cho con mát.","Muốn con mình ngủ ngon giấc, người mẹ đã làm gì?
+A. Mẹ hát ru, đưa võng và quạt cho con.
+B. Mẹ kể chuyện cho nghe trước khi đi ngủ.
+C. Mẹ mua cho con nhiều gấu bông.
+D. Mẹ bật quạt cho con mát.","Mẹ hát ru, đưa võng và quạt cho con.",A,Daily Conversation,test
+MCQA_0048_2,MCQA,PNT3,"Muốn con miềng ngủ ngon giấc, người mẹ đã mần chi?
+A. Mẹ hát ru, đưa võng với quạt cho con.
+B. Mẹ kể chuyện cho nghe trước khi đi ngủ.
+C. Mẹ mua cho con nhiều gấu bông.
+D. Mẹ bật quạt cho con mát.","Muốn con mình ngủ ngon giấc, người mẹ đã làm gì?
+A. Mẹ hát ru, đưa võng và quạt cho con.
+B. Mẹ kể chuyện cho nghe trước khi đi ngủ.
+C. Mẹ mua cho con nhiều gấu bông.
+D. Mẹ bật quạt cho con mát.","Muốn con mình ngủ ngon giấc, người mẹ đã làm gì?
+A. Mẹ hát ru, đưa võng và quạt cho con.
+B. Mẹ kể chuyện cho nghe trước khi đi ngủ.
+C. Mẹ mua cho con nhiều gấu bông.
+D. Mẹ bật quạt cho con mát.","Mẹ hát ru, đưa võng và quạt cho con.",A,Daily Conversation,test
+MCQA_0116_6,MCQA,PNB,"Qua câu chuyện này, chúng ta thấy tình cảm của người Ê-ti-ô-pi-a với mảnh đất quê hương như thế nào?
+A. Tình cảm đằm thắm, mặn nồng, tha thiết đối với mảnh đất quê hương.
+B. Tình cảm yêu quý, sở hữu, ích kỉ về mảnh đất quê hương.
+C. Tình cảm xa lạ, lạnh nhạt, vô cảm đối với mảnh đất quê hương.
+D. Tất cả các ý trên.","Qua câu chuyện này, chúng ta thấy tình cảm của người Ê-ti-ô-pi-a với mảnh đất quê hương như thế nào?
+A. Tình cảm đằm thắm, mặn nồng, tha thiết đối với mảnh đất quê hương.
+B. Tình cảm yêu quý, sở hữu, ích kỉ về mảnh đất quê hương.
+C. Tình cảm xa lạ, lạnh nhạt, vô cảm đối với mảnh đất quê hương.
+D. Tất cả các ý trên.","Qua câu chuyện này, chúng ta thấy tình cảm của người Ê-ti-ô-pi-a với mảnh đất quê hương như thế nào?
+A. Tình cảm đằm thắm, mặn nồng, tha thiết đối với mảnh đất quê hương.
+B. Tình cảm yêu quý, sở hữu, ích kỉ về mảnh đất quê hương.
+C. Tình cảm xa lạ, lạnh nhạt, vô cảm đối với mảnh đất quê hương.
+D. Tất cả các ý trên.","Tình cảm đằm thắm, mặn nồng, tha thiết đối với mảnh đất quê hương.",A,Daily Conversation,test
+MCQA_0116_6,MCQA,PNT2,"Qua câu chuyện ni, ta thấy tình cảm của người Ê-ti-ô-pi-a với mảnh đất quê hương a răng?
+A. Tình cảm đằm thắm, mặn nồng, tha thiết đối với mảnh đất quê hương.
+B. Tình cảm yêu quý, sở hữu, ích kỉ về mảnh đất quê hương.
+C. Tình cảm xa lạ, lạnh nhạt, vô cảm đối với mảnh đất quê hương.
+D. Tất cả các ý trên.","Qua câu chuyện này, chúng ta thấy tình cảm của người Ê-ti-ô-pi-a với mảnh đất quê hương như thế nào?
+A. Tình cảm đằm thắm, mặn nồng, tha thiết đối với mảnh đất quê hương.
+B. Tình cảm yêu quý, sở hữu, ích kỉ về mảnh đất quê hương.
+C. Tình cảm xa lạ, lạnh nhạt, vô cảm đối với mảnh đất quê hương.
+D. Tất cả các ý trên.","Qua câu chuyện này, chúng ta thấy tình cảm của người Ê-ti-ô-pi-a với mảnh đất quê hương như thế nào?
+A. Tình cảm đằm thắm, mặn nồng, tha thiết đối với mảnh đất quê hương.
+B. Tình cảm yêu quý, sở hữu, ích kỉ về mảnh đất quê hương.
+C. Tình cảm xa lạ, lạnh nhạt, vô cảm đối với mảnh đất quê hương.
+D. Tất cả các ý trên.","Tình cảm đằm thắm, mặn nồng, tha thiết đối với mảnh đất quê hương.",A,Daily Conversation,test
+MCQA_0116_6,MCQA,PNT3,"Qua câu chuyện ni, chúng ta thấy tình cảm của người Ê-ti-ô-pi-a với mảnh đất quê hương như răng?
+A. Tình cảm đằm thắm, mặn nồng, tha thiết đối với mảnh đất quê hương.
+B. Tình cảm yêu quý, sở hữu, ích kỉ về mảnh đất quê hương.
+C. Tình cảm xa lạ, lạnh nhạt, vô cảm đối với mảnh đất quê hương.
+D. Tất cả mấy ý trên.","Qua câu chuyện này, chúng ta thấy tình cảm của người Ê-ti-ô-pi-a với mảnh đất quê hương như thế nào?
+A. Tình cảm đằm thắm, mặn nồng, tha thiết đối với mảnh đất quê hương.
+B. Tình cảm yêu quý, sở hữu, ích kỉ về mảnh đất quê hương.
+C. Tình cảm xa lạ, lạnh nhạt, vô cảm đối với mảnh đất quê hương.
+D. Tất cả các ý trên.","Qua câu chuyện này, chúng ta thấy tình cảm của người Ê-ti-ô-pi-a với mảnh đất quê hương như thế nào?
+A. Tình cảm đằm thắm, mặn nồng, tha thiết đối với mảnh đất quê hương.
+B. Tình cảm yêu quý, sở hữu, ích kỉ về mảnh đất quê hương.
+C. Tình cảm xa lạ, lạnh nhạt, vô cảm đối với mảnh đất quê hương.
+D. Tất cả các ý trên.","Tình cảm đằm thắm, mặn nồng, tha thiết đối với mảnh đất quê hương.",A,Daily Conversation,test
+MCQA_0056_1,MCQA,PNB,"Câu văn “Tâm hồn cô cũng bay ra biển cả, bay đến với chim seo cờ.” ý nói gì ?
+A.Cô gái mơ ước mình biết bay.
+B.Cô gái luôn nghĩ về biển cả và chim seo cờ, mơ ước được ra biển và nhìn thấy chim seo cờ.
+C.Cô gái mơ ước được bay ra biển cả.
+D. Bạn gái nhớ nhà và không muốn nghe chuyện về chim seo cờ nữa.","Câu văn “Tâm hồn cô cũng bay ra biển cả, bay đến với chim seo cờ.” ý nói gì ?
+A. Bạn gái mơ ước mình biết bay.
+B. Bạn gái luôn nghĩ về biển cả và chim seo cờ, mơ ước được ra biển và nhìn thấy chim seo cờ.
+C. Bạn gái mơ ước được bay ra biển cả.
+D. Bạn gái nhớ nhà và không muốn nghe chuyện về chim seo cờ nữa.","Câu văn “Tâm hồn cô cũng bay ra biển cả, bay đến với chim seo cờ.” ý nói gì ?
+A. Bạn gái mơ ước mình biết bay.
+B. Bạn gái luôn nghĩ về biển cả và chim seo cờ, mơ ước được ra biển và nhìn thấy chim seo cờ.
+C. Bạn gái mơ ước được bay ra biển cả.
+D. Bạn gái nhớ nhà và không muốn nghe chuyện về chim seo cờ nữa.","Bạn gái luôn nghĩ về biển cả và chim seo cờ, mơ ước được ra biển và nhìn thấy chim seo cờ.",B,Daily Conversation,test
+MCQA_0056_1,MCQA,PNT2,"Câu văn “Tâm hồn cô cũng bay ra biển cả, bay đến với chim seo cờ.” ý nói chi ?
+A. Bạn gấy mơ ước mình biết bay.
+B. Bạn gấy luôn nghĩ về biển cả và chim seo cờ, mơ ước được ra biển và nhìn thấy chim seo cờ.
+C. Bạn gấy mơ ước được bay ra biển cả.
+D. Bạn gấy nhớ nhà và nỏ muốn nghe chuyện về chim seo cờ nữa.","Câu văn “Tâm hồn cô cũng bay ra biển cả, bay đến với chim seo cờ.” ý nói gì ?
+A. Bạn gái mơ ước mình biết bay.
+B. Bạn gái luôn nghĩ về biển cả và chim seo cờ, mơ ước được ra biển và nhìn thấy chim seo cờ.
+C. Bạn gái mơ ước được bay ra biển cả.
+D. Bạn gái nhớ nhà và không muốn nghe chuyện về chim seo cờ nữa.","Câu văn “Tâm hồn cô cũng bay ra biển cả, bay đến với chim seo cờ.” ý nói gì ?
+A. Bạn gái mơ ước mình biết bay.
+B. Bạn gái luôn nghĩ về biển cả và chim seo cờ, mơ ước được ra biển và nhìn thấy chim seo cờ.
+C. Bạn gái mơ ước được bay ra biển cả.
+D. Bạn gái nhớ nhà và không muốn nghe chuyện về chim seo cờ nữa.","Bạn gái luôn nghĩ về biển cả và chim seo cờ, mơ ước được ra biển và nhìn thấy chim seo cờ.",B,Daily Conversation,test
+MCQA_0056_1,MCQA,PNT3,"Câu văn “Tâm hồn cô cũng bay ra biển cả, bay đến với chim seo cờ.” ý nói răng ?
+A. Bạn gái mơ ước mình biết bay.
+B. Bạn gái luôn nghĩ về biển cả và chim seo cờ, mơ ước được ra biển với nhìn thấy chim seo cờ.
+C. Bạn gái mơ ước được bay ra biển cả.
+D. Bạn cấy nhớ nhà và nỏ ưng nghe chuyện về chim seo cờ nựa.","Câu văn “Tâm hồn cô cũng bay ra biển cả, bay đến với chim seo cờ.” ý nói gì ?
+A. Bạn gái mơ ước mình biết bay.
+B. Bạn gái luôn nghĩ về biển cả và chim seo cờ, mơ ước được ra biển và nhìn thấy chim seo cờ.
+C. Bạn gái mơ ước được bay ra biển cả.
+D. Bạn gái nhớ nhà và không muốn nghe chuyện về chim seo cờ nữa.","Câu văn “Tâm hồn cô cũng bay ra biển cả, bay đến với chim seo cờ.” ý nói gì ?
+A. Bạn gái mơ ước mình biết bay.
+B. Bạn gái luôn nghĩ về biển cả và chim seo cờ, mơ ước được ra biển và nhìn thấy chim seo cờ.
+C. Bạn gái mơ ước được bay ra biển cả.
+D. Bạn gái nhớ nhà và không muốn nghe chuyện về chim seo cờ nữa.","Bạn gái luôn nghĩ về biển cả và chim seo cờ, mơ ước được ra biển và nhìn thấy chim seo cờ.",B,Daily Conversation,test
+MCQA_0042_2,MCQA,PNB,"Sau vụ thu hoạch, người anh đã nghĩ điều gì về em?
+A. Em sống có 1 mình mà cũng lấy 1 nửa, thật không công bằng.
+B. Em sống 1 mình vất vả, phần mình cũng bằng phần em thì thật công bằng.
+C. Em mình có một thân một mình thật đáng thương.
+D. Không công bằng trong việc phân chia.","Sau vụ thu hoạch, người anh đã nghĩ điều gì về em?
+A. Em sống có 1 mình mà cũng lấy 1 nửa, thật không công bằng.
+B. Em sống 1 mình vất vả, phần ta cũng bằng phần em thì thật công bằng.
+C. Em mình có một thân một mình thật đáng thương.
+D. Không công bằng trong việc phân chia.","Sau vụ thu hoạch, người anh đã nghĩ điều gì về em?
+A. Em sống có 1 mình mà cũng lấy 1 nửa, thật không công bằng.
+B. Em sống 1 mình vất vả, phần ta cũng bằng phần em thì thật công bằng.
+C. Em mình có một thân một mình thật đáng thương.
+D. Không công bằng trong việc phân chia.","Em sống 1 mình vất vả, phần ta cũng bằng phần em thì thật công bằng.",B,Daily Conversation,test
+MCQA_0042_2,MCQA,PNT2,"Sau vụ thu hoạch, người anh đã nghĩ điều chi về em?
+A. Em sống có 1 chắc mà cũng lấy 1 nửa, thật nỏ công bằng.
+B. Em sống 1 chắc vất vả, phần ta cũng bằng phần em thì thật công bằng.
+C. Em mình có một chắc thật đáng thương.
+D. Nỏ công bằng trong việc phân chia.","Sau vụ thu hoạch, người anh đã nghĩ điều gì về em?
+A. Em sống có 1 mình mà cũng lấy 1 nửa, thật không công bằng.
+B. Em sống 1 mình vất vả, phần ta cũng bằng phần em thì thật công bằng.
+C. Em mình có một thân một mình thật đáng thương.
+D. Không công bằng trong việc phân chia.","Sau vụ thu hoạch, người anh đã nghĩ điều gì về em?
+A. Em sống có 1 mình mà cũng lấy 1 nửa, thật không công bằng.
+B. Em sống 1 mình vất vả, phần ta cũng bằng phần em thì thật công bằng.
+C. Em mình có một thân một mình thật đáng thương.
+D. Không công bằng trong việc phân chia.","Em sống 1 mình vất vả, phần ta cũng bằng phần em thì thật công bằng.",B,Daily Conversation,test
+MCQA_0042_2,MCQA,PNT3,"Sau vụ thu hoạch, người anh đã nghĩ chi về em?
+A. Em sống có 1 mình mà cũng lấy 1 nửa, thiệt không công bằng.
+B. Em sống 1 mình vất vả, phần mình cũng bằng phần em thì thật công bằng.
+C. Em mình có một thân một mình thiệt đáng thương.
+D. Không công bằng trong việc phân chia.","Sau vụ thu hoạch, người anh đã nghĩ điều gì về em?
+A. Em sống có 1 mình mà cũng lấy 1 nửa, thật không công bằng.
+B. Em sống 1 mình vất vả, phần ta cũng bằng phần em thì thật công bằng.
+C. Em mình có một thân một mình thật đáng thương.
+D. Không công bằng trong việc phân chia.","Sau vụ thu hoạch, người anh đã nghĩ điều gì về em?
+A. Em sống có 1 mình mà cũng lấy 1 nửa, thật không công bằng.
+B. Em sống 1 mình vất vả, phần ta cũng bằng phần em thì thật công bằng.
+C. Em mình có một thân một mình thật đáng thương.
+D. Không công bằng trong việc phân chia.","Em sống 1 mình vất vả, phần ta cũng bằng phần em thì thật công bằng.",B,Daily Conversation,test
+MCQA_0012_5,MCQA,PNB,"Tại sao thầy giáo không trách An khi biết bạn chưa làm bài tập?
+A. Vì đây là lần đầu tiên An mắc lỗi.
+B. Vì cả lớp đã kể cho thầy nghe.
+C. Vì thầy hiểu và thông cảm hoàn cảnh của An. An cũng đã thành thực nhận lỗi.
+D. Vì An đã mắc lỗi quá nhiều lần.","Tại sao thầy giáo không trách An khi biết bạn chưa làm bài tập?
+A. Vì đây là lần đầu tiên An mắc lỗi.
+B. Vì cả lớp đã kể cho thầy nghe.
+C. Vì thầy hiểu và thông cảm hoàn cảnh của An. An cũng đã thành thực nhận lỗi.
+D. Vì An đã mắc lỗi quá nhiều lần.","Tại sao thầy giáo không trách An khi biết bạn chưa làm bài tập?
+A. Vì đây là lần đầu tiên An mắc lỗi.
+B. Vì cả lớp đã kể cho thầy nghe.
+C. Vì thầy hiểu và thông cảm hoàn cảnh của An. An cũng đã thành thực nhận lỗi.
+D. Vì An đã mắc lỗi quá nhiều lần.",Vì thầy hiểu và thông cảm hoàn cảnh của An. An cũng đã thành thực nhận lỗi.,C,Daily Conversation,test
+MCQA_0012_5,MCQA,PNT2,"Tại răng thầy giáo nỏ trách An khi biết lạo chưa mần bài tập?
+A. Tại đây là lần đầu tiên An mắc lỗi.
+B. Tại cả lớp đã kể cho thầy nghe.
+C. Vì thầy hiểu và thông cảm hoàn cảnh của An. An cũng đã thành thực nhận lỗi.
+D. Vì An đã mắc lỗi quá nhiều lần.","Tại sao thầy giáo không trách An khi biết bạn chưa làm bài tập?
+A. Vì đây là lần đầu tiên An mắc lỗi.
+B. Vì cả lớp đã kể cho thầy nghe.
+C. Vì thầy hiểu và thông cảm hoàn cảnh của An. An cũng đã thành thực nhận lỗi.
+D. Vì An đã mắc lỗi quá nhiều lần.","Tại sao thầy giáo không trách An khi biết bạn chưa làm bài tập?
+A. Vì đây là lần đầu tiên An mắc lỗi.
+B. Vì cả lớp đã kể cho thầy nghe.
+C. Vì thầy hiểu và thông cảm hoàn cảnh của An. An cũng đã thành thực nhận lỗi.
+D. Vì An đã mắc lỗi quá nhiều lần.",Vì thầy hiểu và thông cảm hoàn cảnh của An. An cũng đã thành thực nhận lỗi.,C,Daily Conversation,test
+MCQA_0012_5,MCQA,PNT3,"Tại răng thầy giáo không trách An khi biết bạn chưa làm bài tập?
+A. Vì đây là lần đầu An mắc lỗi.
+B. Vì cả lớp đã kể cho thầy nghe.
+C. Vì thầy hiểu với thông cảm hoàn cảnh của An. An cũng đã thành thực nhận lỗi.
+D. Vì An đã mắc lỗi quá nhiều lần.","Tại sao thầy giáo không trách An khi biết bạn chưa làm bài tập?
+A. Vì đây là lần đầu tiên An mắc lỗi.
+B. Vì cả lớp đã kể cho thầy nghe.
+C. Vì thầy hiểu và thông cảm hoàn cảnh của An. An cũng đã thành thực nhận lỗi.
+D. Vì An đã mắc lỗi quá nhiều lần.","Tại sao thầy giáo không trách An khi biết bạn chưa làm bài tập?
+A. Vì đây là lần đầu tiên An mắc lỗi.
+B. Vì cả lớp đã kể cho thầy nghe.
+C. Vì thầy hiểu và thông cảm hoàn cảnh của An. An cũng đã thành thực nhận lỗi.
+D. Vì An đã mắc lỗi quá nhiều lần.",Vì thầy hiểu và thông cảm hoàn cảnh của An. An cũng đã thành thực nhận lỗi.,C,Daily Conversation,test
+NLI_4746,NLI,PNB,Người lính cứu hỏa bảo là con mèo không bị sao nhưng mọi người đều biết nó bị thương.,Người lính cứu hỏa nói rằng con mèo không bị gì nhưng mọi người đều biết nó bị thương.,Lính cứu hỏa Langford khẳng định con mèo hoàn toàn không bị thương và anh đang cố tìm ra chủ nhân của nó.,Người lính cứu hỏa nói rằng con mèo không bị gì nhưng mọi người đều biết nó bị thương.,Contradiction,Daily Conversation,test
+NLI_4746,NLI,PNT2,Người lính cứu hỏa nói rằng con mèo không bị chi nhưng mọi người đều biết hấn bị thương.,Người lính cứu hỏa nói rằng con mèo không bị gì nhưng mọi người đều biết nó bị thương.,Lính cứu hỏa Langford khẳng định con mèo hoàn toàn không bị thương và anh đang cố tìm ra chủ nhân của nó.,Người lính cứu hỏa nói rằng con mèo không bị gì nhưng mọi người đều biết nó bị thương.,Contradiction,Daily Conversation,test
+NLI_4746,NLI,PNT3,Người lính cứu hỏa nói rằng con mèo nỏ bị chi nhưng mọi người đều biết hắn bị thương.,Người lính cứu hỏa nói rằng con mèo không bị gì nhưng mọi người đều biết nó bị thương.,Lính cứu hỏa Langford khẳng định con mèo hoàn toàn không bị thương và anh đang cố tìm ra chủ nhân của nó.,Người lính cứu hỏa nói rằng con mèo không bị gì nhưng mọi người đều biết nó bị thương.,Contradiction,Daily Conversation,test
+NLI_0157,NLI,PNB,Spieth đã có các biểu hiện về bệnh trên người anh ấy trong vòng 3 ngày qua.,Spieth đã có các biểu hiện về bệnh trên người anh ấy trong vòng 3 ngày qua.,"Các triệu chứng điển hình xuất hiện trong 36 giờ khiến cơ thể Spieth rã rời và dị ứng xoang mũi vài ngày, nhưng anh cũng nhanh chóng khỏi bệnh.",Spieth đã có các biểu hiện về bệnh trên người anh ấy trong vòng 3 ngày qua.,Neutral,Daily Conversation,test
+NLI_0157,NLI,PNT2,Spieth đạ có mấy biểu hiện về bệnh trên người trong vòng 3 ngày vừa rồi,Spieth đã có các biểu hiện về bệnh trên người anh ấy trong vòng 3 ngày qua.,"Các triệu chứng điển hình xuất hiện trong 36 giờ khiến cơ thể Spieth rã rời và dị ứng xoang mũi vài ngày, nhưng anh cũng nhanh chóng khỏi bệnh.",Spieth đã có các biểu hiện về bệnh trên người anh ấy trong vòng 3 ngày qua.,Neutral,Daily Conversation,test
+NLI_0157,NLI,PNT3,Spieth đã có mấy cì biểu hiện về bệnh trên người anh nớ trong vòng 3 ngày qua,Spieth đã có các biểu hiện về bệnh trên người anh ấy trong vòng 3 ngày qua.,"Các triệu chứng điển hình xuất hiện trong 36 giờ khiến cơ thể Spieth rã rời và dị ứng xoang mũi vài ngày, nhưng anh cũng nhanh chóng khỏi bệnh.",Spieth đã có các biểu hiện về bệnh trên người anh ấy trong vòng 3 ngày qua.,Neutral,Daily Conversation,test
+NLI_1420,NLI,PNB,Ông Watson không cảm thấy buồn ngày lúc đó.,Ông Watson không cảm thấy buồn ngày lúc đó.,"Tôi không thể nói được lúc đó mình cảm thấy thế nào"", Watson nói.",Ông Watson không cảm thấy buồn ngày lúc đó.,Contradiction,Daily Conversation,test
+NLI_1420,NLI,PNT2,Ông Watson nọ cảm thấy buồn ngày lúc nớ.,Ông Watson không cảm thấy buồn ngày lúc đó.,"Tôi không thể nói được lúc đó mình cảm thấy thế nào"", Watson nói.",Ông Watson không cảm thấy buồn ngày lúc đó.,Contradiction,Daily Conversation,test
+NLI_1420,NLI,PNT3,Ông Watson nỏ chộ buồn ngay lúc nớ.,Ông Watson không cảm thấy buồn ngày lúc đó.,"Tôi không thể nói được lúc đó mình cảm thấy thế nào"", Watson nói.",Ông Watson không cảm thấy buồn ngày lúc đó.,Contradiction,Daily Conversation,test
+NLI_5143,NLI,PNB,Vợ chồng tôi không khỏi nghi ngờ về tính xác đáng của việc mượn tiền trả từng đợt.,Vợ chồng tôi không khỏi nghi ngờ về sự xác đáng của mượn tiền trả từng đợt.,Vợ chồng tôi không rành lắm về cho vay trả góp nên đang băn khoăn liệu điều này có thật không hay là chỉ chiêu câu khách?,Vợ chồng tôi không khỏi nghi ngờ về sự xác đáng của mượn tiền trả từng đợt.,Entailment,Daily Conversation,test
+NLI_5143,NLI,PNT2,Vợ chồng tau không khỏi nghi ngờ về sự chính đáng của mượn tiền trả từng đợt ni.,Vợ chồng tôi không khỏi nghi ngờ về sự xác đáng của mượn tiền trả từng đợt.,Vợ chồng tôi không rành lắm về cho vay trả góp nên đang băn khoăn liệu điều này có thật không hay là chỉ chiêu câu khách?,Vợ chồng tôi không khỏi nghi ngờ về sự xác đáng của mượn tiền trả từng đợt.,Entailment,Daily Conversation,test
+NLI_5143,NLI,PNT3,Vợ chồng tau khung khỏi nghi ngại về sự xác đáng của mạn tiền trả từng đợt.,Vợ chồng tôi không khỏi nghi ngờ về sự xác đáng của mượn tiền trả từng đợt.,Vợ chồng tôi không rành lắm về cho vay trả góp nên đang băn khoăn liệu điều này có thật không hay là chỉ chiêu câu khách?,Vợ chồng tôi không khỏi nghi ngờ về sự xác đáng của mượn tiền trả từng đợt.,Entailment,Daily Conversation,test
+NLI_4616,NLI,PNB,"Merry nói rằng ông đã chứng kiến nhiều vụ như vậy trong 12 năm qua, không có gì lạ cả.","Merry nói rằng ông đã chứng kiến nhiều vụ như vậy trong 12 năm qua, không có gì lạ cả.","Merry nói thêm rằng trong 12 năm làm cảnh sát trưởng, ông chưa từng gặp tình huống nào thế này.","Merry nói rằng ông đã chứng kiến nhiều vụ như vậy trong 12 năm qua, không có gì lạ cả.",Contradiction,Daily Conversation,test
+NLI_4616,NLI,PNT2,"Merry nói rằng ông đã chứng kiến nhiều vụ như rứa trong 12 năm qua, khung có gì lạ cả.","Merry nói rằng ông đã chứng kiến nhiều vụ như vậy trong 12 năm qua, không có gì lạ cả.","Merry nói thêm rằng trong 12 năm làm cảnh sát trưởng, ông chưa từng gặp tình huống nào thế này.","Merry nói rằng ông đã chứng kiến nhiều vụ như vậy trong 12 năm qua, không có gì lạ cả.",Contradiction,Daily Conversation,test
+NLI_4616,NLI,PNT3,"Merry nói rằng ông đạ chứng kiến nhiều vụ in rứa trong 12 năm qua, nỏ có gì lạ cả.","Merry nói rằng ông đã chứng kiến nhiều vụ như vậy trong 12 năm qua, không có gì lạ cả.","Merry nói thêm rằng trong 12 năm làm cảnh sát trưởng, ông chưa từng gặp tình huống nào thế này.","Merry nói rằng ông đã chứng kiến nhiều vụ như vậy trong 12 năm qua, không có gì lạ cả.",Contradiction,Daily Conversation,test
+NLI_1077,NLI,PNB,Jovani Quiles đã nhận bức hình chụp cái ví.,Jovani Quiles đã nhận đức hình chụp cái ví.,"Cô ấy gửi cho tôi ảnh cái ví trông như thế nào, cái nhẫn nằm trong cái ví"", Jovani Quiles, quản lý bãi rác, nói.",Jovani Quiles đã nhận đức hình chụp cái ví.,Entailment,Daily Conversation,test
+NLI_1077,NLI,PNT2,Jovani Quiles đạ nhận bức hình chụp cái ví.,Jovani Quiles đã nhận đức hình chụp cái ví.,"Cô ấy gửi cho tôi ảnh cái ví trông như thế nào, cái nhẫn nằm trong cái ví"", Jovani Quiles, quản lý bãi rác, nói.",Jovani Quiles đã nhận đức hình chụp cái ví.,Entailment,Daily Conversation,test
+NLI_1077,NLI,PNT3,Jovani Quiles đã nhận bức hình chụp cấy ví,Jovani Quiles đã nhận đức hình chụp cái ví.,"Cô ấy gửi cho tôi ảnh cái ví trông như thế nào, cái nhẫn nằm trong cái ví"", Jovani Quiles, quản lý bãi rác, nói.",Jovani Quiles đã nhận đức hình chụp cái ví.,Entailment,Daily Conversation,test
+NLI_6155,NLI,PNB,Chưa có chứng cứ nào khiến Tang chấp nhận được điều đó.,Chưa có chứng cứ nào làm Tang chấp nhận được điều đó.,"Dù vậy, Tang cho biết anh không chấp nhận điều này.",Chưa có chứng cứ nào làm Tang chấp nhận được điều đó.,Entailment,Daily Conversation,test
+NLI_6155,NLI,PNT2,Chưa có chứng cứ mô mần Tang chấp nhận được điều nớ.,Chưa có chứng cứ nào làm Tang chấp nhận được điều đó.,"Dù vậy, Tang cho biết anh không chấp nhận điều này.",Chưa có chứng cứ nào làm Tang chấp nhận được điều đó.,Entailment,Daily Conversation,test
+NLI_6155,NLI,PNT3,Chưa có chứng cứ mô mần Tang chấp nhận được cấy nớ.,Chưa có chứng cứ nào làm Tang chấp nhận được điều đó.,"Dù vậy, Tang cho biết anh không chấp nhận điều này.",Chưa có chứng cứ nào làm Tang chấp nhận được điều đó.,Entailment,Daily Conversation,test
+NLI_6960,NLI,PNB,Sau khi nhận tin đã trúng giải thưởng người phụ nữ đã báo ngay lập tức cho chồng của cô ấy.,Sau khi nhận tin đã trúng giải thưởng người phụ nữ đã báo ngay lập tức cho chồng của cô ấy.,"Shanks thông báo với người mẹ rằng cô ấy là người thắng một giải thưởng"" và chuyển phát phần thưởng tới nhà người mẹ hôm 7/5, Groulx nói.",Sau khi nhận tin đã trúng giải thưởng người phụ nữ đã báo ngay lập tức cho chồng của cô ấy.,Neutral,Daily Conversation,test
+NLI_6960,NLI,PNT2,Sau khi nhận tin đã trúng giải thưởng người phụ nữ đã báo tắp lự tức cho nhông của o nớ.,Sau khi nhận tin đã trúng giải thưởng người phụ nữ đã báo ngay lập tức cho chồng của cô ấy.,"Shanks thông báo với người mẹ rằng cô ấy là người thắng một giải thưởng"" và chuyển phát phần thưởng tới nhà người mẹ hôm 7/5, Groulx nói.",Sau khi nhận tin đã trúng giải thưởng người phụ nữ đã báo ngay lập tức cho chồng của cô ấy.,Neutral,Daily Conversation,test
+NLI_6960,NLI,PNT3,Sau khi nhận tin đạ trúng giải thưởng ả nớ đạ báo liền cho dông của cô ấy.,Sau khi nhận tin đã trúng giải thưởng người phụ nữ đã báo ngay lập tức cho chồng của cô ấy.,"Shanks thông báo với người mẹ rằng cô ấy là người thắng một giải thưởng"" và chuyển phát phần thưởng tới nhà người mẹ hôm 7/5, Groulx nói.",Sau khi nhận tin đã trúng giải thưởng người phụ nữ đã báo ngay lập tức cho chồng của cô ấy.,Neutral,Daily Conversation,test
+NLI_7691,NLI,PNB,Tôi đã có kinh nghiệm dày dặn trong nhiều năm qua.,Tôi đã có kinh nghiệm dày dặn trong nhiều năm qua.,Tôi đã chụp ảnh chim cắt 10 năm nhưng chưa từng chứng kiến cảnh tượng nào như vậy.,Tôi đã có kinh nghiệm dày dặn trong nhiều năm qua.,Entailment,Daily Conversation,test
+NLI_7691,NLI,PNT2,Tau đạ có kinh nghiệm dày dặn trong nhiều năm qua.,Tôi đã có kinh nghiệm dày dặn trong nhiều năm qua.,Tôi đã chụp ảnh chim cắt 10 năm nhưng chưa từng chứng kiến cảnh tượng nào như vậy.,Tôi đã có kinh nghiệm dày dặn trong nhiều năm qua.,Entailment,Daily Conversation,test
+NLI_7691,NLI,PNT3,Tui đạ có nhiều kinh nghiệm trong nhiều năm ni,Tôi đã có kinh nghiệm dày dặn trong nhiều năm qua.,Tôi đã chụp ảnh chim cắt 10 năm nhưng chưa từng chứng kiến cảnh tượng nào như vậy.,Tôi đã có kinh nghiệm dày dặn trong nhiều năm qua.,Entailment,Daily Conversation,test
+NLI_3276,NLI,PNB,YSES 2b không tương xứng với ngôi sao chủ theo đánh giá của nhà khoa học.,YSES 2b không tương xứng với ngôi sao chủ theo đánh giá của nhà khoa học.,Phát hiện này khiến các nhà khoa học bối rối bởi khối lượng lớn của YSES 2b và khoảng cách giữa nó và ngôi sao chủ không phù hợp với các mô hình phổ biến nhất về sự hình thành hành tinh khí khổng lồ.,YSES 2b không tương xứng với ngôi sao chủ theo đánh giá của nhà khoa học.,Neutral,Daily Conversation,test
+NLI_3276,NLI,PNT2,YSES 2b nỏ tương xứng với ngôi sao chủ theo đánh giá của nhà khoa học.,YSES 2b không tương xứng với ngôi sao chủ theo đánh giá của nhà khoa học.,Phát hiện này khiến các nhà khoa học bối rối bởi khối lượng lớn của YSES 2b và khoảng cách giữa nó và ngôi sao chủ không phù hợp với các mô hình phổ biến nhất về sự hình thành hành tinh khí khổng lồ.,YSES 2b không tương xứng với ngôi sao chủ theo đánh giá của nhà khoa học.,Neutral,Daily Conversation,test
+NLI_3276,NLI,PNT3,YSES 2b nỏ tương xứng với ngôi sao chủ theo đánh giá cụa nhà khoa học.,YSES 2b không tương xứng với ngôi sao chủ theo đánh giá của nhà khoa học.,Phát hiện này khiến các nhà khoa học bối rối bởi khối lượng lớn của YSES 2b và khoảng cách giữa nó và ngôi sao chủ không phù hợp với các mô hình phổ biến nhất về sự hình thành hành tinh khí khổng lồ.,YSES 2b không tương xứng với ngôi sao chủ theo đánh giá của nhà khoa học.,Neutral,Daily Conversation,test
+NLI_4233,NLI,PNB,"Trong giai đoạn phòng chống dịch Covid-19, người dân được tự do đi lại.","Trong giai đoạn phòng chống dịch Covid-19, người dân được tự do đi lại.","Trong khi đó, hiện Bắc Giang đã yêu cầu Ban Quản lý các khu công nghiệp tỉnh thông báo tới lao động là người tỉnh ngoài, trong giai đoạn hiện nay không di chuyển về quê hoặc sang tỉnh khác để đảm bảo phòng, chống dịch Covid-19.","Trong giai đoạn phòng chống dịch Covid-19, người dân được tự do đi lại.",Contradiction,Daily Conversation,test
+NLI_4233,NLI,PNT2,"Trong giai đoạn phòng chống dịch Covid-19, bà con được tự do đi lại.","Trong giai đoạn phòng chống dịch Covid-19, người dân được tự do đi lại.","Trong khi đó, hiện Bắc Giang đã yêu cầu Ban Quản lý các khu công nghiệp tỉnh thông báo tới lao động là người tỉnh ngoài, trong giai đoạn hiện nay không di chuyển về quê hoặc sang tỉnh khác để đảm bảo phòng, chống dịch Covid-19.","Trong giai đoạn phòng chống dịch Covid-19, người dân được tự do đi lại.",Contradiction,Daily Conversation,test
+NLI_4233,NLI,PNT3,"Trong giai đoạn phòng chống dịch Covid-19, người dân được tự do đi lại","Trong giai đoạn phòng chống dịch Covid-19, người dân được tự do đi lại.","Trong khi đó, hiện Bắc Giang đã yêu cầu Ban Quản lý các khu công nghiệp tỉnh thông báo tới lao động là người tỉnh ngoài, trong giai đoạn hiện nay không di chuyển về quê hoặc sang tỉnh khác để đảm bảo phòng, chống dịch Covid-19.","Trong giai đoạn phòng chống dịch Covid-19, người dân được tự do đi lại.",Contradiction,Daily Conversation,test
+NLI_2313,NLI,PNB,"Tôi biết Joe Biden khá lâu rồi, và ông ấy có năng lượng của Donald Trump hay không thì chúng ta đều biết"", Kevin McCarthy chia sẻ thẳng thắn quan điểm.","Tôi biết Joe Biden khá lâu rồi, và ông ấy có năng lượng của Donald Trump hay không thì chúng ta đều biết"", Kevin McCarthy chia sẻ thẳng thắng quan điểm.","Tôi biết Joe Biden khá lâu rồi, và ông ấy có năng lượng của Donald Trump hay không thì chúng ta đều biết"", lãnh đạo phe Cộng hòa tại Hạ viện Kevin McCarthy trả lời phỏng vấn hôm 14/5.","Tôi biết Joe Biden khá lâu rồi, và ông ấy có năng lượng của Donald Trump hay không thì chúng ta đều biết"", Kevin McCarthy chia sẻ thẳng thắng quan điểm.",Entailment,Daily Conversation,test
+NLI_2313,NLI,PNT2,"Tui biết Joe Biden khá lâu rồi, và ông nớ có năng lượng của Donald Trump hay không thì nhà ta đều biết"", Kevin McCarthy chia sẻ thẳng thắng quan điểm.","Tôi biết Joe Biden khá lâu rồi, và ông ấy có năng lượng của Donald Trump hay không thì chúng ta đều biết"", Kevin McCarthy chia sẻ thẳng thắng quan điểm.","Tôi biết Joe Biden khá lâu rồi, và ông ấy có năng lượng của Donald Trump hay không thì chúng ta đều biết"", lãnh đạo phe Cộng hòa tại Hạ viện Kevin McCarthy trả lời phỏng vấn hôm 14/5.","Tôi biết Joe Biden khá lâu rồi, và ông ấy có năng lượng của Donald Trump hay không thì chúng ta đều biết"", Kevin McCarthy chia sẻ thẳng thắng quan điểm.",Entailment,Daily Conversation,test
+NLI_2313,NLI,PNT3,"Tôi biết Joe Biden khá lâu rồi, và ông ấy có năng lượng của Donald Trump hay không thì chúng ta đều biết"", Kevin McCarthy chia sẻ thẳng thắng quan điểm.","Tôi biết Joe Biden khá lâu rồi, và ông ấy có năng lượng của Donald Trump hay không thì chúng ta đều biết"", Kevin McCarthy chia sẻ thẳng thắng quan điểm.","Tôi biết Joe Biden khá lâu rồi, và ông ấy có năng lượng của Donald Trump hay không thì chúng ta đều biết"", lãnh đạo phe Cộng hòa tại Hạ viện Kevin McCarthy trả lời phỏng vấn hôm 14/5.","Tôi biết Joe Biden khá lâu rồi, và ông ấy có năng lượng của Donald Trump hay không thì chúng ta đều biết"", Kevin McCarthy chia sẻ thẳng thắng quan điểm.",Entailment,Daily Conversation,test
+NLI_5746,NLI,PNB,Cảnh tượng như vậy tôi đã gặp qua nhiều lần.,Cảnh tượng như vậy tôi đã gặp qua nhiều lần.,Tôi đã chụp ảnh chim cắt 10 năm nhưng chưa từng chứng kiến cảnh tượng nào như vậy.,Cảnh tượng như vậy tôi đã gặp qua nhiều lần.,Contradiction,Daily Conversation,test
+NLI_5746,NLI,PNT2,Cảnh tượng như rứa tôi đã gặp qua nhiều lần.,Cảnh tượng như vậy tôi đã gặp qua nhiều lần.,Tôi đã chụp ảnh chim cắt 10 năm nhưng chưa từng chứng kiến cảnh tượng nào như vậy.,Cảnh tượng như vậy tôi đã gặp qua nhiều lần.,Contradiction,Daily Conversation,test
+NLI_5746,NLI,PNT3,Cảnh tượng như rứa tau đã chộ qua nhiều lần.,Cảnh tượng như vậy tôi đã gặp qua nhiều lần.,Tôi đã chụp ảnh chim cắt 10 năm nhưng chưa từng chứng kiến cảnh tượng nào như vậy.,Cảnh tượng như vậy tôi đã gặp qua nhiều lần.,Contradiction,Daily Conversation,test
+NLI_5368,NLI,PNB,"Khác với Ronaldo, cầu thủ Ibrahimovic không có tinh thần cống hiến cho đội bóng của mình.","Khác với Ronaldo, cầu thủ Ibrahimovic không có tính thân cống hiến cho đội bóng của anh ấy.","Ibrahimovic muốn giành chiến thắng cho bản thân anh ta, tôi thì cống hiến cho Inter, Ronaldo với Juventus, và giờ có thêm Jose Mourinho tại Roma.","Khác với Ronaldo, cầu thủ Ibrahimovic không có tính thân cống hiến cho đội bóng của anh ấy.",Entailment,Daily Conversation,test
+NLI_5368,NLI,PNT2,"Khác với Ronaldo, cầu thủ Ibrahimovic nỏ có tính thân cống hiến cho đội bóng của anh nớ.","Khác với Ronaldo, cầu thủ Ibrahimovic không có tính thân cống hiến cho đội bóng của anh ấy.","Ibrahimovic muốn giành chiến thắng cho bản thân anh ta, tôi thì cống hiến cho Inter, Ronaldo với Juventus, và giờ có thêm Jose Mourinho tại Roma.","Khác với Ronaldo, cầu thủ Ibrahimovic không có tính thân cống hiến cho đội bóng của anh ấy.",Entailment,Daily Conversation,test
+NLI_5368,NLI,PNT3,"Khác với Ronaldo, cầu thủ Ibrahimovic nỏ có tính thân cống hiến cho đội bóng của eng nớ.","Khác với Ronaldo, cầu thủ Ibrahimovic không có tính thân cống hiến cho đội bóng của anh ấy.","Ibrahimovic muốn giành chiến thắng cho bản thân anh ta, tôi thì cống hiến cho Inter, Ronaldo với Juventus, và giờ có thêm Jose Mourinho tại Roma.","Khác với Ronaldo, cầu thủ Ibrahimovic không có tính thân cống hiến cho đội bóng của anh ấy.",Entailment,Daily Conversation,test
+NLI_6594,NLI,PNB,Không ai có thể giải thích sự kiện kì lạ này.,Không ai có thể giải thích sự kiện kì lạ này.,"Tôi không biết phải làm gì, đây là một điều gì đó rất kỳ lạ"", Mcyen cho biết.",Không ai có thể giải thích sự kiện kì lạ này.,Neutral,Daily Conversation,test
+NLI_6594,NLI,PNT2,Nỏ ai có thể giải thích sự kiện kì lạ ni.,Không ai có thể giải thích sự kiện kì lạ này.,"Tôi không biết phải làm gì, đây là một điều gì đó rất kỳ lạ"", Mcyen cho biết.",Không ai có thể giải thích sự kiện kì lạ này.,Neutral,Daily Conversation,test
+NLI_6594,NLI,PNT3,Nỏ có ai có thể giải thích kì sự kiện kì lạ ni.,Không ai có thể giải thích sự kiện kì lạ này.,"Tôi không biết phải làm gì, đây là một điều gì đó rất kỳ lạ"", Mcyen cho biết.",Không ai có thể giải thích sự kiện kì lạ này.,Neutral,Daily Conversation,test
+NLI_6323,NLI,PNB,Ông Conte đã được InterTV phỏng vấn vào đúng 1 đêm giữa tháng năm.,Ông Conte đã được InterTV phỏng vấn vào 1 đêm chính xác giữa tháng năm.,"Tôi không nghĩ rằng cán cân quyền lực ở Serie A thay đổi nhiều đến vậy chỉ trong một năm"", Conte nói với InterTV trước trận đấu với Inter tối 15/5.",Ông Conte đã được InterTV phỏng vấn vào 1 đêm chính xác giữa tháng năm.,Entailment,Daily Conversation,test
+NLI_6323,NLI,PNT2,Ông Conte đạ được InterTV phỏng vấn vào 1 đêm chính xác giữa tháng năm.,Ông Conte đã được InterTV phỏng vấn vào 1 đêm chính xác giữa tháng năm.,"Tôi không nghĩ rằng cán cân quyền lực ở Serie A thay đổi nhiều đến vậy chỉ trong một năm"", Conte nói với InterTV trước trận đấu với Inter tối 15/5.",Ông Conte đã được InterTV phỏng vấn vào 1 đêm chính xác giữa tháng năm.,Entailment,Daily Conversation,test
+NLI_6323,NLI,PNT3,Ông Conte đã được InterTV phỏng vấn vô 1 đêm chính xác giữa tháng năm.,Ông Conte đã được InterTV phỏng vấn vào 1 đêm chính xác giữa tháng năm.,"Tôi không nghĩ rằng cán cân quyền lực ở Serie A thay đổi nhiều đến vậy chỉ trong một năm"", Conte nói với InterTV trước trận đấu với Inter tối 15/5.",Ông Conte đã được InterTV phỏng vấn vào 1 đêm chính xác giữa tháng năm.,Entailment,Daily Conversation,test
+NLI_7530,NLI,PNB,Chị Phan Hoàng Anh chọn bay hãng hàng không Quốc gia Việt Nam.,Chị Phan Hoàng Anh chọn bay hãng hàng không Quốc gia Việt Nam.,"Là một trong những hành khách bay Vietjet chặng Hà Nội - Đà Nẵng ngày 27/4, chị Phan Hoàng Anh (Bắc Ninh) cho biết: ""Tôi khai báo y tế trên đường ra sân bay nên quá trình làm thủ tục rất nhanh chóng.",Chị Phan Hoàng Anh chọn bay hãng hàng không Quốc gia Việt Nam.,Contradiction,Daily Conversation,test
+NLI_7530,NLI,PNT2,Chị Phan Hoàng Anh chọn bay hãng hàng không Quốc gia Việt Nam.,Chị Phan Hoàng Anh chọn bay hãng hàng không Quốc gia Việt Nam.,"Là một trong những hành khách bay Vietjet chặng Hà Nội - Đà Nẵng ngày 27/4, chị Phan Hoàng Anh (Bắc Ninh) cho biết: ""Tôi khai báo y tế trên đường ra sân bay nên quá trình làm thủ tục rất nhanh chóng.",Chị Phan Hoàng Anh chọn bay hãng hàng không Quốc gia Việt Nam.,Contradiction,Daily Conversation,test
+NLI_7530,NLI,PNT3,Chị Phan Hoàng Anh chọn bay hãng hàng không Quốc gia Việt Nam.,Chị Phan Hoàng Anh chọn bay hãng hàng không Quốc gia Việt Nam.,"Là một trong những hành khách bay Vietjet chặng Hà Nội - Đà Nẵng ngày 27/4, chị Phan Hoàng Anh (Bắc Ninh) cho biết: ""Tôi khai báo y tế trên đường ra sân bay nên quá trình làm thủ tục rất nhanh chóng.",Chị Phan Hoàng Anh chọn bay hãng hàng không Quốc gia Việt Nam.,Contradiction,Daily Conversation,test
+NLI_0337,NLI,PNB,Người dân sinh sống tại thời điểm này tuyệt đối không được rời khỏi Thanh Hóa dù lý do gì.,Người dân sinh sống tại thời điểm này tuyết đối không được rời đi khỏi Thanh Hóa dù lý do là gì.,"Ngoài yêu cầu học sinh lớp 9 và 12 không ra ngoài tỉnh, ông Thức yêu cầu toàn bộ cán bộ, giáo viên trường THPT và trường THCS (được điều động dự phòng làm nhiệm vụ thi) không đi đến vùng có dịch đã được ngành y tế công bố từ ngày 21/5 đến khi hoàn thành nhiệm vụ; chủ động giữ gìn an toàn tuyệt đối cho bản thân và gia đình, khai báo y tế trước kỳ thi...",Người dân sinh sống tại thời điểm này tuyết đối không được rời đi khỏi Thanh Hóa dù lý do là gì.,Entailment,Daily Conversation,test
+NLI_0337,NLI,PNT2,Người dân sinh sống tại thời điểm ni tuyệt đối nỏ được rời đi khỏi Thanh Hóa dù lý do là chi.,Người dân sinh sống tại thời điểm này tuyết đối không được rời đi khỏi Thanh Hóa dù lý do là gì.,"Ngoài yêu cầu học sinh lớp 9 và 12 không ra ngoài tỉnh, ông Thức yêu cầu toàn bộ cán bộ, giáo viên trường THPT và trường THCS (được điều động dự phòng làm nhiệm vụ thi) không đi đến vùng có dịch đã được ngành y tế công bố từ ngày 21/5 đến khi hoàn thành nhiệm vụ; chủ động giữ gìn an toàn tuyệt đối cho bản thân và gia đình, khai báo y tế trước kỳ thi...",Người dân sinh sống tại thời điểm này tuyết đối không được rời đi khỏi Thanh Hóa dù lý do là gì.,Entailment,Daily Conversation,test
+NLI_0337,NLI,PNT3,Người dân sinh sống tại thời điểm ni tuyệt đối khung được đi ra khỏi Thanh Hoá dù lý do là chi.,Người dân sinh sống tại thời điểm này tuyết đối không được rời đi khỏi Thanh Hóa dù lý do là gì.,"Ngoài yêu cầu học sinh lớp 9 và 12 không ra ngoài tỉnh, ông Thức yêu cầu toàn bộ cán bộ, giáo viên trường THPT và trường THCS (được điều động dự phòng làm nhiệm vụ thi) không đi đến vùng có dịch đã được ngành y tế công bố từ ngày 21/5 đến khi hoàn thành nhiệm vụ; chủ động giữ gìn an toàn tuyệt đối cho bản thân và gia đình, khai báo y tế trước kỳ thi...",Người dân sinh sống tại thời điểm này tuyết đối không được rời đi khỏi Thanh Hóa dù lý do là gì.,Entailment,Daily Conversation,test
+NLI_2948,NLI,PNB,Thái độ của khán giả là đáp án cho những gì chúng tôi đã làm.,Thái độ của khán giả là đáp án cho những gì chúng tôi đã làm.,"Chúng tôi thất vọng, nhưng không tức giận với màn trình diễn của mình.",Thái độ của khán giả là đáp án cho những gì chúng tôi đã làm.,Neutral,Daily Conversation,test
+NLI_2948,NLI,PNT2,Thái độ của khán giả là đáp án cho những chi chúng tôi đã mần.,Thái độ của khán giả là đáp án cho những gì chúng tôi đã làm.,"Chúng tôi thất vọng, nhưng không tức giận với màn trình diễn của mình.",Thái độ của khán giả là đáp án cho những gì chúng tôi đã làm.,Neutral,Daily Conversation,test
+NLI_2948,NLI,PNT3,Thái độ của khán giả là đáp án cho những chi choa đã mần.,Thái độ của khán giả là đáp án cho những gì chúng tôi đã làm.,"Chúng tôi thất vọng, nhưng không tức giận với màn trình diễn của mình.",Thái độ của khán giả là đáp án cho những gì chúng tôi đã làm.,Neutral,Daily Conversation,test
+NLI_3269,NLI,PNB,Vì bình thường ít có chú mèo nào làm được như vậy nên mọi người mới bất ngờ.,Do bình thường ít có chú mèo nào làm được như vậy nên mọi người mới bất ngờ.,"Con mèo dường như quan sát rất kỹ phía dưới và nhanh chóng nhảy thẳng ra cửa sổ, khiến mọi người xung quanh không khỏi kinh ngạc.",Do bình thường ít có chú mèo nào làm được như vậy nên mọi người mới bất ngờ.,Entailment,Daily Conversation,test
+NLI_3269,NLI,PNT2,Do bình thường ít có chú mèo mô mần được như rứa nên mọi người mới bất ngờ.,Do bình thường ít có chú mèo nào làm được như vậy nên mọi người mới bất ngờ.,"Con mèo dường như quan sát rất kỹ phía dưới và nhanh chóng nhảy thẳng ra cửa sổ, khiến mọi người xung quanh không khỏi kinh ngạc.",Do bình thường ít có chú mèo nào làm được như vậy nên mọi người mới bất ngờ.,Entailment,Daily Conversation,test
+NLI_3269,NLI,PNT3,Do bình thường ít có kì con mèo mô mần được in ri nên mọi người mì bất ngờ.,Do bình thường ít có chú mèo nào làm được như vậy nên mọi người mới bất ngờ.,"Con mèo dường như quan sát rất kỹ phía dưới và nhanh chóng nhảy thẳng ra cửa sổ, khiến mọi người xung quanh không khỏi kinh ngạc.",Do bình thường ít có chú mèo nào làm được như vậy nên mọi người mới bất ngờ.,Entailment,Daily Conversation,test
+NLI_0647,NLI,PNB,Thông tin đã được Oppo khẳng định là chính xác và mọi người có thể tin vào nó.,Thông tin đã được Oppo khẳng định là tin chuẩn và mọi người có thể tin vào nó.,"Oppo không xác nhận thông tin trên, nhưng Chen nói rằng: ""Kể cả trong việc sản xuất xe hơi, chúng tôi sẽ tập trung vào lĩnh vực mà Oppo có thể làm tốt nhất.",Thông tin đã được Oppo khẳng định là tin chuẩn và mọi người có thể tin vào nó.,Contradiction,Daily Conversation,test
+NLI_0647,NLI,PNT2,Thông tin đạ được Oppo khẳng định là tin chuẩn và mọi người có thể tin vào nó.,Thông tin đã được Oppo khẳng định là tin chuẩn và mọi người có thể tin vào nó.,"Oppo không xác nhận thông tin trên, nhưng Chen nói rằng: ""Kể cả trong việc sản xuất xe hơi, chúng tôi sẽ tập trung vào lĩnh vực mà Oppo có thể làm tốt nhất.",Thông tin đã được Oppo khẳng định là tin chuẩn và mọi người có thể tin vào nó.,Contradiction,Daily Conversation,test
+NLI_0647,NLI,PNT3,Thông tin đã được Oppo khẳng định là tin chuẩn và mọi người có thể tin vô hắn,Thông tin đã được Oppo khẳng định là tin chuẩn và mọi người có thể tin vào nó.,"Oppo không xác nhận thông tin trên, nhưng Chen nói rằng: ""Kể cả trong việc sản xuất xe hơi, chúng tôi sẽ tập trung vào lĩnh vực mà Oppo có thể làm tốt nhất.",Thông tin đã được Oppo khẳng định là tin chuẩn và mọi người có thể tin vào nó.,Contradiction,Daily Conversation,test
+NLI_0448,NLI,PNB,Trung Quốc lặp lại những nhiệm vụ mới nhất của NASA.,Trung Quốc lặp lại những nhiệm vụ mới nhất của NASA.,"Sứ mệnh sao Hỏa của Trung Quốc có thể không hấp dẫn bằng nhiệm vụ mới nhất mà NASA thực hiện, bởi nó về cơ bản chỉ lặp lại những kỳ tích mà người Mỹ đã đạt được từ nhiều thập kỷ trước.",Trung Quốc lặp lại những nhiệm vụ mới nhất của NASA.,Contradiction,Daily Conversation,test
+NLI_0448,NLI,PNT2,Trung Quốc lặp lại nhửng nhiệm vụ mới nhất của NASA.,Trung Quốc lặp lại những nhiệm vụ mới nhất của NASA.,"Sứ mệnh sao Hỏa của Trung Quốc có thể không hấp dẫn bằng nhiệm vụ mới nhất mà NASA thực hiện, bởi nó về cơ bản chỉ lặp lại những kỳ tích mà người Mỹ đã đạt được từ nhiều thập kỷ trước.",Trung Quốc lặp lại những nhiệm vụ mới nhất của NASA.,Contradiction,Daily Conversation,test
+NLI_0448,NLI,PNT3,Trung Quốc lặp lại mấy nhiệm vụ mới nhất của NASA.,Trung Quốc lặp lại những nhiệm vụ mới nhất của NASA.,"Sứ mệnh sao Hỏa của Trung Quốc có thể không hấp dẫn bằng nhiệm vụ mới nhất mà NASA thực hiện, bởi nó về cơ bản chỉ lặp lại những kỳ tích mà người Mỹ đã đạt được từ nhiều thập kỷ trước.",Trung Quốc lặp lại những nhiệm vụ mới nhất của NASA.,Contradiction,Daily Conversation,test
+NLI_6280,NLI,PNB,Trẻ em trong độ tuổi đi học do ảnh hưởng từ tiêm vaccine thì được nghỉ học.,Trẻ em trong độ tuổi đi học do ảnh hưởng từ tiêm vaccine thì được nghỉ học.,"Vaccine không gặp vấn đề về an toàn nào trong quá trình thử nghiệm lâm sàng, tạo tiền đề để hãng dược phát triển dòng vaccine thế hệ hai cho trẻ em trong độ tuổi đi học.",Trẻ em trong độ tuổi đi học do ảnh hưởng từ tiêm vaccine thì được nghỉ học.,Neutral,Daily Conversation,test
+NLI_6280,NLI,PNT2,Trẻ em trong kì độ tuổi đi học do ảnh hưởng từ tiêm vaccine thì được nghỉ học.,Trẻ em trong độ tuổi đi học do ảnh hưởng từ tiêm vaccine thì được nghỉ học.,"Vaccine không gặp vấn đề về an toàn nào trong quá trình thử nghiệm lâm sàng, tạo tiền đề để hãng dược phát triển dòng vaccine thế hệ hai cho trẻ em trong độ tuổi đi học.",Trẻ em trong độ tuổi đi học do ảnh hưởng từ tiêm vaccine thì được nghỉ học.,Neutral,Daily Conversation,test
+NLI_6280,NLI,PNT3,Trẻ em trong kì độ tuổi đi học do ảnh hưởng từ tiêm vaccine thì được nghỉ học.,Trẻ em trong độ tuổi đi học do ảnh hưởng từ tiêm vaccine thì được nghỉ học.,"Vaccine không gặp vấn đề về an toàn nào trong quá trình thử nghiệm lâm sàng, tạo tiền đề để hãng dược phát triển dòng vaccine thế hệ hai cho trẻ em trong độ tuổi đi học.",Trẻ em trong độ tuổi đi học do ảnh hưởng từ tiêm vaccine thì được nghỉ học.,Neutral,Daily Conversation,test
+NLI_1677,NLI,PNB,4 nhân viên bãi rác tại bang New Jersey là ở Tây Ban Nha.,4 nhân viên bãi rác tại bang New Jersey là ở Tây Ban Nha.,"4 nhân viên một bãi rác ở bang New Jersey đã giúp một phụ nữ tìm lại nhẫn cưới, sau khi con trai cô vứt nó vào thùng rác.",4 nhân viên bãi rác tại bang New Jersey là ở Tây Ban Nha.,Contradiction,Daily Conversation,test
+NLI_1677,NLI,PNT2,4 nhân viên bãi rác tại bang New Jersey là ở Tây Ban Nha.,4 nhân viên bãi rác tại bang New Jersey là ở Tây Ban Nha.,"4 nhân viên một bãi rác ở bang New Jersey đã giúp một phụ nữ tìm lại nhẫn cưới, sau khi con trai cô vứt nó vào thùng rác.",4 nhân viên bãi rác tại bang New Jersey là ở Tây Ban Nha.,Contradiction,Daily Conversation,test
+NLI_1677,NLI,PNT3,4 nhân viên bại rác tại bang New Jersey là ở Tây Ban Nha.,4 nhân viên bãi rác tại bang New Jersey là ở Tây Ban Nha.,"4 nhân viên một bãi rác ở bang New Jersey đã giúp một phụ nữ tìm lại nhẫn cưới, sau khi con trai cô vứt nó vào thùng rác.",4 nhân viên bãi rác tại bang New Jersey là ở Tây Ban Nha.,Contradiction,Daily Conversation,test
+NLI_1767,NLI,PNB,"Zhang Kunwei bị chế nhạo, miệt thị ngoại hình.","Zhang Kunwei bị chế nhạo, miệt thị ngoại hình.","Đọc tin tìm người yêu của Zhang Kunwei, nhiều người không tin anh có điều kiện tốt như thế mà vẫn ""chưa có ai"" nên lao vào mắng mỏ và bêu riếu ngoại hình chàng trai.","Zhang Kunwei bị chế nhạo, miệt thị ngoại hình.",Entailment,Daily Conversation,test
+NLI_1767,NLI,PNT2,"Zhang Kunwei bị chế nhạo, miệt thị ngoại hình.","Zhang Kunwei bị chế nhạo, miệt thị ngoại hình.","Đọc tin tìm người yêu của Zhang Kunwei, nhiều người không tin anh có điều kiện tốt như thế mà vẫn ""chưa có ai"" nên lao vào mắng mỏ và bêu riếu ngoại hình chàng trai.","Zhang Kunwei bị chế nhạo, miệt thị ngoại hình.",Entailment,Daily Conversation,test
+NLI_1767,NLI,PNT3,"Zhang Kunwei bị người ta chế nhạo, miệt thị ngoại hình.","Zhang Kunwei bị chế nhạo, miệt thị ngoại hình.","Đọc tin tìm người yêu của Zhang Kunwei, nhiều người không tin anh có điều kiện tốt như thế mà vẫn ""chưa có ai"" nên lao vào mắng mỏ và bêu riếu ngoại hình chàng trai.","Zhang Kunwei bị chế nhạo, miệt thị ngoại hình.",Entailment,Daily Conversation,test
+QA_7713,QA,PNB,Sau khi Nam Kinh trở thành thủ đô của nhà Kim thì nó đã có tên gọi mới là gì?,Sau khi Nam Kinh trở thành thủ đô của nhà Kim thì nó đã có tên gọi mới là gì?,Sau khi Nam Kinh trở thành thủ đô của nhà Kim thì nó đã có tên gọi mới là gì?,Trung Đô,Trung Đô,Daily Conversation,test
+QA_7713,QA,PNT2,Sau khi Nam Kinh trở thành thủ đô của nhà Kim thì hấn đã có tên gọi mới là chi?,Sau khi Nam Kinh trở thành thủ đô của nhà Kim thì nó đã có tên gọi mới là gì?,Sau khi Nam Kinh trở thành thủ đô của nhà Kim thì nó đã có tên gọi mới là gì?,Trung Đô,Trung Đô,Daily Conversation,test
+QA_7713,QA,PNT3,Sau khi Nam Kinh trở thành thủ đô của nhà Kim thì hắn đạ có tên gọi mới là chi?,Sau khi Nam Kinh trở thành thủ đô của nhà Kim thì nó đã có tên gọi mới là gì?,Sau khi Nam Kinh trở thành thủ đô của nhà Kim thì nó đã có tên gọi mới là gì?,Trung Đô,Trung Đô,Daily Conversation,test
+QA_23724,QA,PNB,Vào ngày nào thì UNESCO đã quyết định cho khu trung tâm Hoàng thành Thăng Long trở thành di sản văn hóa thế giới?,Vào ngày nào thì UNESCO đã quyết định cho khu truang tâm Hoàng thành Thăng Long trở thành di sản văn háo thế giới?,Vào ngày nào thì UNESCO đã quyết định cho khu truang tâm Hoàng thành Thăng Long trở thành di sản văn háo thế giới?,Ngày 31 tháng 7 năm 2010,Ngày 31 tháng 7 năm 2010,Daily Conversation,test
+QA_23724,QA,PNT2,Vô ngày mô thì UNESCO đã quyết định cho khu truang tâm Hoàng thành Thăng Long trở thành di sản văn háo thế giới?,Vào ngày nào thì UNESCO đã quyết định cho khu truang tâm Hoàng thành Thăng Long trở thành di sản văn háo thế giới?,Vào ngày nào thì UNESCO đã quyết định cho khu truang tâm Hoàng thành Thăng Long trở thành di sản văn háo thế giới?,Ngày 31 tháng 7 năm 2010,Ngày 31 tháng 7 năm 2010,Daily Conversation,test
+QA_23724,QA,PNT3,Vào hôm mô thì UNESCO đạ quyết định cho khu truang tâm Hoàng thành Thăng Long trở thành di sản văn háo thế giới?,Vào ngày nào thì UNESCO đã quyết định cho khu truang tâm Hoàng thành Thăng Long trở thành di sản văn háo thế giới?,Vào ngày nào thì UNESCO đã quyết định cho khu truang tâm Hoàng thành Thăng Long trở thành di sản văn háo thế giới?,Ngày 31 tháng 7 năm 2010,Ngày 31 tháng 7 năm 2010,Daily Conversation,test
+QA_23978,QA,PNB,Ngoài chức năng quan trọng là làm gốm và văn hóa ra thì Bát Tràng ngày nay còn là nơi như thế nào?,Ngoài chức năng quan trọng là làm gốm và văn hóa ra thì tại Bát Tràng ngày nay còn là nơi như thế nào?,Ngoài chức năng quan trọng là làm gốm và văn hóa ra thì tại Bát Tràng ngày nay còn là nơi như thế nào?,địa điểm du lịch thu hút của thành phố Hà Nội,địa điểm du lịch thu hút của thành phố Hà Nội,Daily Conversation,test
+QA_23978,QA,PNT2,Ngoài chức năng quan trọng là mần gốm và văn hóa ra thì lộ Bát Tràng bữa ni còn là chỗ a răng?,Ngoài chức năng quan trọng là làm gốm và văn hóa ra thì tại Bát Tràng ngày nay còn là nơi như thế nào?,Ngoài chức năng quan trọng là làm gốm và văn hóa ra thì tại Bát Tràng ngày nay còn là nơi như thế nào?,địa điểm du lịch thu hút của thành phố Hà Nội,địa điểm du lịch thu hút của thành phố Hà Nội,Daily Conversation,test
+QA_23978,QA,PNT3,Ngoài chức năng quan trọng là làm gốm với văn hóa ra thì tại Bát Tràng ngày ni còn là nơi như răng?,Ngoài chức năng quan trọng là làm gốm và văn hóa ra thì tại Bát Tràng ngày nay còn là nơi như thế nào?,Ngoài chức năng quan trọng là làm gốm và văn hóa ra thì tại Bát Tràng ngày nay còn là nơi như thế nào?,địa điểm du lịch thu hút của thành phố Hà Nội,địa điểm du lịch thu hút của thành phố Hà Nội,Daily Conversation,test
+QA_20004,QA,PNB,"Vì nguyên nhân chính trị và tài chính, những nhà soạn nhạc người Ireland nổi tiếng khi đó đã làm gì?",Vì nguyên nhân chính trị và tài chính nên những nhà soạn nhạc người Ireland nổi tiếng khi đó đã làm gì?,Vì nguyên nhân chính trị và tài chính nên những nhà soạn nhạc người Ireland nổi tiếng khi đó đã làm gì?,di cư khỏi đảo,di cư khỏi đảo,Daily Conversation,test
+QA_20004,QA,PNT2,Vì nguyên nhân chính trị và tài chính nên những nhà soạn nhạc người Ireland nổi tiếng khi đó đã làm chi?,Vì nguyên nhân chính trị và tài chính nên những nhà soạn nhạc người Ireland nổi tiếng khi đó đã làm gì?,Vì nguyên nhân chính trị và tài chính nên những nhà soạn nhạc người Ireland nổi tiếng khi đó đã làm gì?,di cư khỏi đảo,di cư khỏi đảo,Daily Conversation,test
+QA_20004,QA,PNT3,Vì kì nguyên nhân chính trị và tài chính bơ những nhà soạn nhạc người Ireland nổi tiếng chầu nớ đã mần chi?,Vì nguyên nhân chính trị và tài chính nên những nhà soạn nhạc người Ireland nổi tiếng khi đó đã làm gì?,Vì nguyên nhân chính trị và tài chính nên những nhà soạn nhạc người Ireland nổi tiếng khi đó đã làm gì?,di cư khỏi đảo,di cư khỏi đảo,Daily Conversation,test
+QA_12019,QA,PNB,UNESCO đã công nhận Phong Nha-Kẻ Bàng là Di sản thiên nhiên thế giới lần thứ hai vào năm nào?,UNESCO đã công nhận Phong Nha-Kẻ Bàng là Di sản thiên nhiên thế giới lần thứ hai vào năm nào?,UNESCO đã công nhận Phong Nha-Kẻ Bàng là Di sản thiên nhiên thế giới lần thứ hai vào năm nào?,2015,2015,Daily Conversation,test
+QA_12019,QA,PNT2,UNESCO đã công nhận Phong Nha-Kẻ Bàng là Di sản thiên nhiên thế giới lần thứ hai vô năm mô?,UNESCO đã công nhận Phong Nha-Kẻ Bàng là Di sản thiên nhiên thế giới lần thứ hai vào năm nào?,UNESCO đã công nhận Phong Nha-Kẻ Bàng là Di sản thiên nhiên thế giới lần thứ hai vào năm nào?,2015,2015,Daily Conversation,test
+QA_12019,QA,PNT3,UNESCO đã công nhận Phong Nha - Kẻ Bàng là Di sản thiên nhiên thế giới lần thứ hai vô năm mô?,UNESCO đã công nhận Phong Nha-Kẻ Bàng là Di sản thiên nhiên thế giới lần thứ hai vào năm nào?,UNESCO đã công nhận Phong Nha-Kẻ Bàng là Di sản thiên nhiên thế giới lần thứ hai vào năm nào?,2015,2015,Daily Conversation,test
+QA_17769,QA,PNB,Những người dân bình thường đã làm gì khi bị người Anh cố tình xâm phạm quyền của họ?,Những người dân bình thường đã làm gì khi bị người Anh cố tình vi phạm đến quyền của họ?,Những người dân bình thường đã làm gì khi bị người Anh cố tình vi phạm đến quyền của họ?,trở thành quân nổi dậy chống lại Anh Quốc,trở thành quân nổi dậy chống lại Anh Quốc,Daily Conversation,test
+QA_17769,QA,PNT2,Những người dân bình thường đã làm chi khi bị người Anh cố tình vi phạm đến quyền của họ?,Những người dân bình thường đã làm gì khi bị người Anh cố tình vi phạm đến quyền của họ?,Những người dân bình thường đã làm gì khi bị người Anh cố tình vi phạm đến quyền của họ?,trở thành quân nổi dậy chống lại Anh Quốc,trở thành quân nổi dậy chống lại Anh Quốc,Daily Conversation,test
+QA_17769,QA,PNT3,Mấy người dân bình thường mần chi lúc bị người Anh cố tình vi phạm đến quyền của mấy người nớ?,Những người dân bình thường đã làm gì khi bị người Anh cố tình vi phạm đến quyền của họ?,Những người dân bình thường đã làm gì khi bị người Anh cố tình vi phạm đến quyền của họ?,trở thành quân nổi dậy chống lại Anh Quốc,trở thành quân nổi dậy chống lại Anh Quốc,Daily Conversation,test
+QA_26719,QA,PNB,Về hộp sọ và bộ não thì thể tích của loài người so với tinh tinh hay khỉ đột thì như thế nào?,Về hộp sọ và bộ não thì thể tích của loài người so với tinh tinh hay khỉ đột thì như thế nào?,Về hộp sọ và bộ não thì thể tích của loài người so với tinh tinh hay khỉ đột thì như thế nào?,cao hơn gấp đôi,cao hơn gấp đôi,Daily Conversation,test
+QA_26719,QA,PNT2,Về hộp sọ với bộ não thì thể tích của loài người so với tinh tinh hay khỉ đột thì như răng,Về hộp sọ và bộ não thì thể tích của loài người so với tinh tinh hay khỉ đột thì như thế nào?,Về hộp sọ và bộ não thì thể tích của loài người so với tinh tinh hay khỉ đột thì như thế nào?,cao hơn gấp đôi,cao hơn gấp đôi,Daily Conversation,test
+QA_26719,QA,PNT3,Về hộp sọ với bộ não thì thể tích của loài người so với tinh tinh hay khỉ đột thì như răng?,Về hộp sọ và bộ não thì thể tích của loài người so với tinh tinh hay khỉ đột thì như thế nào?,Về hộp sọ và bộ não thì thể tích của loài người so với tinh tinh hay khỉ đột thì như thế nào?,cao hơn gấp đôi,cao hơn gấp đôi,Daily Conversation,test
+QA_24045,QA,PNB,Theo nhiều ý kiến thì Hà Nội đang dần đánh mất điều gì để thay vào đó là sự thiếu văn hóa?,Theo nhiều ý kiến thì Hà Nội đang dàn đánh mất điều gì để thay vào đó là sự thiếu văn hóa?,Theo nhiều ý kiến thì Hà Nội đang dàn đánh mất điều gì để thay vào đó là sự thiếu văn hóa?,"lối cư xử nhã nhặn, thanh lịch","lối cư xử nhã nhặn, thanh lịch",Daily Conversation,test
+QA_24045,QA,PNT2,Theo nhiều ý kiến thì Hà Nội đang dần đánh mất điều chi để thay vô đó là sự thiếu văn hóa?,Theo nhiều ý kiến thì Hà Nội đang dàn đánh mất điều gì để thay vào đó là sự thiếu văn hóa?,Theo nhiều ý kiến thì Hà Nội đang dàn đánh mất điều gì để thay vào đó là sự thiếu văn hóa?,"lối cư xử nhã nhặn, thanh lịch","lối cư xử nhã nhặn, thanh lịch",Daily Conversation,test
+QA_24045,QA,PNT3,Theo nhiều ý kiến thì Hà Nội đang dần đánh mất điều chi để thay vô đó là sự thiếu văn hóa?,Theo nhiều ý kiến thì Hà Nội đang dàn đánh mất điều gì để thay vào đó là sự thiếu văn hóa?,Theo nhiều ý kiến thì Hà Nội đang dàn đánh mất điều gì để thay vào đó là sự thiếu văn hóa?,"lối cư xử nhã nhặn, thanh lịch","lối cư xử nhã nhặn, thanh lịch",Daily Conversation,test
+QA_21489,QA,PNB,Richard đã làm gì sau khi tái bố trí quân đội mà ông để lại nhằm bảo vệ các lãnh thổ ở Pháp?,Richard đã làm gì sau khi tái bố trí quân đội mà ông để lại nhằm bảo vệ các lãnh thổ ở Pháp?,Richard đã làm gì sau khi tái bố trí quân đội mà ông để lại nhằm bảo vệ các lãnh thổ ở Pháp?,lên đường trong cuộc Thập tự chinh vào mùa hè năm 1190,lên đường trong cuộc Thập tự chinh vào mùa hè năm 1190,Daily Conversation,test
+QA_21489,QA,PNT2,Richard đã mần chi sau khi tái bố trí quân đội mà ông để lại nhằm bảo vệ các lãnh thổ ở Pháp?,Richard đã làm gì sau khi tái bố trí quân đội mà ông để lại nhằm bảo vệ các lãnh thổ ở Pháp?,Richard đã làm gì sau khi tái bố trí quân đội mà ông để lại nhằm bảo vệ các lãnh thổ ở Pháp?,lên đường trong cuộc Thập tự chinh vào mùa hè năm 1190,lên đường trong cuộc Thập tự chinh vào mùa hè năm 1190,Daily Conversation,test
+QA_21489,QA,PNT3,Richard đã làm chi sau khi tái bố trí quân đội mà ông để lại để bảo vệ các lãnh thổ ở Pháp?,Richard đã làm gì sau khi tái bố trí quân đội mà ông để lại nhằm bảo vệ các lãnh thổ ở Pháp?,Richard đã làm gì sau khi tái bố trí quân đội mà ông để lại nhằm bảo vệ các lãnh thổ ở Pháp?,lên đường trong cuộc Thập tự chinh vào mùa hè năm 1190,lên đường trong cuộc Thập tự chinh vào mùa hè năm 1190,Daily Conversation,test
+QA_4230,QA,PNB,"Khi chính phủ Thụy Sĩ nhận ra không nên chỉ có quyền phủ quyết các luật của Nghị viện, họ đã làm gì?","Khi chính phủ Thụy Sĩ nhận ra không nên chỉ có quyền phủ quyết các luật của Nghị viện, họ đã làm gì?","Khi chính phủ Thụy Sĩ nhận ra không nên chỉ có quyền phủ quyết các luật của Nghị viện, họ đã làm gì?","thêm ""đạo luật trưng cầu dân ý"" vào hiến pháp","thêm ""đạo luật trưng cầu dân ý"" vào hiến pháp",Daily Conversation,test
+QA_4230,QA,PNT2,"Khi chính phủ Thụy Sĩ nhận ra không nên chỉ có quyền phủ quyết các luật của Nghị viện, họ đã làm chi?","Khi chính phủ Thụy Sĩ nhận ra không nên chỉ có quyền phủ quyết các luật của Nghị viện, họ đã làm gì?","Khi chính phủ Thụy Sĩ nhận ra không nên chỉ có quyền phủ quyết các luật của Nghị viện, họ đã làm gì?","thêm ""đạo luật trưng cầu dân ý"" vào hiến pháp","thêm ""đạo luật trưng cầu dân ý"" vào hiến pháp",Daily Conversation,test
+QA_4230,QA,PNT3,"Khi chính phủ Thụy Sĩ nhận ra khung nên chỉ có quyền phủ quyết các luật của Nghị viện, họ đã mần cấy chi?","Khi chính phủ Thụy Sĩ nhận ra không nên chỉ có quyền phủ quyết các luật của Nghị viện, họ đã làm gì?","Khi chính phủ Thụy Sĩ nhận ra không nên chỉ có quyền phủ quyết các luật của Nghị viện, họ đã làm gì?","thêm ""đạo luật trưng cầu dân ý"" vào hiến pháp","thêm ""đạo luật trưng cầu dân ý"" vào hiến pháp",Daily Conversation,test
+QA_27538,QA,PNB,Quân đội Anh Pháp đã phản ứng như thế nào với việc dân thường Pháp đánh đập người Việt?,Quân đội Anh Pháp đã phản ứng như thế nào với việc dân thường Pháp đánh đập người Việt?,Quân đội Anh Pháp đã phản ứng như thế nào với việc dân thường Pháp đánh đập người Việt?,chỉ đứng nhìn chứ không can thiệp,chỉ đứng nhìn chứ không can thiệp,Daily Conversation,test
+QA_27538,QA,PNT2,Quân đội Anh Pháp đã phản ứng a răng với việc dân thường Pháp đánh đập người Việt?,Quân đội Anh Pháp đã phản ứng như thế nào với việc dân thường Pháp đánh đập người Việt?,Quân đội Anh Pháp đã phản ứng như thế nào với việc dân thường Pháp đánh đập người Việt?,chỉ đứng nhìn chứ không can thiệp,chỉ đứng nhìn chứ không can thiệp,Daily Conversation,test
+QA_27538,QA,PNT3,Quân đội Anh Pháp đã phản ứng như răng với việc dân thường Pháp đánh đập người Việt?,Quân đội Anh Pháp đã phản ứng như thế nào với việc dân thường Pháp đánh đập người Việt?,Quân đội Anh Pháp đã phản ứng như thế nào với việc dân thường Pháp đánh đập người Việt?,chỉ đứng nhìn chứ không can thiệp,chỉ đứng nhìn chứ không can thiệp,Daily Conversation,test
+QA_8137,QA,PNB,Trường Đại học Thủy sản Nha Trang trước khi tọa lạc ở Nha Trang thì có vị trí ở đâu?,Trường Đại học Thủy sản Nha Trang trước khi tọa lạc tại Nha Trang thì nó có vị trí ở đâu?,Trường Đại học Thủy sản Nha Trang trước khi tọa lạc tại Nha Trang thì nó có vị trí ở đâu?,Hải Phòng,Hải Phòng,Daily Conversation,test
+QA_8137,QA,PNT2,Trường Đại học Thủy sản Nha Trang trước khi tọa lạc tại Nha Trang thì hấn có vị trí ở mô?,Trường Đại học Thủy sản Nha Trang trước khi tọa lạc tại Nha Trang thì nó có vị trí ở đâu?,Trường Đại học Thủy sản Nha Trang trước khi tọa lạc tại Nha Trang thì nó có vị trí ở đâu?,Hải Phòng,Hải Phòng,Daily Conversation,test
+QA_8137,QA,PNT3,Trường Đại học Thủy sản Nha Trang trước khi tọa lạc ở Nha Trang thì hắn có vị trí ở mô?,Trường Đại học Thủy sản Nha Trang trước khi tọa lạc tại Nha Trang thì nó có vị trí ở đâu?,Trường Đại học Thủy sản Nha Trang trước khi tọa lạc tại Nha Trang thì nó có vị trí ở đâu?,Hải Phòng,Hải Phòng,Daily Conversation,test
+QA_9601,QA,PNB,"Nhằm kết thúc cuộc đối đầu giữa Anh, Pháp và Tây Ban Nha thì hiệp ước chính thức được ký khi nào?","Nhằm kết thúc cuộc đối đầu giữa Anh, Pháp và Tây Ban Nha thì hiệp ước chính thức được ký khi nào?","Nhằm kết thúc cuộc đối đầu giữa Anh, Pháp và Tây Ban Nha thì hiệp ước chính thức được ký khi nào?",ngày 10 tháng 2 năm 1763,ngày 10 tháng 2 năm 1763,Daily Conversation,test
+QA_9601,QA,PNT2,"Nhằm kết thúc cuộc đối đầu giữa Anh, Pháp và Tây Ban Nha thì hiệp ước chính thức được ký khi mô?","Nhằm kết thúc cuộc đối đầu giữa Anh, Pháp và Tây Ban Nha thì hiệp ước chính thức được ký khi nào?","Nhằm kết thúc cuộc đối đầu giữa Anh, Pháp và Tây Ban Nha thì hiệp ước chính thức được ký khi nào?",ngày 10 tháng 2 năm 1763,ngày 10 tháng 2 năm 1763,Daily Conversation,test
+QA_9601,QA,PNT3,"Nhằm kết thúc cuộc đối đầu giữa Anh, Pháp và Tây Ban Nha thì hiệp ước chính thức được ký khi mô rựa?","Nhằm kết thúc cuộc đối đầu giữa Anh, Pháp và Tây Ban Nha thì hiệp ước chính thức được ký khi nào?","Nhằm kết thúc cuộc đối đầu giữa Anh, Pháp và Tây Ban Nha thì hiệp ước chính thức được ký khi nào?",ngày 10 tháng 2 năm 1763,ngày 10 tháng 2 năm 1763,Daily Conversation,test
+QA_11490,QA,PNB,Hoàng Phụng Thế nghe tin Sư Ôn về đã làm gì?,Hoàng Phụng Thế nghe tin Sư Ôn về đã làm gì?,Hoàng Phụng Thế nghe tin Sư Ôn về đã làm gì?,đánh lẻn bắt được Sư Ôn và phá tan giặc ấy,đánh lẻn bắt được Sư Ôn và phá tan giặc ấy,Daily Conversation,test
+QA_11490,QA,PNT2,Hoàng Phụng Thế nghe tin Sư Ôn về đạ mần chi?,Hoàng Phụng Thế nghe tin Sư Ôn về đã làm gì?,Hoàng Phụng Thế nghe tin Sư Ôn về đã làm gì?,đánh lẻn bắt được Sư Ôn và phá tan giặc ấy,đánh lẻn bắt được Sư Ôn và phá tan giặc ấy,Daily Conversation,test
+QA_11490,QA,PNT3,Hoàng Phụng Thế nghe tin Sư Ôn về đã mần chi?,Hoàng Phụng Thế nghe tin Sư Ôn về đã làm gì?,Hoàng Phụng Thế nghe tin Sư Ôn về đã làm gì?,đánh lẻn bắt được Sư Ôn và phá tan giặc ấy,đánh lẻn bắt được Sư Ôn và phá tan giặc ấy,Daily Conversation,test
+QA_19406,QA,PNB,Vào năm 1938 thì ban hàng không thành lập năm 1929 đã có tên gọi là gì?,Vào năm 1938 thì ban hàng không thành lập năm 1929 đã có tên gọi là gì?,Vào năm 1938 thì ban hàng không thành lập năm 1929 đã có tên gọi là gì?,Trường Sĩ quan Không quân,Trường Sĩ quan Không quân,Daily Conversation,test
+QA_19406,QA,PNT2,Vào năm 1938 thì ban hàng không thành lập năm 1929 đã có tên gọi là chi?,Vào năm 1938 thì ban hàng không thành lập năm 1929 đã có tên gọi là gì?,Vào năm 1938 thì ban hàng không thành lập năm 1929 đã có tên gọi là gì?,Trường Sĩ quan Không quân,Trường Sĩ quan Không quân,Daily Conversation,test
+QA_19406,QA,PNT3,Vô năm 1938 thì ban hàng không thành lập năm 1929 đã có tên gọi là chi?,Vào năm 1938 thì ban hàng không thành lập năm 1929 đã có tên gọi là gì?,Vào năm 1938 thì ban hàng không thành lập năm 1929 đã có tên gọi là gì?,Trường Sĩ quan Không quân,Trường Sĩ quan Không quân,Daily Conversation,test
+QA_18652,QA,PNB,Nếu một phủ mà thuế lương chỉ thiếu 1 vạn thạch nữa sẽ đạt 10 vạn thạch thì phủ đó được gọi là gì?,Nếu một phủ mà thuế lương chỉ thiếu 1 vạn thạch nữa sẽ đạt 10 vạn thạch thì phủ đó được gọi là gì?,Nếu một phủ mà thuế lương chỉ thiếu 1 vạn thạch nữa sẽ đạt 10 vạn thạch thì phủ đó được gọi là gì?,hạ phủ,hạ phủ,Daily Conversation,test
+QA_18652,QA,PNT2,Nếu một phủ mà thuế lương chỉ thiếu 1 vạn thạch nữa sẽ đạt 10 vạn thạch thì phủ đó được gọi cái chi?,Nếu một phủ mà thuế lương chỉ thiếu 1 vạn thạch nữa sẽ đạt 10 vạn thạch thì phủ đó được gọi là gì?,Nếu một phủ mà thuế lương chỉ thiếu 1 vạn thạch nữa sẽ đạt 10 vạn thạch thì phủ đó được gọi là gì?,hạ phủ,hạ phủ,Daily Conversation,test
+QA_18652,QA,PNT3,Nếu một phủ mà thuế lương chỉ thiếu 1 vạn thạch nựa là đạt 10 vạn thạch thì phủ nớ được gọi là cấy chi?,Nếu một phủ mà thuế lương chỉ thiếu 1 vạn thạch nữa sẽ đạt 10 vạn thạch thì phủ đó được gọi là gì?,Nếu một phủ mà thuế lương chỉ thiếu 1 vạn thạch nữa sẽ đạt 10 vạn thạch thì phủ đó được gọi là gì?,hạ phủ,hạ phủ,Daily Conversation,test
+QA_7436,QA,PNB,Vào thời gian nào thì tiếng Anh lan rộng ra khắp toàn thế giới?,Vào thời gian nào thì tiếng Anh lan rộng ra khắp toàn thế giới?,Vào thời gian nào thì tiếng Anh lan rộng ra khắp toàn thế giới?,từ thế kỷ XVII đến giữa thế kỷ XX,từ thế kỷ XVII đến giữa thế kỷ XX,Daily Conversation,test
+QA_7436,QA,PNT2,Vô thời gian mô thì tiếng Anh lan rộng ra khắp toàn thế giới?,Vào thời gian nào thì tiếng Anh lan rộng ra khắp toàn thế giới?,Vào thời gian nào thì tiếng Anh lan rộng ra khắp toàn thế giới?,từ thế kỷ XVII đến giữa thế kỷ XX,từ thế kỷ XVII đến giữa thế kỷ XX,Daily Conversation,test
+QA_7436,QA,PNT3,Vào thời gian mô thì tiếng Anh lan rộng ra khắp toàn thế giới?,Vào thời gian nào thì tiếng Anh lan rộng ra khắp toàn thế giới?,Vào thời gian nào thì tiếng Anh lan rộng ra khắp toàn thế giới?,từ thế kỷ XVII đến giữa thế kỷ XX,từ thế kỷ XVII đến giữa thế kỷ XX,Daily Conversation,test
+QA_7517,QA,PNB,Vào thời gian nào thì tiếng Anh được sử dụng nhiều hơn bất cứ ngôn ngữ nào?,Vào thời gian nào thì tiếng Anh được sử dụng nhiều hơn bất cứ ngôn ngữ nào?,Vào thời gian nào thì tiếng Anh được sử dụng nhiều hơn bất cứ ngôn ngữ nào?,Đến thế kỷ XXI,Đến thế kỷ XXI,Daily Conversation,test
+QA_7517,QA,PNT2,Vào thời gian mô thì tiếng Anh được sử dụng nhiều hơn bất cứ cấy ngôn ngữ mô?,Vào thời gian nào thì tiếng Anh được sử dụng nhiều hơn bất cứ ngôn ngữ nào?,Vào thời gian nào thì tiếng Anh được sử dụng nhiều hơn bất cứ ngôn ngữ nào?,Đến thế kỷ XXI,Đến thế kỷ XXI,Daily Conversation,test
+QA_7517,QA,PNT3,Vào thời gian mô thì tiếng Anh được dùng nhiều hơn bất cứ ngôn ngữ mô khác?,Vào thời gian nào thì tiếng Anh được sử dụng nhiều hơn bất cứ ngôn ngữ nào?,Vào thời gian nào thì tiếng Anh được sử dụng nhiều hơn bất cứ ngôn ngữ nào?,Đến thế kỷ XXI,Đến thế kỷ XXI,Daily Conversation,test
+QA_3410,QA,PNB,Phạm vi thám hiểm trong lĩnh vực vũ trụ đã mở rộng đến nơi nào vào nửa sau thế kỷ XX?,Phạm vị thám hiểm trong lĩnh vực vũ trụ đã mở rộng đến nơi nào vào nữa sau thế kỷ XX?,Phạm vị thám hiểm trong lĩnh vực vũ trụ đã mở rộng đến nơi nào vào nữa sau thế kỷ XX?,toàn bộ hệ mặt trời,toàn bộ hệ mặt trời,Daily Conversation,test
+QA_3410,QA,PNT2,Phạm vị thám hiểm trong lĩnh vực vũ trụ đạ mở rộng đến mô vào nửa sau thế kỷ XX?,Phạm vị thám hiểm trong lĩnh vực vũ trụ đã mở rộng đến nơi nào vào nữa sau thế kỷ XX?,Phạm vị thám hiểm trong lĩnh vực vũ trụ đã mở rộng đến nơi nào vào nữa sau thế kỷ XX?,toàn bộ hệ mặt trời,toàn bộ hệ mặt trời,Daily Conversation,test
+QA_3410,QA,PNT3,Phạm vị thám hiểm trong lĩnh vực vũ trụ đã mở rộng đến từng mô vào nữa sau thế kỷ XX?,Phạm vị thám hiểm trong lĩnh vực vũ trụ đã mở rộng đến nơi nào vào nữa sau thế kỷ XX?,Phạm vị thám hiểm trong lĩnh vực vũ trụ đã mở rộng đến nơi nào vào nữa sau thế kỷ XX?,toàn bộ hệ mặt trời,toàn bộ hệ mặt trời,Daily Conversation,test
+QA_3137,QA,PNB,Vào thời điểm nào thì con người không thể sinh sống được nữa tại khu vực Sahara?,Vào thời điểm nào thì con người không thể sinh sống được nữa tại khu vực Sahara?,Vào thời điểm nào thì con người không thể sinh sống được nữa tại khu vực Sahara?,khoảng năm 2500 TCN,khoảng năm 2500 TCN,Daily Conversation,test
+QA_3137,QA,PNT2,Vào thời điểm mô thì con người nỏ sinh sống được nữa tại mấy đoạn Sahara?,Vào thời điểm nào thì con người không thể sinh sống được nữa tại khu vực Sahara?,Vào thời điểm nào thì con người không thể sinh sống được nữa tại khu vực Sahara?,khoảng năm 2500 TCN,khoảng năm 2500 TCN,Daily Conversation,test
+QA_3137,QA,PNT3,Vô thời điểm mô là con người không thể sinh sống được nữa tại khu vực Sahara?,Vào thời điểm nào thì con người không thể sinh sống được nữa tại khu vực Sahara?,Vào thời điểm nào thì con người không thể sinh sống được nữa tại khu vực Sahara?,khoảng năm 2500 TCN,khoảng năm 2500 TCN,Daily Conversation,test
+QA_18041,QA,PNB,"Vào năm 1914 thì kênh đào đã được mở cửa, điều này đã thúc đẩy việc hoạt động mậu dịch với các khu vực nào?","Vào năm 1914 thì kênh đào đã được mở cửa, điều này đã thúc đẩy việc hoạt động mậu dịch với các khu vực nào?","Vào năm 1914 thì kênh đào đã được mở cửa, điều này đã thúc đẩy việc hoạt động mậu dịch với các khu vực nào?",Nhật Bản và phần còn lại của Viễn Đông,Nhật Bản và phần còn lại của Viễn Đông,Daily Conversation,test
+QA_18041,QA,PNT2,"Vô năm 1914 thì kênh đào đã được mở cửa, điều ni đã thúc đẩy việc hoạt động mậu dịch với các khu vực mô?","Vào năm 1914 thì kênh đào đã được mở cửa, điều này đã thúc đẩy việc hoạt động mậu dịch với các khu vực nào?","Vào năm 1914 thì kênh đào đã được mở cửa, điều này đã thúc đẩy việc hoạt động mậu dịch với các khu vực nào?",Nhật Bản và phần còn lại của Viễn Đông,Nhật Bản và phần còn lại của Viễn Đông,Daily Conversation,test
+QA_18041,QA,PNT3,"Đoạn năm 1914 thì kênh đào đạ được mở cửa, chuyện ni đạ thúc đẩy việc hoạt động mậu dịch với những khu vực mô?","Vào năm 1914 thì kênh đào đã được mở cửa, điều này đã thúc đẩy việc hoạt động mậu dịch với các khu vực nào?","Vào năm 1914 thì kênh đào đã được mở cửa, điều này đã thúc đẩy việc hoạt động mậu dịch với các khu vực nào?",Nhật Bản và phần còn lại của Viễn Đông,Nhật Bản và phần còn lại của Viễn Đông,Daily Conversation,test
+QA_25984,QA,PNB,Từ nhỏ Kepler đã nổi bật hơn anh chị em trong gia đình nhờ vào đặc điểm nào?,Từ nhỏ Kepler đã nổi bật hơn anh chị em trong gia đình nhờ vào đặc điểm nào?,Từ nhỏ Kepler đã nổi bật hơn anh chị em trong gia đình nhờ vào đặc điểm nào?,thông minh hơn người,thông minh hơn người,Daily Conversation,test
+QA_25984,QA,PNT2,Từ bé Kepler đã nổi bật hơn anh chị em trong nhà nhờ vô đặc điểm mô?,Từ nhỏ Kepler đã nổi bật hơn anh chị em trong gia đình nhờ vào đặc điểm nào?,Từ nhỏ Kepler đã nổi bật hơn anh chị em trong gia đình nhờ vào đặc điểm nào?,thông minh hơn người,thông minh hơn người,Daily Conversation,test
+QA_25984,QA,PNT3,Từ nhỏ Kepler đã nổi bật hơn anh chị em trong gia đình nhờ vô kì đặc điểm mô?,Từ nhỏ Kepler đã nổi bật hơn anh chị em trong gia đình nhờ vào đặc điểm nào?,Từ nhỏ Kepler đã nổi bật hơn anh chị em trong gia đình nhờ vào đặc điểm nào?,thông minh hơn người,thông minh hơn người,Daily Conversation,test
+QA_26154,QA,PNB,Với sự không rõ ràng trong thần học thì Kepler đã bị giáo hội Luther phạt như thế nào?,Với sự không rõ ràng trong thần học thì Kepler đã bị giáo hội Luther phạt như thế nào?,Với sự không rõ ràng trong thần học thì Kepler đã bị giáo hội Luther phạt như thế nào?,không ban bí tích Thánh thể,không ban bí tích Thánh thể,Daily Conversation,test
+QA_26154,QA,PNT2,Với sự nỏ rõ ràng trong thần học thì Kepler đã bị giáo hội Luther phạt như răng ?,Với sự không rõ ràng trong thần học thì Kepler đã bị giáo hội Luther phạt như thế nào?,Với sự không rõ ràng trong thần học thì Kepler đã bị giáo hội Luther phạt như thế nào?,không ban bí tích Thánh thể,không ban bí tích Thánh thể,Daily Conversation,test
+QA_26154,QA,PNT3,Với sự nỏ rõ ràng trong thần học thì Kepler đã bị giáo hội Luther phạt như răng?,Với sự không rõ ràng trong thần học thì Kepler đã bị giáo hội Luther phạt như thế nào?,Với sự không rõ ràng trong thần học thì Kepler đã bị giáo hội Luther phạt như thế nào?,không ban bí tích Thánh thể,không ban bí tích Thánh thể,Daily Conversation,test
+QA_14257,QA,PNB,"Trong ""Hiện tượng Tinh thần"", tác giả coi nền văn minh phương Tây như thế nào?","Trong ""Hiện tượng Tinh thần"" thì tác giả xem nền văn minh phương Tây như thế nào?","Trong ""Hiện tượng Tinh thần"" thì tác giả xem nền văn minh phương Tây như thế nào?",hoàn thiện nhất,hoàn thiện nhất,Daily Conversation,test
+QA_14257,QA,PNT2,"Trong ""Hiện tượng Tinh thần"" thì tác giả xem nền văn minh phương Tây như răng?","Trong ""Hiện tượng Tinh thần"" thì tác giả xem nền văn minh phương Tây như thế nào?","Trong ""Hiện tượng Tinh thần"" thì tác giả xem nền văn minh phương Tây như thế nào?",hoàn thiện nhất,hoàn thiện nhất,Daily Conversation,test
+QA_14257,QA,PNT3,"Trong ""Hiện tượng Tinh thần"" thì tác giả coi nền văn minh phương Tây như răng?","Trong ""Hiện tượng Tinh thần"" thì tác giả xem nền văn minh phương Tây như thế nào?","Trong ""Hiện tượng Tinh thần"" thì tác giả xem nền văn minh phương Tây như thế nào?",hoàn thiện nhất,hoàn thiện nhất,Daily Conversation,test
+QA_9520,QA,PNB,Sau các trận thua thì quân Pháp đã bị đồng minh Anh và Phổ đánh đuổi về đâu?,Sau các trận thua thì quân Pháp đã bị đồng minh Anh và Phổ đánh đuổi về tại đâu?,Sau các trận thua thì quân Pháp đã bị đồng minh Anh và Phổ đánh đuổi về tại đâu?,các lãnh thổ Đức dọc theo sông Rhine,các lãnh thổ Đức dọc theo sông Rhine,Daily Conversation,test
+QA_9520,QA,PNT2,Sau các trận thua thì quân Pháp đã bị đồng minh Anh và Phổ đánh đuổi về tại mô?,Sau các trận thua thì quân Pháp đã bị đồng minh Anh và Phổ đánh đuổi về tại đâu?,Sau các trận thua thì quân Pháp đã bị đồng minh Anh và Phổ đánh đuổi về tại đâu?,các lãnh thổ Đức dọc theo sông Rhine,các lãnh thổ Đức dọc theo sông Rhine,Daily Conversation,test
+QA_9520,QA,PNT3,Sau các trận thua thì quân Pháp đã bị đồng minh Anh và Phổ đánh đuổi về chỗ mô?,Sau các trận thua thì quân Pháp đã bị đồng minh Anh và Phổ đánh đuổi về tại đâu?,Sau các trận thua thì quân Pháp đã bị đồng minh Anh và Phổ đánh đuổi về tại đâu?,các lãnh thổ Đức dọc theo sông Rhine,các lãnh thổ Đức dọc theo sông Rhine,Daily Conversation,test
+SENT_4737,SENT,PNB,ảnh này tao thấy mày đăng mấy lần rồi đó admin,ảnh này tao thấy mày đăng mấy lần rồi đó admin,ảnh này tao thấy mày đăng mấy lần rồi đó admin,,Surprise,Daily Conversation,test
+SENT_4737,SENT,PNT2,ảnh ni tau chộ mi đăng mấy lần rồi đó admin,ảnh này tao thấy mày đăng mấy lần rồi đó admin,ảnh này tao thấy mày đăng mấy lần rồi đó admin,,Surprise,Daily Conversation,test
+SENT_4737,SENT,PNT3,ảnh ni tao thấy mi đăng mấy lần rồi đó admin,ảnh này tao thấy mày đăng mấy lần rồi đó admin,ảnh này tao thấy mày đăng mấy lần rồi đó admin,,Surprise,Daily Conversation,test
+SENT_2816,SENT,PNB,mình không hiểu tại sao nó không bị phóng điện chết nhỉ ?,mình không hiểu tại sao nó không bị phóng điện chết nhỉ ?,mình không hiểu tại sao nó không bị phóng điện chết nhỉ ?,,Surprise,Daily Conversation,test
+SENT_2816,SENT,PNT2,mình nỏ hiểu tại răng hấn nỏ bị phóng điện chết hè ?,mình không hiểu tại sao nó không bị phóng điện chết nhỉ ?,mình không hiểu tại sao nó không bị phóng điện chết nhỉ ?,,Surprise,Daily Conversation,test
+SENT_2816,SENT,PNT3,mềng nỏ hiểu tại răng hắn khung bị phóng điện chết hè ?,mình không hiểu tại sao nó không bị phóng điện chết nhỉ ?,mình không hiểu tại sao nó không bị phóng điện chết nhỉ ?,,Surprise,Daily Conversation,test
+SENT_1098,SENT,PNB,Sao nhiều thằng cưa bàn giống tao thế??,sao nhiều thằng cưa bàn giống tao vậy ??,sao nhiều thằng cưa bàn giống tao vậy ??,,Surprise,Daily Conversation,test
+SENT_1098,SENT,PNT2,răng nhiều thằng cưa bàn giống tau rứa ??,sao nhiều thằng cưa bàn giống tao vậy ??,sao nhiều thằng cưa bàn giống tao vậy ??,,Surprise,Daily Conversation,test
+SENT_1098,SENT,PNT3,răng nhiều thằng cưa bàn giống tau ri??,sao nhiều thằng cưa bàn giống tao vậy ??,sao nhiều thằng cưa bàn giống tao vậy ??,,Surprise,Daily Conversation,test
+SENT_1579,SENT,PNB,"Khi nào tao nhìn con xò lông bánh bèo mà tao không buồn nôn, thì khi đấy tao lấy.",khi nào tao nhìn con xò lông bánh bèo mà tao không mắc ói . thì khi đó tao lấy,khi nào tao nhìn con xò lông bánh bèo mà tao không mắc ói . thì khi đó tao lấy,,Other,Daily Conversation,test
+SENT_1579,SENT,PNT2,khi mô tau nhìn con xò lông bánh bèo mà tau không mắc ói . thì khi nớ tau lấy,khi nào tao nhìn con xò lông bánh bèo mà tao không mắc ói . thì khi đó tao lấy,khi nào tao nhìn con xò lông bánh bèo mà tao không mắc ói . thì khi đó tao lấy,,Other,Daily Conversation,test
+SENT_1579,SENT,PNT3,khi mô tau chộ con xò lông bánh bèo mà tau nỏ buồn oẹ . thì khi nớ tau lấy,khi nào tao nhìn con xò lông bánh bèo mà tao không mắc ói . thì khi đó tao lấy,khi nào tao nhìn con xò lông bánh bèo mà tao không mắc ói . thì khi đó tao lấy,,Other,Daily Conversation,test
+SENT_4989,SENT,PNB,cho về hết chứ cứ lương không mà không làm thêm gì mà có nhà lầu xe hơi thì lấy ở đâu ???????? không phải đùn đẩy .... cho về hết bọn nó mới hết không tìm ra nguyên nhân .... không có sao phụ huynh dám nói ....,cho về hết chứ cứ lương không mà không làm thêm gì mà có nhà lầu xe hơi thì lấy ở đâu ???????? không phải đùn đẩy .... cho về hết bọn nó mới hết không tìm ra nguyên nhân .... không có sao phụ huynh dám nói ....,cho về hết chứ cứ lương không mà không làm thêm gì mà có nhà lầu xe hơi thì lấy ở đâu ???????? không phải đùn đẩy .... cho về hết bọn nó mới hết không tìm ra nguyên nhân .... không có sao phụ huynh dám nói ....,,Anger,Daily Conversation,test
+SENT_4989,SENT,PNT2,cho về hết chơ cứ lương không mà nỏ mần thêm chi mà có nhà lầu xe hơi thì lấy ở mô???????? nỏ phải đùn đẩy .... cho về hết bọn hấn mới hết nỏ tìm ra nguyên nhân .... nỏ có răng phụ huynh dám nói ....,cho về hết chứ cứ lương không mà không làm thêm gì mà có nhà lầu xe hơi thì lấy ở đâu ???????? không phải đùn đẩy .... cho về hết bọn nó mới hết không tìm ra nguyên nhân .... không có sao phụ huynh dám nói ....,cho về hết chứ cứ lương không mà không làm thêm gì mà có nhà lầu xe hơi thì lấy ở đâu ???????? không phải đùn đẩy .... cho về hết bọn nó mới hết không tìm ra nguyên nhân .... không có sao phụ huynh dám nói ....,,Anger,Daily Conversation,test
+SENT_4989,SENT,PNT3,cho về hết chơ cứ lương không mà nỏ mần thêm chi mà có nhà lầu xe hơi thì lấy ở mô ra rựa ???????? nỏ phải đùn đẩy .... cho về hết bọn nó mới hết khung tìm ra nguyên nhân .... nỏ có răng phụ huynh dám nói ....,cho về hết chứ cứ lương không mà không làm thêm gì mà có nhà lầu xe hơi thì lấy ở đâu ???????? không phải đùn đẩy .... cho về hết bọn nó mới hết không tìm ra nguyên nhân .... không có sao phụ huynh dám nói ....,cho về hết chứ cứ lương không mà không làm thêm gì mà có nhà lầu xe hơi thì lấy ở đâu ???????? không phải đùn đẩy .... cho về hết bọn nó mới hết không tìm ra nguyên nhân .... không có sao phụ huynh dám nói ....,,Anger,Daily Conversation,test
+SENT_5531,SENT,PNB,cái này thì hôm nào nói chuyện tao nói cho nghe ??,cái này thì hôm nào nói chuyện tao nói cho nghe ??,cái này thì hôm nào nói chuyện tao nói cho nghe ??,,Other,Daily Conversation,test
+SENT_5531,SENT,PNT2,cấy ni thì bựa mô nói chuyện tau nói cho nghe ??,cái này thì hôm nào nói chuyện tao nói cho nghe ??,cái này thì hôm nào nói chuyện tao nói cho nghe ??,,Other,Daily Conversation,test
+SENT_5531,SENT,PNT3,cấy ni thì hôm mô nói chuyện tau nói cho nghe ??,cái này thì hôm nào nói chuyện tao nói cho nghe ??,cái này thì hôm nào nói chuyện tao nói cho nghe ??,,Other,Daily Conversation,test
+SENT_4519,SENT,PNB,phải cho mấy con sán lợn này vào đĩa rồi mời mấy ông bà đấy ăn xem mấy ông bà đấy thế nào .,phải cho mấy con sán lợn này vào đĩa rồi mời mấy ông bà đấy ăn xem mấy ông bà đấy thế nào .,phải cho mấy con sán lợn này vào đĩa rồi mời mấy ông bà đấy ăn xem mấy ông bà đấy thế nào .,,Anger,Daily Conversation,test
+SENT_4519,SENT,PNT2,phải cho mấy con sán lợn ni vô đĩa rồi mời mấy ông bà nớ ăn xem mấy ông bà nớ như răng.,phải cho mấy con sán lợn này vào đĩa rồi mời mấy ông bà đấy ăn xem mấy ông bà đấy thế nào .,phải cho mấy con sán lợn này vào đĩa rồi mời mấy ông bà đấy ăn xem mấy ông bà đấy thế nào .,,Anger,Daily Conversation,test
+SENT_4519,SENT,PNT3,phải cho mấy con sán lợn ni vô dịa rồi mời mấy ông mệ nớ ăn coi mấy ông mệ nớ ra răng.,phải cho mấy con sán lợn này vào đĩa rồi mời mấy ông bà đấy ăn xem mấy ông bà đấy thế nào .,phải cho mấy con sán lợn này vào đĩa rồi mời mấy ông bà đấy ăn xem mấy ông bà đấy thế nào .,,Anger,Daily Conversation,test
+SENT_2308,SENT,PNB,"giờ đây chúng ta , những con người của ngày ấy giờ không còn nữa ... những lời nói về mai sau nhưng ta đâu ngờ sau này chúng ta càng trở lên xa lạ","giờ đây chúng ta , những con người của ngày ấy giờ không còn nữa ... những lời nói về mai sau nhưng ta đâu ngờ sau này chúng ta càng trở lên xa lạ","giờ đây chúng ta , những con người của ngày ấy giờ không còn nữa ... những lời nói về mai sau nhưng ta đâu ngờ sau này chúng ta càng trở lên xa lạ",,Sadness,Daily Conversation,test
+SENT_2308,SENT,PNT2,"giờ đây chúng ta , những con người của ngày ấy giờ không còn nữa ... những lời nói về mai sau nhưng ta đâu ngờ sau này chúng ta càng trở lên xa lạ","giờ đây chúng ta , những con người của ngày ấy giờ không còn nữa ... những lời nói về mai sau nhưng ta đâu ngờ sau này chúng ta càng trở lên xa lạ","giờ đây chúng ta , những con người của ngày ấy giờ không còn nữa ... những lời nói về mai sau nhưng ta đâu ngờ sau này chúng ta càng trở lên xa lạ",,Sadness,Daily Conversation,test
+SENT_2308,SENT,PNT3,"chừ bọn miềng , những con người của ngày nớ chừ không còn nữa ... mấy lời nói về mai sau nhưng ta mô ngờ sau ni bọn miềng càng trở nên xa lạ","giờ đây chúng ta , những con người của ngày ấy giờ không còn nữa ... những lời nói về mai sau nhưng ta đâu ngờ sau này chúng ta càng trở lên xa lạ","giờ đây chúng ta , những con người của ngày ấy giờ không còn nữa ... những lời nói về mai sau nhưng ta đâu ngờ sau này chúng ta càng trở lên xa lạ",,Sadness,Daily Conversation,test
+SENT_2515,SENT,PNB,2 thằng chúng mày lại không làm gì được ư?,2 thằng chúng mày lại không làm gì được ư ?,2 thằng chúng mày lại không làm gì được ư ?,,Surprise,Daily Conversation,test
+SENT_2515,SENT,PNT2,2 thằng nhà bây lại nỏ mần chi được ư ?,2 thằng chúng mày lại không làm gì được ư ?,2 thằng chúng mày lại không làm gì được ư ?,,Surprise,Daily Conversation,test
+SENT_2515,SENT,PNT3,2 thằng bọn mi mà lại nỏ làm chi được à?,2 thằng chúng mày lại không làm gì được ư ?,2 thằng chúng mày lại không làm gì được ư ?,,Surprise,Daily Conversation,test
+SENT_3023,SENT,PNB,"xã hội giờ nguy hiểm quá . có khi cái con mẹ kia mới là người có ý định bắt cóc trẻ con ấy chứ , hoặc chỉ một câu trêu đùa quái ác như thế cũng đủ mệt","xã hội giờ nguy hiểm quá . có khi cái con mẹ kia mới là người có ý định bắt cóc trẻ con ấy chứ , hoặc chỉ một câu trêu đùa quái ác như thế cũng đủ mệt","xã hội giờ nguy hiểm quá . có khi cái con mẹ kia mới là người có ý định bắt cóc trẻ con ấy chứ , hoặc chỉ một câu trêu đùa quái ác như thế cũng đủ mệt",,Disgust,Daily Conversation,test
+SENT_3023,SENT,PNT2,"xã hội dừ nguy hiểm quá . có khi cái con mệ nớ mới là người có ý định bắt cóc trẻ con ấy chứ , hoặc chỉ một câu trêu đùa quái ác như rứa cũng đủ mệt","xã hội giờ nguy hiểm quá . có khi cái con mẹ kia mới là người có ý định bắt cóc trẻ con ấy chứ , hoặc chỉ một câu trêu đùa quái ác như thế cũng đủ mệt","xã hội giờ nguy hiểm quá . có khi cái con mẹ kia mới là người có ý định bắt cóc trẻ con ấy chứ , hoặc chỉ một câu trêu đùa quái ác như thế cũng đủ mệt",,Disgust,Daily Conversation,test
+SENT_3023,SENT,PNT3,"xã hội bựa chừ nguy hiểm quái . có khi kì con mẹ nớ mì là người có ý định bắt cóc trẻ em đó chơ , hoặc chỉ một câu chọc đại ác như rứa cụng đủ đoạ","xã hội giờ nguy hiểm quá . có khi cái con mẹ kia mới là người có ý định bắt cóc trẻ con ấy chứ , hoặc chỉ một câu trêu đùa quái ác như thế cũng đủ mệt","xã hội giờ nguy hiểm quá . có khi cái con mẹ kia mới là người có ý định bắt cóc trẻ con ấy chứ , hoặc chỉ một câu trêu đùa quái ác như thế cũng đủ mệt",,Disgust,Daily Conversation,test
+SENT_3814,SENT,PNB,"per thấy chị thủ sẵn hộp mặt nạ rồi thì phải . tim em mong manh lắm , đừng để em hoảng sợ nhá chị ??","per thấy chế thủ sẵn hộp mặt nạ rồi thì phải . tim em mong manh lắm , đừng để em hoạng sợ nhá chị ??","per thấy chế thủ sẵn hộp mặt nạ rồi thì phải . tim em mong manh lắm , đừng để em hoạng sợ nhá chị ??",,Fear,Daily Conversation,test
+SENT_3814,SENT,PNT2,"per thấy chế thủ sẵn hộp mặt nạ rồi thì phải . tim em mong manh lắm , đừng để em hoạng sợ nhá chị ??","per thấy chế thủ sẵn hộp mặt nạ rồi thì phải . tim em mong manh lắm , đừng để em hoạng sợ nhá chị ??","per thấy chế thủ sẵn hộp mặt nạ rồi thì phải . tim em mong manh lắm , đừng để em hoạng sợ nhá chị ??",,Fear,Daily Conversation,test
+SENT_3814,SENT,PNT3,"per ngó chộ chị thủ sẵn hộp mặt nạ rồi thì phại . tim em mong manh lắm , đừng cò để em hoạng sợ nghe chị ??","per thấy chế thủ sẵn hộp mặt nạ rồi thì phải . tim em mong manh lắm , đừng để em hoạng sợ nhá chị ??","per thấy chế thủ sẵn hộp mặt nạ rồi thì phải . tim em mong manh lắm , đừng để em hoạng sợ nhá chị ??",,Fear,Daily Conversation,test
+SENT_3618,SENT,PNB,bởi vậy không nên bình luận trên facebook làm gì . nhiều đứa nó nhây cãi lộn mệt người .,bởi vậy không nên bình luận trên facebook làm gì . nhìu đứa nó nhây cãi lộn mệt người .,bởi vậy không nên bình luận trên facebook làm gì . nhìu đứa nó nhây cãi lộn mệt người .,,Disgust,Daily Conversation,test
+SENT_3618,SENT,PNT2,Bởi vậy nỏ nên bình luận trên facebook mần chi. Nhiều đứa hấn nhây cãi lộn mệt người .,bởi vậy không nên bình luận trên facebook làm gì . nhìu đứa nó nhây cãi lộn mệt người .,bởi vậy không nên bình luận trên facebook làm gì . nhìu đứa nó nhây cãi lộn mệt người .,,Disgust,Daily Conversation,test
+SENT_3618,SENT,PNT3,vì rứa nên không nên bình luận trên facebook mần chi . nhiều đứa hắn nhây cại chắc dọc người .,bởi vậy không nên bình luận trên facebook làm gì . nhìu đứa nó nhây cãi lộn mệt người .,bởi vậy không nên bình luận trên facebook làm gì . nhìu đứa nó nhây cãi lộn mệt người .,,Disgust,Daily Conversation,test
+SENT_4733,SENT,PNB,"Nói thật chẳng hiểu thế hệ bây giờ nghĩ gì. Động tí là kêu này kêu nọ. Ở nhà, ở trường có vấn đề thì kêu um lên chứ sau này ra ngoài xã hội mà ngu thì nó vả cho không trượt phát nào, chứ ở đấy mà kêu. Tiên trách kỷ, hậu trách nhân.",nói thật chẳng hiểu thế hệ bây giờ nghĩ gì . động tý vào là kêu này nọ . ở nhà ở trường có vấn đề kêu um lên chứ sau này ra ngoài xã hội mà ngu thì nó vả không trượt phát nào chứ ở đó mà kêu . tiên trách kỷ hậu trách nhân,nói thật chẳng hiểu thế hệ bây giờ nghĩ gì . động tý vào là kêu này nọ . ở nhà ở trường có vấn đề kêu um lên chứ sau này ra ngoài xã hội mà ngu thì nó vả không trượt phát nào chứ ở đó mà kêu . tiên trách kỷ hậu trách nhân,,Disgust,Daily Conversation,test
+SENT_4733,SENT,PNT2,nói thật nỏ hiểu thế hệ bây giờ nghị chi. động tý vào là kêu này nọ . ở nhà ở trường có chi là kêu um lên chứ sau ni ra ngoài xã hội mà ngu thì nó vả không trượt phát mô chứ ở đó mà kêu . tiên trách kỷ hậu trách nhân,nói thật chẳng hiểu thế hệ bây giờ nghĩ gì . động tý vào là kêu này nọ . ở nhà ở trường có vấn đề kêu um lên chứ sau này ra ngoài xã hội mà ngu thì nó vả không trượt phát nào chứ ở đó mà kêu . tiên trách kỷ hậu trách nhân,nói thật chẳng hiểu thế hệ bây giờ nghĩ gì . động tý vào là kêu này nọ . ở nhà ở trường có vấn đề kêu um lên chứ sau này ra ngoài xã hội mà ngu thì nó vả không trượt phát nào chứ ở đó mà kêu . tiên trách kỷ hậu trách nhân,,Disgust,Daily Conversation,test
+SENT_4733,SENT,PNT3,nói thiệt nỏ hiểu thế hệ bựa ni nghĩ chi . động một tỉ vô là kêu ni kêu tê . ở nhà ở trường có cấy chi kêu um lên chơ mài bựa ra ngoài xã hội mà ngu thì hắn bả nỏ trượt phát mô chơ ở đó mà kêu . tiên trách kỷ hậu trách nhân,nói thật chẳng hiểu thế hệ bây giờ nghĩ gì . động tý vào là kêu này nọ . ở nhà ở trường có vấn đề kêu um lên chứ sau này ra ngoài xã hội mà ngu thì nó vả không trượt phát nào chứ ở đó mà kêu . tiên trách kỷ hậu trách nhân,nói thật chẳng hiểu thế hệ bây giờ nghĩ gì . động tý vào là kêu này nọ . ở nhà ở trường có vấn đề kêu um lên chứ sau này ra ngoài xã hội mà ngu thì nó vả không trượt phát nào chứ ở đó mà kêu . tiên trách kỷ hậu trách nhân,,Disgust,Daily Conversation,test
+SENT_4150,SENT,PNB,bây giờ gái nó chỉ cần bông hoa đồng tiền ném vào mặt nó để nó ăn tiêu chứ nó cần gì cái cây lu miên này .,bây giờ gái nó chỉ cần bông hoa đồng tiền ném vào mặt nó để nó ăn tiêu chứ nó cần gì cái cây lu miên này .,bây giờ gái nó chỉ cần bông hoa đồng tiền ném vào mặt nó để nó ăn tiêu chứ nó cần gì cái cây lu miên này .,,Disgust,Daily Conversation,test
+SENT_4150,SENT,PNT2,bây giờ gái hấn chỉ cần bông hoa đồng tiền ném vô mặt hấn để hấn ăn tiêu chơ hấn cần chi cây cây lu miên ni.,bây giờ gái nó chỉ cần bông hoa đồng tiền ném vào mặt nó để nó ăn tiêu chứ nó cần gì cái cây lu miên này .,bây giờ gái nó chỉ cần bông hoa đồng tiền ném vào mặt nó để nó ăn tiêu chứ nó cần gì cái cây lu miên này .,,Disgust,Daily Conversation,test
+SENT_4150,SENT,PNT3,bây giờ gái hắn chỉ cần bông hoa đồng tiền ném vào mặt hắn để hắn ăn tiêu chứ hắn cần chi cấy cây lu miên ni .,bây giờ gái nó chỉ cần bông hoa đồng tiền ném vào mặt nó để nó ăn tiêu chứ nó cần gì cái cây lu miên này .,bây giờ gái nó chỉ cần bông hoa đồng tiền ném vào mặt nó để nó ăn tiêu chứ nó cần gì cái cây lu miên này .,,Disgust,Daily Conversation,test
+SENT_0018,SENT,PNB,"thời buổi bây giờ chuyện gì cũng có thể xảy ra, nên thôi, đừng nên tin ai","thời buổi bây chừ chuyện gì cũng có thể xảy ra , vậy nên thôi trất , đừng nên tin ai","thời buổi bây chừ chuyện gì cũng có thể xảy ra , vậy nên thôi trất , đừng nên tin ai",,Fear,Daily Conversation,test
+SENT_0018,SENT,PNT2,"thời buổi ni chuyện chi cụng có thể xảy ra, vậy nên thôi dẹp, đừng nên tin ai","thời buổi bây chừ chuyện gì cũng có thể xảy ra , vậy nên thôi trất , đừng nên tin ai","thời buổi bây chừ chuyện gì cũng có thể xảy ra , vậy nên thôi trất , đừng nên tin ai",,Fear,Daily Conversation,test
+SENT_0018,SENT,PNT3,"thời buổi ni chuyện chi cũng xảy ra được, vậy nên dẹp đi, đừng nên tin ai","thời buổi bây chừ chuyện gì cũng có thể xảy ra , vậy nên thôi trất , đừng nên tin ai","thời buổi bây chừ chuyện gì cũng có thể xảy ra , vậy nên thôi trất , đừng nên tin ai",,Fear,Daily Conversation,test
+SENT_0070,SENT,PNB,xem cái này mới biết trình độ tiếng anh của mình cũng khá !,xem cái này mới biết vốn tiếng anh của mình cũng khá !,xem cái này mới biết vốn tiếng anh của mình cũng khá !,,Surprise,Daily Conversation,test
+SENT_0070,SENT,PNT2,xem cái ni mới biết vốn tiếng anh của mình cụng được !,xem cái này mới biết vốn tiếng anh của mình cũng khá !,xem cái này mới biết vốn tiếng anh của mình cũng khá !,,Surprise,Daily Conversation,test
+SENT_0070,SENT,PNT3,coi cái ni mới biết vốn tiếng anh của tau cũng khá !,xem cái này mới biết vốn tiếng anh của mình cũng khá !,xem cái này mới biết vốn tiếng anh của mình cũng khá !,,Surprise,Daily Conversation,test
+SENT_2938,SENT,PNB,"Tuổi thơ của tao sợ nhất con này, không làm gì mà nó cũng đuổi theo , suốt ngày kêu um sùm","tuổi thơ của tao sợ nhất là con này , không làm gì mà nó cũng rược , suốt ngày thì kêu um sùm","tuổi thơ của tao sợ nhất là con này , không làm gì mà nó cũng rược , suốt ngày thì kêu um sùm",,Fear,Daily Conversation,test
+SENT_2938,SENT,PNT2,"tuổi thơ của tau sợ nhất là con ni , không làm chi mà hấn cũng rược , suốt ngày thì kêu um sùm","tuổi thơ của tao sợ nhất là con này , không làm gì mà nó cũng rược , suốt ngày thì kêu um sùm","tuổi thơ của tao sợ nhất là con này , không làm gì mà nó cũng rược , suốt ngày thì kêu um sùm",,Fear,Daily Conversation,test
+SENT_2938,SENT,PNT3,"tuổi thơ của tau sợ nhất là con ni , không làm gì mà hắn cũng rượt , cả ngày thì kêu um sùm","tuổi thơ của tao sợ nhất là con này , không làm gì mà nó cũng rược , suốt ngày thì kêu um sùm","tuổi thơ của tao sợ nhất là con này , không làm gì mà nó cũng rược , suốt ngày thì kêu um sùm",,Fear,Daily Conversation,test
+SENT_1971,SENT,PNB,con này ăn cức mà lớn hay sao ấy . đánh không lại thì chạy ngu như bò đứng cho tụi nó đánh,con này ăn cức mà lớn hay sao ấy . đánh không lại thì chạy ngu như bò đứng cho tụi nó đánh,con này ăn cức mà lớn hay sao ấy . đánh không lại thì chạy ngu như bò đứng cho tụi nó đánh,,Disgust,Daily Conversation,test
+SENT_1971,SENT,PNT2,con ni ăn cức mà nậy hay răng rứa. Đánh nỏ lại thì chạy ngu như bò đứng cho tụi hấn đánh,con này ăn cức mà lớn hay sao ấy . đánh không lại thì chạy ngu như bò đứng cho tụi nó đánh,con này ăn cức mà lớn hay sao ấy . đánh không lại thì chạy ngu như bò đứng cho tụi nó đánh,,Disgust,Daily Conversation,test
+SENT_1971,SENT,PNT3,con ni ăn cức mà lớn hay răng á . đánh không lại thì chạy ngu như bò đứng cho bọn hắn đánh,con này ăn cức mà lớn hay sao ấy . đánh không lại thì chạy ngu như bò đứng cho tụi nó đánh,con này ăn cức mà lớn hay sao ấy . đánh không lại thì chạy ngu như bò đứng cho tụi nó đánh,,Disgust,Daily Conversation,test
+SENT_3094,SENT,PNB,đàn bà ở nhà thế kia không sợ ngoại tình à ? tao đang lo vợ tao đây này,đàn bà ở nhà thế kia không sợ ngoại tình à ? tao đang lo vợ tao đây này,đàn bà ở nhà thế kia không sợ ngoại tình à ? tao đang lo vợ tao đây này,,Fear,Daily Conversation,test
+SENT_3094,SENT,PNT2,đàn bà ở nhà rứa nỏ sợ ngoại tình à ? tau đang lo vợ tau đây nì,đàn bà ở nhà thế kia không sợ ngoại tình à ? tao đang lo vợ tao đây này,đàn bà ở nhà thế kia không sợ ngoại tình à ? tao đang lo vợ tao đây này,,Fear,Daily Conversation,test
+SENT_3094,SENT,PNT3,đàn bà ở nhà in rứa nỏ sợ ngoại tình à ? tau đang lo vợ tau đây nì,đàn bà ở nhà thế kia không sợ ngoại tình à ? tao đang lo vợ tao đây này,đàn bà ở nhà thế kia không sợ ngoại tình à ? tao đang lo vợ tao đây này,,Fear,Daily Conversation,test
+SENT_5407,SENT,PNB,"mẹ kể hồi nhỏ nuôi con ngỗng thay chó canh nhà . ăn trộm mà vào thì chạy đằng trời với nó , cả bầy lao ra quạt với táp , khi gia đình vác gậy chạy ra thì thằng ăn trộm nó ôm cây trên tít cành cao , áo quần tóc tai lủng máu me tè le . gia đình phải cứu ăn trộm má mấy mẻ còn không tha , 2 3 con vẫn đuổi nhảy hàng rào dí theo ăn trộm . phải nói đuổi bao dai mà cục súc vê lờ .","mẹ kể hồi nhỏ nuôi con ngỗng thay chó canh nhà . ăn trộm mà vào thì chạy đằng trời với nó , cả bầy lao ra quạt với táp , khi gia đình vác gậy chạy ra thì thằng ăn trộm nó ôm cây trên tít cành cao , áo quần tóc tai lủng máu me tè le . gia đình phải cứu ăn trộm má mấy mẻ còn không tha , 2 3 con vẫn dí nhảy hàng rào dí theo ăn trộm . phải nói dí bao dai mà cục súc vê lờ .","mẹ kể hồi nhỏ nuôi con ngỗng thay chó canh nhà . ăn trộm mà vào thì chạy đằng trời với nó , cả bầy lao ra quạt với táp , khi gia đình vác gậy chạy ra thì thằng ăn trộm nó ôm cây trên tít cành cao , áo quần tóc tai lủng máu me tè le . gia đình phải cứu ăn trộm má mấy mẻ còn không tha , 2 3 con vẫn dí nhảy hàng rào dí theo ăn trộm . phải nói dí bao dai mà cục súc vê lờ .",,Enjoyment,Daily Conversation,test
+SENT_5407,SENT,PNT2,"mệ kể hồi nhỏ nuôi con ngỗng thay chó canh nhà . ăn trộm mà vô thì chạy đằng trời với hấn, cả bầy lao ra quạt với táp , khi gia đình vác gậy chạy ra thì thằng ăn trộm hấn ôm cây trên tít cành cao , áo quần tóc tai lủng máu me tè le . gia đình phải cứu ăn trộm má mấy mẻ còn không tha , 2 3 con vẫn dí nhảy hàng rào dí theo ăn trộm . phải nói dí bao dai mà cục súc vê lờ .","mẹ kể hồi nhỏ nuôi con ngỗng thay chó canh nhà . ăn trộm mà vào thì chạy đằng trời với nó , cả bầy lao ra quạt với táp , khi gia đình vác gậy chạy ra thì thằng ăn trộm nó ôm cây trên tít cành cao , áo quần tóc tai lủng máu me tè le . gia đình phải cứu ăn trộm má mấy mẻ còn không tha , 2 3 con vẫn dí nhảy hàng rào dí theo ăn trộm . phải nói dí bao dai mà cục súc vê lờ .","mẹ kể hồi nhỏ nuôi con ngỗng thay chó canh nhà . ăn trộm mà vào thì chạy đằng trời với nó , cả bầy lao ra quạt với táp , khi gia đình vác gậy chạy ra thì thằng ăn trộm nó ôm cây trên tít cành cao , áo quần tóc tai lủng máu me tè le . gia đình phải cứu ăn trộm má mấy mẻ còn không tha , 2 3 con vẫn dí nhảy hàng rào dí theo ăn trộm . phải nói dí bao dai mà cục súc vê lờ .",,Enjoyment,Daily Conversation,test
+SENT_5407,SENT,PNT3,"mẹ kể hồi nhỏ nuôi con ngỗng thay chó canh nhà . ăn trộm mà vô thì chạy đằng trời với hắn , cả bầy lao ra quạt với táp , khi gia đình vác gậy chạy ra thì thằng ăn trộm hắn ôm cây trên tít cành cao , áo quần tóc tai lủng máu me tè le . gia đình phải cứu ăn trộm mà bọn hắn còn chả tha , 2 3 con vẫn dí nhảy hàng rào dí theo ăn trộm . phải nói dí bao dai mà cục súc vê lờ .","mẹ kể hồi nhỏ nuôi con ngỗng thay chó canh nhà . ăn trộm mà vào thì chạy đằng trời với nó , cả bầy lao ra quạt với táp , khi gia đình vác gậy chạy ra thì thằng ăn trộm nó ôm cây trên tít cành cao , áo quần tóc tai lủng máu me tè le . gia đình phải cứu ăn trộm má mấy mẻ còn không tha , 2 3 con vẫn dí nhảy hàng rào dí theo ăn trộm . phải nói dí bao dai mà cục súc vê lờ .","mẹ kể hồi nhỏ nuôi con ngỗng thay chó canh nhà . ăn trộm mà vào thì chạy đằng trời với nó , cả bầy lao ra quạt với táp , khi gia đình vác gậy chạy ra thì thằng ăn trộm nó ôm cây trên tít cành cao , áo quần tóc tai lủng máu me tè le . gia đình phải cứu ăn trộm má mấy mẻ còn không tha , 2 3 con vẫn dí nhảy hàng rào dí theo ăn trộm . phải nói dí bao dai mà cục súc vê lờ .",,Enjoyment,Daily Conversation,test
+SENT_3514,SENT,PNB,ngày hôm ấy tuyệt đẹp nhưng lại đượm một nỗi buồn ngày mai thôi chg được gặp thầy cô bb lũ chúng tôi khép cánh cửa ấy lại nhìn lại toàn bộ khung cảnh ôi thân thương biết mấy cảnh vật quen thuộc sẽ không được trông thấy nữa,ngày hôm ấy tuyệt đẹp nhưng lại đượm một nỗi buồn ngày mai thôi chg được gặp thầy cô bb lũ chúng tôi khép cánh cửa ấy lại nhìn lại toàn bộ khung cảnh ôi thân thương biết mấy cảnh vật quen thuộc sẽ không được trông thấy nữa,ngày hôm ấy tuyệt đẹp nhưng lại đượm một nỗi buồn ngày mai thôi chg được gặp thầy cô bb lũ chúng tôi khép cánh cửa ấy lại nhìn lại toàn bộ khung cảnh ôi thân thương biết mấy cảnh vật quen thuộc sẽ không được trông thấy nữa,,Sadness,Daily Conversation,test
+SENT_3514,SENT,PNT2,ngày bữa nớ tuyệt đẹp nhưng lại đượm một nỗi buồn ngày mai thôi chg được gặp thầy cô bb lũ bọn tui khép cánh cửa ấy lại nhìn lại toàn bộ khung cảnh ôi thân thương biết mấy cảnh vật quen thuộc sẽ nỏ được trông thấy nữa,ngày hôm ấy tuyệt đẹp nhưng lại đượm một nỗi buồn ngày mai thôi chg được gặp thầy cô bb lũ chúng tôi khép cánh cửa ấy lại nhìn lại toàn bộ khung cảnh ôi thân thương biết mấy cảnh vật quen thuộc sẽ không được trông thấy nữa,ngày hôm ấy tuyệt đẹp nhưng lại đượm một nỗi buồn ngày mai thôi chg được gặp thầy cô bb lũ chúng tôi khép cánh cửa ấy lại nhìn lại toàn bộ khung cảnh ôi thân thương biết mấy cảnh vật quen thuộc sẽ không được trông thấy nữa,,Sadness,Daily Conversation,test
+SENT_3514,SENT,PNT3,"ngày nớ tuyệt đẹp nhưng lại đượm một nỗi buồn, ngày mai thôi chg được gặp thầy cô, bb, bọn tau khép cánh cửa nớ lại, nhìn lại toàn bộ khung cảnh, ôi thân thương biết mấy cảnh vật quen thuộc sẽ không được chộ nữa",ngày hôm ấy tuyệt đẹp nhưng lại đượm một nỗi buồn ngày mai thôi chg được gặp thầy cô bb lũ chúng tôi khép cánh cửa ấy lại nhìn lại toàn bộ khung cảnh ôi thân thương biết mấy cảnh vật quen thuộc sẽ không được trông thấy nữa,ngày hôm ấy tuyệt đẹp nhưng lại đượm một nỗi buồn ngày mai thôi chg được gặp thầy cô bb lũ chúng tôi khép cánh cửa ấy lại nhìn lại toàn bộ khung cảnh ôi thân thương biết mấy cảnh vật quen thuộc sẽ không được trông thấy nữa,,Sadness,Daily Conversation,test
+SENT_0814,SENT,PNB,"mấy thành phần không chấp hành luật giao thông toàn như thế này. cơ mà thằng này gà thật, tạt mẹ vào quán nước mà ngồi uống chứ làm sao phải dắt xe khổ thế kia","mấy thành phần không chấp hành luật giao thông cứ phải thế này . cơ mà thằng này gà thật , tạt mẹ vào quán nước mà ngồi uống chứ làm gì phải dắt xe khổ thế kia","mấy thành phần không chấp hành luật giao thông cứ phải thế này . cơ mà thằng này gà thật , tạt mẹ vào quán nước mà ngồi uống chứ làm gì phải dắt xe khổ thế kia",,Disgust,Daily Conversation,test
+SENT_0814,SENT,PNT2,"Mấy thành phần không chấp hành luật giao thông cứ phải như ri. Chơ mà thằng ni gà thật, tạt mẹ vô quán nước mà ngồi uống chơ mần chi phải dắc xe khổ rứa tê","mấy thành phần không chấp hành luật giao thông cứ phải thế này . cơ mà thằng này gà thật , tạt mẹ vào quán nước mà ngồi uống chứ làm gì phải dắt xe khổ thế kia","mấy thành phần không chấp hành luật giao thông cứ phải thế này . cơ mà thằng này gà thật , tạt mẹ vào quán nước mà ngồi uống chứ làm gì phải dắt xe khổ thế kia",,Disgust,Daily Conversation,test
+SENT_0814,SENT,PNT3,"Mấy kì thành phần nỏ chấp hành luật giao thông thì cứ phải như ri. Chơ đều thằng ni gà thiệt, tạt vô quán nước ngồi uống cho rồi, chơ mần chi phải đắc xe khổ rứa.","mấy thành phần không chấp hành luật giao thông cứ phải thế này . cơ mà thằng này gà thật , tạt mẹ vào quán nước mà ngồi uống chứ làm gì phải dắt xe khổ thế kia","mấy thành phần không chấp hành luật giao thông cứ phải thế này . cơ mà thằng này gà thật , tạt mẹ vào quán nước mà ngồi uống chứ làm gì phải dắt xe khổ thế kia",,Disgust,Daily Conversation,test
+SENT_2473,SENT,PNB,lòng đường không phải nhà cụ nên cụ sai nhé . vỉa hè to vậy rồi cụ còn muốn như thế nào,lòng đường không phải nhà cụ nên cụ sai nhé . vỉa hè to vậy rồi cụ còn muốn như thế nào,lòng đường không phải nhà cụ nên cụ sai nhé . vỉa hè to vậy rồi cụ còn muốn như thế nào,,Anger,Daily Conversation,test
+SENT_2473,SENT,PNT2,lòng đường nỏ phải nhà cụ nên cụ sai nhé . vỉa hè to rứa rồi cụ còn muốn như răng,lòng đường không phải nhà cụ nên cụ sai nhé . vỉa hè to vậy rồi cụ còn muốn như thế nào,lòng đường không phải nhà cụ nên cụ sai nhé . vỉa hè to vậy rồi cụ còn muốn như thế nào,,Anger,Daily Conversation,test
+SENT_2473,SENT,PNT3,lòng đàng nỏ phải nhà cụ bơ cụ sai nghe . vỉa hè bà là rứa rồi cụ còn ưng chi nựa,lòng đường không phải nhà cụ nên cụ sai nhé . vỉa hè to vậy rồi cụ còn muốn như thế nào,lòng đường không phải nhà cụ nên cụ sai nhé . vỉa hè to vậy rồi cụ còn muốn như thế nào,,Anger,Daily Conversation,test
+SENT_3169,SENT,PNB,vâng em gặp anh rồi mà giờ đây em vẫn cô đơn đi lang thang tìm những thứ vô nghĩa lấp vào nỗi cô đơn ấy,vâng em gặp anh rồi mà giờ đây em vẫn cô đơn đi lang thang tìm những thứ vô nghĩa lấp vào nỗi cô đơn ấy,vâng em gặp anh rồi mà giờ đây em vẫn cô đơn đi lang thang tìm những thứ vô nghĩa lấp vào nỗi cô đơn ấy,,Sadness,Daily Conversation,test
+SENT_3169,SENT,PNT2,dạ em gặp anh rồi mà giờ dừ em vẫn cô đơn đi lang thang tìm những thứ vô nghĩa lấp vô nỗi cô đơn nớ,vâng em gặp anh rồi mà giờ đây em vẫn cô đơn đi lang thang tìm những thứ vô nghĩa lấp vào nỗi cô đơn ấy,vâng em gặp anh rồi mà giờ đây em vẫn cô đơn đi lang thang tìm những thứ vô nghĩa lấp vào nỗi cô đơn ấy,,Sadness,Daily Conversation,test
+SENT_3169,SENT,PNT3,vâng em gặp anh rồi mà chừ em vẫn cô đơn đi lang thang tìm những thứ vô nghĩa lấp vô nỗi cô đơn nớ,vâng em gặp anh rồi mà giờ đây em vẫn cô đơn đi lang thang tìm những thứ vô nghĩa lấp vào nỗi cô đơn ấy,vâng em gặp anh rồi mà giờ đây em vẫn cô đơn đi lang thang tìm những thứ vô nghĩa lấp vào nỗi cô đơn ấy,,Sadness,Daily Conversation,test
+SENT_0192,SENT,PNB,may mình đi làm rồi chứ 10 năm trước chắc sẽ phát khổ với bố mẹ vì mấy tin con nhà người ta như thế nào,may mình đi làm rồi chứ 10 năm trước chắc sẽ phát khổ với bố mẹ vì mấy tin con nhà người ta như thế nào,may mình đi làm rồi chứ 10 năm trước chắc sẽ phát khổ với bố mẹ vì mấy tin con nhà người ta như thế nào,,Enjoyment,Daily Conversation,test
+SENT_0192,SENT,PNT2,may mà đi mần rồi chứ không 10 năm trước chắc có lẹ phát khổ với mấy cấy tin con nhà người ta ni,may mình đi làm rồi chứ 10 năm trước chắc sẽ phát khổ với bố mẹ vì mấy tin con nhà người ta như thế nào,may mình đi làm rồi chứ 10 năm trước chắc sẽ phát khổ với bố mẹ vì mấy tin con nhà người ta như thế nào,,Enjoyment,Daily Conversation,test
+SENT_0192,SENT,PNT3,may mà tau đi làm 10 năm rồi chơ 10 năm trước chắc sẽ phải khổi với ba mẹ vì mấy cì tin con nhà người ta như răng,may mình đi làm rồi chứ 10 năm trước chắc sẽ phát khổ với bố mẹ vì mấy tin con nhà người ta như thế nào,may mình đi làm rồi chứ 10 năm trước chắc sẽ phát khổ với bố mẹ vì mấy tin con nhà người ta như thế nào,,Enjoyment,Daily Conversation,test
