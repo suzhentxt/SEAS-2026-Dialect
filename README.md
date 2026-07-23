@@ -1,9 +1,9 @@
-# SEAS 2026: Vietnamese Dialect Robustness and Normalization
+# SEAS 2026: Độ bền vững với phương ngữ và chuẩn hóa tiếng Việt
 
 ## Câu hỏi nghiên cứu
 
-> Một mô hình có giữ nguyên hành vi khi câu tiếng Việt chuẩn được viết lại bằng phương
-> ngữ nhưng không đổi nghĩa không, và text normalization có giảm khoảng cách đó không?
+> Tinh chỉnh LoRA có giúp mBART chuẩn hóa văn bản phương ngữ tốt hơn và phục hồi
+> hiệu năng của mô hình downstream hay không?
 
 Ba phương ngữ được dùng:
 
@@ -19,13 +19,12 @@ Bốn task gốc: `MCQA`, `NLI`, `QA`, `SENT`.
    kiểm tra split và leakage, đo độ dài/character edit rate, đọc kết quả robustness
    đã có sẵn theo model, task và dialect.
 2. [02_lm_dialect_probing.ipynb](notebooks/02_lm_dialect_probing.ipynb) — zero-shot
-   task probing với ba causal LM (Qwen2.5-0.5B, bloom-560m, gpt-neo-1.3B-vietnamese-news):
-   chấm điểm log-probability mỗi nhãn ứng viên (MCQA/NLI/SENT), đọc nhãn dự đoán và
-   confidence qua softmax, rồi đo **accuracy degradation** và **confidence erosion**
-   khi đổi chuẩn → dialect. Logic rút từ `src/probe_models.py` trong codebase nghiên cứu.
-3. [03_text_normalization.ipynb](notebooks/03_text_normalization.ipynb) — chạy baseline
-   mBART private, **so sánh câu gốc và câu dịch về độ dài và perplexity (độ phức tạp)**,
-   đo CER/WER, rồi fine-tune `facebook/mbart-large-50` bằng LoRA.
+   probing có hướng dẫn. Một LM (`Qwen2.5-0.5B`) là bắt buộc; BLOOM và Vietnamese
+   GPT-Neo là phần tự chọn. Notebook báo accuracy và **gold candidate score**, không
+   diễn giải softmax trong candidate set như calibrated confidence.
+3. [03_text_normalization.ipynb](notebooks/03_text_normalization.ipynb) — phần chính:
+   baseline và LoRA cùng bắt đầu từ mBART private, chọn checkpoint bằng dev CER, đánh
+   giá một lần trên test, rồi đo downstream task recovery.
 
 Mỗi notebook có mục tiêu học tập, công thức, code mẫu, insight ngay sau biểu đồ và bài
 tập mở. Học viên cần bổ sung giả thuyết, phân tích lỗi và kết luận của nhóm.
@@ -40,40 +39,47 @@ Notebook chia cell thành hai loại:
   `Your code here`. Nhóm thay marker bằng code của mình, chạy cell và vượt qua
   `SELF-CHECK`.
 
-Mỗi cờ chạy model và student task mặc định là `False`, nên bản gốc có thể `Run All`
-mà không tải model hoặc chạy code chưa hoàn thành. Học viên phải hoàn thành experiment
-plan và sanity checks trước khi bật tải model hoặc training.
+Mỗi cờ chạy mô hình và bài tập mặc định là `False`, nên bản gốc có thể `Run All`
+mà không tải mô hình hoặc chạy code chưa hoàn thành. Học viên phải hoàn thành kế hoạch
+thí nghiệm và sanity check trước khi bật tải mô hình hoặc huấn luyện.
 
-Nguyên tắc nghiên cứu: **không sửa test split, không nhìn test để chọn thiết kế.** Nhóm
+Nguyên tắc nghiên cứu: **không sửa tập test, không nhìn test để chọn thiết kế.** Nhóm
 có thể thay biểu đồ/mô hình/hyperparameter nếu ghi rõ lý do và giữ một baseline so sánh
 công bằng.
 
 ## Dữ liệu
 
-- `data/train_240.jsonl` — 240 cặp, gồm 20 source/task × 4 task × 3 dialect.
+- `data/train_240.jsonl` — tập gộp 240 cặp; Notebook 3 chia theo source thành
+  192 train và 48 development rows.
 - `data/test_300.jsonl` — 300 cặp giữ lại, gồm 25 source/task × 4 task × 3 dialect.
 - Hai split không dùng chung `sample_id`, tránh việc cùng một câu nguồn xuất hiện ở
   train và test dưới phương ngữ khác.
 - Với NLI, câu cần chuẩn hóa là hypothesis; `standard_text` được lấy từ trường
   `hypothesis`, không phải premise trong `original_text`.
-- `data/model_results/` — kết quả direct prompting của 9 mô hình trên benchmark đầy đủ
-  (6 dialect), dùng cho EDA ở Notebook 1.
+- `data/model_results/` — kết quả direct prompting của 10 mô hình trên benchmark đầy đủ
+  (6 phương ngữ), dùng cho EDA ở Notebook 1.
 - Dữ liệu dẫn xuất không chứa `annotator_id` hoặc thông tin cá nhân.
 
-## Mô hình: mBART, không phải mBERT
+## Thiết kế thí nghiệm
 
-Đồ án dùng **mBART** (`facebook/mbart-large-50` / checkpoint private
-`tarudesu/mbart-large-50`), **không phải mBERT**. Đây là phân biệt quan trọng:
+```text
+train 192 -> LoRA training
+dev 48   -> chọn epoch/rank/learning rate/checkpoint bằng CER
+test 300 -> chạy một lần sau khi khóa thiết kế
+```
 
-| Khía cạnh | mBERT | mBART |
-|---|---|---|
-| Kiến trúc | encoder-only | encoder-decoder (seq2seq) |
-| Output | biểu diễn ẩn / nhãn | chuỗi token tự do |
-| Phù hợp | phân loại, embedding | dịch, normalization |
+Baseline và LoRA cùng khởi tạo từ
+`EXPERIMENT_START_MODEL_ID = "tarudesu/mbart-large-50"`. LoRA khác baseline duy nhất
+ở adapter. NLL/PPL chỉ dùng để chẩn đoán mức độ quen thuộc; việc chọn mô hình dùng
+dev CER.
 
-Bài toán normalization cần **sinh chuỗi**, nên dùng mBART (có decoder). mBERT
-encoder-only không dịch được trực tiếp. Nếu gặp tên "mBERT" trong tài liệu cũ, hãy kiểm
-tra kiến trúc: nếu nó dịch được chuỗi, đó là mBART.
+Kết quả cuối phải gồm:
+
+1. CER, WER, chrF và exact match trên dev/test trước và sau LoRA.
+2. Test CER theo PNB, PNT2 và PNT3.
+3. NLL recovery như một phân tích chẩn đoán phụ.
+4. Accuracy của Standard, Dialect, baseline-normalized và LoRA-normalized.
+5. Ít nhất 10 lỗi được phân tích thủ công.
 
 ## Token (bảo mật)
 
@@ -98,20 +104,21 @@ pip install -r requirements.txt
 ```
 
 - Notebook 1 chạy được ở CPU.
-- Notebook 2 nên chấm từng LM nối tiếp để tiết kiệm VRAM.
+- Notebook 2 chỉ bắt buộc Qwen2.5-0.5B; hai LM còn lại là phần tự chọn.
 - Notebook 3 cần GPU cho baseline mBART và LoRA.
 
 ## Kiểm tra package
 
 ```bash
-python scripts/validate_project.py       # dữ liệu + notebook + cú pháp + token scan
-python scripts/smoke_test_notebooks.py   # parse cú pháp mọi code cell
+python scripts/validate_project.py       # dữ liệu + notebook + cú pháp + quét token
+python scripts/smoke_test_notebooks.py   # thực thi mọi cell không cần mô hình/GPU
 ```
 
 ## Kết quả tối thiểu mỗi nhóm phải nộp
 
 - Ba notebook đã chạy, giữ output quan trọng và ghi insight bằng lời của nhóm.
-- Một bảng baseline so với LoRA trên cùng test split và cùng metric.
+- Một bảng baseline so với LoRA trên cùng tập test đã khóa và cùng decoding/metric.
+- Một bảng downstream recovery bắt buộc trên SENT hoặc NLI.
 - Một phân tích theo task và dialect, không chỉ báo cáo một điểm trung bình.
 - Ít nhất 10 lỗi được phân loại thủ công.
 - Slide nêu câu hỏi nghiên cứu, phương pháp, kết quả, hạn chế và hướng tiếp theo.
@@ -125,7 +132,13 @@ seas_2026_student_project/
 ├── data/               # train_240, test_300, model_results/
 ├── outputs/            # nhóm ghi artifact nộp bài ở đây
 ├── scripts/            # build_notebooks.py, validate_project.py, smoke_test
-├── docs/               # tài liệu bổ sung (giảng viên)
+├── docs/               # brief, teaching plan, rubric, Colab runbook, provenance
+├── MODEL_CARD.md
+├── DATA_CARD.md
+├── LICENSE
 ├── requirements.txt
 └── .gitignore
 ```
+
+Xem [PROJECT_BRIEF.md](docs/PROJECT_BRIEF.md), [PROJECT_RUBRIC.md](docs/PROJECT_RUBRIC.md)
+và [COLAB_RUNBOOK.md](docs/COLAB_RUNBOOK.md) trước khi bắt đầu.

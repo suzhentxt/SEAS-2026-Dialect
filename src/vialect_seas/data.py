@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 import json
+import unicodedata
 from pathlib import Path
 from typing import Iterable
 
+import numpy as np
 import pandas as pd
 
 
@@ -16,7 +18,9 @@ def clean_boundary_noise(value: object) -> str | None:
     """Use the same boundary-cleaning rule as the VialectBench import pipeline."""
     if value is None:
         return None
-    return str(value).replace("\r\n", "\n").strip(BOUNDARY_NOISE_CHARS)
+    text = unicodedata.normalize("NFC", str(value)).replace("\r\n", "\n").replace("\r", "\n")
+    lines = [" ".join(line.split()) for line in text.split("\n")]
+    return "\n".join(lines).strip(BOUNDARY_NOISE_CHARS)
 
 
 def standard_text_for(row: dict) -> str:
@@ -77,3 +81,38 @@ def assert_balanced_split(frame: pd.DataFrame, sources_per_task: int) -> None:
     nli = frame[frame["task"] == "NLI"]
     if "hypothesis" in nli.columns and not (nli["standard_text"] == nli["hypothesis"]).all():
         raise ValueError("NLI standard_text must equal hypothesis")
+
+
+def split_train_dev_by_source(
+    frame: pd.DataFrame,
+    dev_sources_per_task: int = 4,
+    seed: int = 2026,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Split a paired frame by source ID, preserving all dialect rows together."""
+    rng = np.random.default_rng(seed)
+    dev_ids: set[str] = set()
+    sources = frame[["task", "sample_id"]].drop_duplicates()
+    for _, group in sources.groupby("task", sort=True):
+        ids = np.array(sorted(group["sample_id"].astype(str)))
+        if len(ids) <= dev_sources_per_task:
+            raise ValueError("Each task needs more sources than the requested dev size")
+        rng.shuffle(ids)
+        dev_ids.update(ids[:dev_sources_per_task])
+
+    dev_mask = frame["sample_id"].astype(str).isin(dev_ids)
+    train = frame.loc[~dev_mask].reset_index(drop=True)
+    dev = frame.loc[dev_mask].reset_index(drop=True)
+    overlap = set(train["sample_id"]) & set(dev["sample_id"])
+    if overlap:
+        raise ValueError(f"Train/dev source leakage: {sorted(overlap)[:5]}")
+    return train, dev
+
+
+def identity_rate_summary(frame: pd.DataFrame) -> pd.DataFrame:
+    """Return exact-copy rates by task and dialect for data-quality auditing."""
+    audited = frame.assign(identity_pair=frame["dialect_text"] == frame["standard_text"])
+    return (
+        audited.groupby(["task", "target_dialect"], observed=True)["identity_pair"]
+        .agg(identity_pairs="sum", rows="size", identity_rate="mean")
+        .reset_index()
+    )

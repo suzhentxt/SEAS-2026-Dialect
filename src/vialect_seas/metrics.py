@@ -40,6 +40,13 @@ def exact_match(reference: str, prediction: str) -> float:
     return float(normalize(reference) == normalize(prediction))
 
 
+def character_f_score(reference: str, prediction: str) -> float:
+    """Return sentence-level chrF on a 0-100 scale."""
+    from sacrebleu.metrics import CHRF
+
+    return float(CHRF().sentence_score(str(prediction), [str(reference)]).score)
+
+
 def evaluate_predictions(
     frame: pd.DataFrame,
     reference_column: str = "standard_text",
@@ -58,6 +65,10 @@ def evaluate_predictions(
         exact_match(ref, pred)
         for ref, pred in zip(scored[reference_column], scored[prediction_column])
     ]
+    scored["chrf"] = [
+        character_f_score(ref, pred)
+        for ref, pred in zip(scored[reference_column], scored[prediction_column])
+    ]
     scored["reference_words"] = scored[reference_column].str.split().str.len()
     scored["prediction_words"] = scored[prediction_column].str.split().str.len()
     scored["length_ratio"] = np.where(
@@ -69,7 +80,7 @@ def evaluate_predictions(
 
 
 def metric_summary(scored: pd.DataFrame, by: list[str] | None = None) -> pd.DataFrame:
-    metrics = ["cer", "wer", "exact_match", "length_ratio"]
+    metrics = ["cer", "wer", "chrf", "exact_match", "length_ratio"]
     if not by:
         return scored[metrics].mean().to_frame().T
     return scored.groupby(by, observed=True)[metrics].mean().reset_index()

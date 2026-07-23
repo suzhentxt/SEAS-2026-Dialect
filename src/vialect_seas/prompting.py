@@ -74,12 +74,15 @@ def candidate_completion(student_task: str, label: str) -> str:
 def build_task_prompt(row: dict, variant: str = "dialect") -> str:
     """Build a zero-shot task prompt from a student data row.
 
-    ``variant`` is ``"dialect"`` (uses ``dialect_text``) or ``"standard"``
-    (uses ``standard_text``). The non-paired context (premise for NLI) comes
-    from ``source_text``.
+    ``variant`` may be ``standard``, ``dialect``, or any generated text column
+    present in ``row`` (for example ``normalized_baseline``). The non-paired
+    context (premise for NLI) comes from ``source_text``.
     """
     ptask = probe_task(row["task"])
-    text_key = "dialect_text" if variant == "dialect" else "standard_text"
+    variant_columns = {"dialect": "dialect_text", "standard": "standard_text"}
+    text_key = variant_columns.get(variant, variant)
+    if text_key not in row:
+        raise KeyError(f"Variant {variant!r} maps to missing column {text_key!r}")
     text = str(row.get(text_key, "")).strip()
     source = str(row.get("source_text", "")).strip()
     instruction = "Chỉ trả lời JSON hợp lệ, không giải thích.\n"

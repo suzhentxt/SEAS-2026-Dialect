@@ -6,6 +6,8 @@ from collections.abc import Iterable
 
 PRIVATE_NORMALIZER_ID = "tarudesu/mbart-large-50"
 BASE_MODEL_ID = "facebook/mbart-large-50"
+# Controlled experiment: baseline and LoRA both start from this checkpoint.
+EXPERIMENT_START_MODEL_ID = PRIVATE_NORMALIZER_ID
 
 
 def get_hf_token(required: bool = False) -> str | None:
@@ -39,11 +41,26 @@ def load_seq2seq_model(model_id: str, private: bool = False):
         tokenizer.src_lang = "vi_VN"
     if hasattr(tokenizer, "tgt_lang"):
         tokenizer.tgt_lang = "vi_VN"
+    lang_ids = getattr(tokenizer, "lang_code_to_id", None)
+    if isinstance(lang_ids, dict) and "vi_VN" in lang_ids:
+        model.generation_config.forced_bos_token_id = lang_ids["vi_VN"]
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model = model.to(device)
     model.eval()
     return tokenizer, model, device
+
+
+def model_requires_token(model_id: str) -> bool:
+    return model_id == PRIVATE_NORMALIZER_ID
+
+
+def load_experiment_start_model():
+    """Load the single checkpoint shared by baseline evaluation and LoRA."""
+    return load_seq2seq_model(
+        EXPERIMENT_START_MODEL_ID,
+        private=model_requires_token(EXPERIMENT_START_MODEL_ID),
+    )
 
 
 def generate_normalizations(

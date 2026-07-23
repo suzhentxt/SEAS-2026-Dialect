@@ -88,9 +88,8 @@ def score_pairs(frame: pd.DataFrame, model_id: str, max_length: int = 256) -> pd
 # Zero-shot task probing (adapted from src/probe_models.py).
 #
 # These functions score fixed label candidates by their sequence log-probability
-# and read a predicted label + confidence off the softmax. This is the probing
-# logic the research codebase uses to measure task accuracy and confidence
-# erosion under dialect variation.
+# and read a predicted label + candidate-normalized proxy score off the
+# softmax. These scores are not calibrated model probabilities.
 # ---------------------------------------------------------------------------
 
 
@@ -204,8 +203,8 @@ def score_label_distribution(runner: TextGeneratorRunner, row: dict, variant: st
     """Score every label candidate for a classification row.
 
     Returns None for non-classification tasks (QA). Otherwise returns a dict
-    with the softmax distribution, predicted label, confidence, and the gold
-    label's probability.
+    with the softmax distribution, predicted label, proxy confidence, and the
+    gold candidate's normalized score.
     """
     from .prompting import (
         LABEL_CANDIDATES,
@@ -228,16 +227,16 @@ def score_label_distribution(runner: TextGeneratorRunner, row: dict, variant: st
 
     label_probs = softmax_scores(label_logprobs)
     predicted = max(label_probs, key=label_probs.get)
-    confidence = label_probs[predicted]
+    proxy_confidence = label_probs[predicted]
     gold = gold_label(row)
     return {
         "variant": variant,
         "label_probs": label_probs,
-        "confidence": confidence,
+        "proxy_confidence": proxy_confidence,
         "prediction": predicted,
         "gold": gold,
         "correct": (predicted == gold) if gold else None,
-        "gold_prob": label_probs.get(gold) if gold else None,
+        "gold_candidate_score": label_probs.get(gold) if gold else None,
     }
 
 
@@ -246,9 +245,8 @@ def probe_classification_rows(
 ) -> pd.DataFrame:
     """Run zero-shot label scoring over a DataFrame of student rows.
 
-    For each row and each variant, computes the predicted label, confidence,
-    and correctness. Non-classification rows (QA) are skipped. Returns a flat
-    DataFrame ready for degradation / confidence-erosion analysis.
+    For each row and each variant, computes the predicted label, candidate
+    scores, and correctness. Non-classification rows (QA) are skipped.
     """
     from .prompting import is_classification
 
@@ -269,8 +267,7 @@ def probe_classification_rows(
                 "prediction": dist["prediction"],
                 "gold": dist["gold"],
                 "correct": dist["correct"],
-                "confidence": dist["confidence"],
-                "gold_prob": dist["gold_prob"],
+                "proxy_confidence": dist["proxy_confidence"],
+                "gold_candidate_score": dist["gold_candidate_score"],
             })
     return pd.DataFrame(records)
-

@@ -218,5 +218,10 @@
       "SENT_3169",
       "SENT_0192"
     ]
+  },
+  "text_corrections": {
+    "MCQA_0056_2": {
+      "thông inh": "thông minh"
+    }
   }
 }

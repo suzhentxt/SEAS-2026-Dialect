@@ -73,7 +73,7 @@ def common_setup() -> str:
 def build_eda() -> dict:
     cells = [
         md("""
-        # Sổ tay 1 — Phân tích dữ liệu khám phá (EDA) và tiền xử lý
+        # Notebook 1 — Phân tích dữ liệu khám phá (EDA) và tiền xử lý
 
         Notebook này giới thiệu dữ liệu **VialectBench** mà đồ án SEAS 2026 sử dụng.
         Ta không bắt đầu bằng mô hình; ta bắt đầu bằng schema, split và câu hỏi nghiên cứu.
@@ -157,7 +157,7 @@ def build_eda() -> dict:
         import matplotlib.pyplot as plt
         import seaborn as sns
 
-        from vialect_seas.data import DIALECTS, TASKS, load_jsonl
+        from vialect_seas.data import DIALECTS, TASKS, identity_rate_summary, load_jsonl
 
         sns.set_theme(style="whitegrid", context="notebook")
         pd.set_option("display.max_colwidth", 100)
@@ -241,6 +241,35 @@ def build_eda() -> dict:
           (dialect hypothesis → standard hypothesis), không phải premise → dialect.
 
         **Nhóm bổ sung:** Mô tả một ví dụ leakage cụ thể (giả thuyết) bằng `sample_id`.
+        """),
+        md("""
+        ## Quality control — typo và identity pairs
+
+        Identity pair (`dialect_text == standard_text`) không mặc nhiên là lỗi: một câu
+        có thể không cần thay đổi. Tuy nhiên tỷ lệ copy cao có thể làm CER trung bình
+        trông tốt hơn dù normalizer chưa học chuyển đổi. Vì vậy ta báo cáo tỷ lệ này theo
+        task và dialect, rồi audit thủ công theo `sample_id`.
+        """),
+        code("""
+        identity_summary = identity_rate_summary(train)
+        display(identity_summary.round(3))
+
+        suspicious_fragments = ["thông inh"]
+        suspicious_rows = train[
+            train["standard_text"].str.contains(
+                "|".join(suspicious_fragments), case=False, na=False
+            )
+        ]
+        print("Known suspicious target rows:", len(suspicious_rows))
+        assert suspicious_rows.empty, "Dữ liệu còn typo target đã biết; chạy prepare_student_data.py"
+        """),
+        md("""
+        ### Insight (quality control)
+
+        Báo cáo identity rate theo dialect và giải thích vì sao PNB có thể có nhiều cặp
+        copy hơn PNT2/PNT3. Chọn ngẫu nhiên 20–30 `sample_id` để audit Unicode, khoảng
+        trắng, dấu câu, typo target và bảo toàn nghĩa. Không xóa identity pair chỉ vì nó
+        giống reference.
         """),
         md("""
         ## EDA 1 — Cân bằng dữ liệu
@@ -339,7 +368,7 @@ def build_eda() -> dict:
         md("""
         ## EDA 3 — Model performance và degradation có sẵn
 
-        Hai bảng sau được tính từ kết quả direct prompting của 9 mô hình (Qwen, Llama,
+        Hai bảng sau được tính từ kết quả direct prompting của 10 mô hình (Qwen, Llama,
         Mistral, Gemma, Vistral, SeaLLM, GPT-4o,...). `Drop = Standard - Dialect`;
         số dương nghĩa là mô hình **giảm điểm** trên dialect.
         """),
@@ -472,28 +501,28 @@ def build_eda() -> dict:
 def build_probing() -> dict:
     cells = [
         md("""
-        # Sổ tay 2 — Thăm dò mô hình ngôn ngữ (zero-shot probing)
+        # Notebook 2 — Thăm dò mô hình ngôn ngữ (zero-shot probing)
 
         Notebook này đo xem một mô hình ngôn ngữ (LM) còn làm đúng **tác vụ** trên câu
         phương ngữ hay không — không chỉ đo độ "quen" (perplexity). Cách tiếp cận lặp
         lại logic của `src/probe_models.py` trong codebase nghiên cứu: với mỗi câu, ta
-        chấm điểm log-probability của **mỗi nhãn ứng viên** rồi lấy softmax để đọc ra
-        nhãn dự đoán và độ tin cậy.
+        chấm điểm log-probability của **mỗi nhãn ứng viên** rồi lấy softmax trong tập
+        ứng viên. Kết quả là candidate-normalized score, không phải xác suất đã calibrated.
 
         ## Mục tiêu học tập
 
-        1. Phân biệt hai loại probing: perplexity (độ quen) vs. zero-shot task probing (đúng/sai + tin cậy).
+        1. Phân biệt NLL familiarity probe với zero-shot task probing.
         2. Viết được chấm điểm log-probability của một completion và softmax theo nhãn.
-        3. Đo **accuracy** và **confidence** trên chuẩn vs. phương ngữ với ba LM.
-        4. Đo **confidence erosion** — độ tin cậy giảm bao nhiêu khi đổi chuẩn → dialect.
+        3. Đo **accuracy** và **gold candidate score** trên chuẩn vs. phương ngữ.
+        4. Diễn giải proxy score đúng giới hạn, không gọi là calibrated confidence.
         5. Giải thích vì sao accuracy tuyệt đối thấp không loại trừ việc đo được degradation.
 
         ## Tham chiếu
 
         Code gốc trong codebase: `src/probe_models.py` (chạy local LM) và
         `src/probe_openai.py` (chạy GPT-4o qua API). Cả hai dùng chung logic: build
-        prompt → chấm điểm mỗi nhãn ứng viên → softmax → nhãn dự đoán + confidence.
-        Notebook này rút logic cốt lõi ra để học viên chạy được trên 3 LM nhỏ.
+        prompt → chấm điểm mỗi nhãn ứng viên → softmax trong candidate set → nhãn dự
+        đoán + proxy score. Notebook bắt buộc một LM nhỏ; hai model còn lại là bonus.
         """),
         md("""
         ## Công thức
@@ -503,13 +532,15 @@ def build_probing() -> dict:
         ```text
         seq_logprob(y | x) = Σ log p(y_t | x, y_<t)
         avg_logprob(y | x) = seq_logprob / |y|
-        p(label | x) = softmax(avg_logprob) trên tập nhãn ứng viên
-        prediction = argmax_label p(label | x)
-        confidence  = p(prediction | x)
+        CandidateScore(label | x) = softmax(avg_logprob) trong tập nhãn ứng viên
+        prediction = argmax_label CandidateScore(label | x)
+        proxy_confidence = CandidateScore(prediction | x)
+        gold_candidate_score = CandidateScore(gold | x)
         ```
 
         **Degradation (accuracy)** = acc(standard) − acc(dialect).
-        **Confidence erosion** = mean_confidence(standard) − mean_confidence(dialect).
+        **Gold-score erosion** =
+        mean_gold_candidate_score(standard) − mean_gold_candidate_score(dialect).
 
         Lợi thế so với perplexity: metric này gắn với **tác vụ** (đúng/sai nhãn), nên
         dễ diễn giải với người làm ứng dụng. Hạn chế: chỉ áp dụng cho task phân loại
@@ -563,18 +594,18 @@ def build_probing() -> dict:
         PROBE_RQ = "TODO: ví dụ - ba LM có cùng suy giảm accuracy khi đổi chuẩn → dialect không?"
         # Dự đoán thứ tự dialect từ ít → nhiều degradation.
         EXPECTED_DIALECT_ORDER = ["TODO", "TODO", "TODO"]
-        # Dự đoán: confidence erosion có cùng hướng với accuracy degradation không?
-        PRED_CONFIDENCE_EROSSION = "TODO: cùng hướng / ngược hướng / không liên quan"
+        # Dự đoán: gold-score erosion có cùng hướng với accuracy degradation không?
+        PRED_GOLD_SCORE_EROSION = "TODO: cùng hướng / ngược hướng / không liên quan"
 
         print({
             "team": TEAM_NAME,
             "rq": PROBE_RQ,
             "expected_order": EXPECTED_DIALECT_ORDER,
-            "pred_confidence": PRED_CONFIDENCE_EROSSION,
+            "pred_gold_score": PRED_GOLD_SCORE_EROSION,
         })
         """),
         md("""
-        ## Ba mô hình ngôn ngữ
+        ## Mô hình bắt buộc và phần bonus
 
         | Mô hình | Đặc điểm |
         |---|---|
@@ -582,9 +613,9 @@ def build_probing() -> dict:
         | `bigscience/bloom-560m` | multilingual causal LM, tokenizer khác Qwen |
         | `VietAI/gpt-neo-1.3B-vietnamese-news` | LM chuyên biệt tiếng Việt / tin tức |
 
-        Ba mô hình có tokenizer và pretraining corpus khác nhau. Accuracy tuyệt đối sẽ
-        thấp (zero-shot, mô hình nhỏ), nhưng ta quan tâm **paired degradation**
-        (chuẩn → dialect) bên trong từng mô hình, không phải điểm tuyệt đối.
+        Học viên chỉ bắt buộc chạy `Qwen/Qwen2.5-0.5B`. BLOOM và Vietnamese GPT-Neo là
+        bonus để khảo sát tokenizer/model-family effects. Accuracy tuyệt đối có thể thấp;
+        primary comparison là paired degradation bên trong cùng một model.
         """),
         md("""
         ## Chuẩn bị subset probing
@@ -595,6 +626,9 @@ def build_probing() -> dict:
         code("""
         N_PER_CELL = 3  # 3 câu/task/dialect → 3 tasks × 3 dialect × 3 = 27 cặp × 2 variant = 54 probe
         RUN_PROBING = False  # Đổi True khi có GPU/runtime phù hợp.
+        RUN_BONUS_MODELS = False
+        REQUIRED_MODELS = [DEFAULT_MODELS[0]]
+        MODELS_TO_RUN = list(DEFAULT_MODELS) if RUN_BONUS_MODELS else REQUIRED_MODELS
 
         classification_train = train[train["task"].map(is_classification)].copy()
         probe_frame = (
@@ -647,7 +681,7 @@ def build_probing() -> dict:
 
         if RUN_PROBING:
             all_results = []
-            for model_id in DEFAULT_MODELS:
+            for model_id in MODELS_TO_RUN:
                 print(f"=== Probing {model_id} ===", flush=True)
                 runner = load_text_generator(model_id)
                 result = probe_classification_rows(probe_frame, runner, variants=("standard", "dialect"))
@@ -672,20 +706,20 @@ def build_probing() -> dict:
         ### Sanity checks
 
         1. Mỗi mô hình có cùng số dòng (row × variant).
-        2. Không có confidence NaN hoặc ngoài [0, 1].
+        2. Không có proxy score NaN hoặc ngoài [0, 1].
         3. Số nhãn dự đoán.unique hợp lý (giới hạn trong candidates).
         """),
         code("""
         if not probe_scores.empty:
             checks = probe_scores.groupby("model_id").agg(
                 rows=("sample_id", "size"),
-                mean_conf=("confidence", "mean"),
-                min_conf=("confidence", "min"),
-                max_conf=("confidence", "max"),
+                mean_proxy=("proxy_confidence", "mean"),
+                min_proxy=("proxy_confidence", "min"),
+                max_proxy=("proxy_confidence", "max"),
             )
             display(checks.round(4))
             assert checks["rows"].nunique() == 1, "Số dòng không khớp giữa các mô hình"
-            assert checks["min_conf"].ge(0).all() and checks["max_conf"].le(1.001).all()
+            assert checks["min_proxy"].ge(0).all() and checks["max_proxy"].le(1.001).all()
         """),
         md("""
         ## Accuracy degradation theo dialect
@@ -730,51 +764,51 @@ def build_probing() -> dict:
           theo source để báo cáo uncertainty.
         """),
         md("""
-        ## Confidence erosion
+        ## Gold candidate score erosion
 
-        Ngoài accuracy, đo **độ tin cậy** (softmax của nhãn dự đoán). Confidence erosion
-        = mean_confidence(standard) − mean_confidence(dialect). Mô hình có thể giữ
-        accuracy nhưng giảm confidence — vẫn là dấu hiệu dialect "khó" với mô hình.
+        Primary analysis dùng score của **nhãn gold**, không dùng score của nhãn model tự
+        dự đoán. Mô hình có thể rất chắc vào một nhãn sai; proxy confidence cao khi đó
+        không phải bằng chứng robustness. Các score chỉ được chuẩn hóa trong candidate set.
         """),
         code("""
         if not probe_scores.empty:
-            conf = (
+            score_summary = (
                 probe_scores.groupby(["model_id", "target_dialect", "variant"], observed=True)
-                .agg(mean_confidence=("confidence", "mean"),
-                     mean_gold_prob=("gold_prob", "mean"))
+                .agg(mean_gold_score=("gold_candidate_score", "mean"),
+                     mean_proxy_confidence=("proxy_confidence", "mean"))
                 .reset_index()
             )
-            conf_pivot = conf.pivot_table(
-                index=["model_id", "target_dialect"], columns="variant", values="mean_confidence"
+            gold_pivot = score_summary.pivot_table(
+                index=["model_id", "target_dialect"], columns="variant", values="mean_gold_score"
             )
-            conf_pivot["erosion"] = conf_pivot["standard"] - conf_pivot["dialect"]
+            gold_pivot["gold_score_erosion"] = gold_pivot["standard"] - gold_pivot["dialect"]
 
             fig, axes = plt.subplots(1, 2, figsize=(13, 4.5))
-            plot_conf = conf_pivot.reset_index().melt(
+            plot_score = gold_pivot.reset_index().melt(
                 id_vars=["model_id", "target_dialect"],
-                value_vars=["standard", "dialect"], var_name="variant", value_name="mean_confidence"
+                value_vars=["standard", "dialect"], var_name="variant", value_name="mean_gold_score"
             )
-            sns.barplot(data=plot_conf, x="target_dialect", y="mean_confidence",
+            sns.barplot(data=plot_score, x="target_dialect", y="mean_gold_score",
                         hue="variant", ax=axes[0])
-            axes[0].set(title="Confidence: chuẩn vs. dialect", xlabel="Dialect",
-                        ylabel="Mean confidence")
+            axes[0].set(title="Gold candidate score: chuẩn vs. dialect", xlabel="Dialect",
+                        ylabel="Mean gold candidate score")
             axes[0].set_ylim(0, 1)
 
-            sns.heatmap(conf_pivot["erosion"].unstack(), annot=True, fmt=".3f",
+            sns.heatmap(gold_pivot["gold_score_erosion"].unstack(), annot=True, fmt=".3f",
                         cmap="RdBu_r", center=0, ax=axes[1])
-            axes[1].set(title="Confidence erosion (chuẩn − dialect)",
+            axes[1].set(title="Gold-score erosion (chuẩn − dialect)",
                         xlabel="Dialect", ylabel="Model")
             plt.tight_layout()
             plt.show()
-            display(conf_pivot.round(3))
+            display(gold_pivot.round(3))
         """),
         md("""
-        ### Insight (confidence)
+        ### Insight (candidate score)
 
-        - Confidence erosion có cùng hướng với accuracy degradation không (theo dự đoán ở TASK 0)?
-        - Có trường hợp accuracy không đổi nhưng confidence giảm không? Ý nghĩa gì?
-        - **Caveat:** confidence từ softmax trên log-prob token có thể bị lệch bởi
-          độ dài JSON của mỗi nhãn. Kiểm tra `num_tokens` nếu nghi ngờ.
+        - Gold-score erosion có cùng hướng với accuracy degradation không?
+        - Có trường hợp accuracy không đổi nhưng gold score giảm không?
+        - **Caveat:** đây là candidate-normalized proxy, không phải calibrated probability.
+          Score còn có thể nhạy với cách viết và độ dài completion JSON.
         """),
         code("""
         # So sánh theo task: degradation có khác giữa MCQA / NLI / SENT không?
@@ -810,13 +844,12 @@ def build_probing() -> dict:
         ## Bài tập mở
 
         1. Tăng `N_PER_CELL` và tính bootstrap CI theo `sample_id` (resample theo source).
-        2. So sánh thứ tự khó ở đây với degradation trong Notebook 1 (9 mô hình lớn).
+        2. So sánh thứ tự khó ở đây với degradation trong Notebook 1 (10 mô hình).
            **Correlation ≠ causation** — giải thích vì sao.
         3. QA là task sinh tự do. Dùng `generate()` để sinh câu trả lời, rồi tính
            exact-match / contains-match với gold. So sánh chuẩn vs. dialect.
-        4. Thử `normalized_direct`: thay `dialect_text` bằng `normalized_text` từ
-           Notebook 3, xem accuracy/confidence có phục hồi không.
-        5. Kiểm tra 10 câu có confidence erosion lớn nhất; phân loại nguyên nhân
+        4. Chạy hai bonus model và so sánh tokenizer/model-family effects.
+        5. Kiểm tra 10 câu có gold-score erosion lớn nhất; phân loại nguyên nhân
            (từ vựng, ngữ pháp, độ dài).
         """),
         code("""
@@ -848,21 +881,21 @@ def build_probing() -> dict:
 def build_normalization() -> dict:
     cells = [
         md("""
-        # Sổ tay 3 — Chuẩn hóa văn bản phương ngữ bằng mBART và LoRA
+        # Notebook 3 — Chuẩn hóa văn bản phương ngữ bằng mBART và LoRA
 
         Notebook này là phần chính của đồ án: dùng một mô hình **encoder-decoder**
-        để dịch câu phương ngữ về câu tiếng Việt chuẩn, đo khoảng cách giữa bản gốc
-        và bản dịch, rồi fine-tune bằng LoRA nếu khoảng cách đó còn lớn.
+        để dịch câu phương ngữ về câu tiếng Việt chuẩn, fine-tune cùng checkpoint bằng
+        LoRA, rồi kiểm tra normalization có phục hồi downstream task performance không.
 
         ## Mục tiêu học tập
 
         1. Giải thích vì sao bài toán normalization dùng mô hình seq2seq, không phải encoder-only.
-        2. Chạy baseline mBART private trên một mẫu dialect và sinh bản chuẩn hóa.
-        3. **So sánh câu gốc (dialect) với câu dịch (normalized) về độ dài và độ phức tạp
-           (perplexity)** — đây là thí nghiệm trung tâm của notebook.
-        4. Đo CER/WER giữa bản dịch và bản chuẩn vàng.
-        5. Fine-tune mBART bằng LoRA và so sánh với baseline trên cùng test split.
-        6. Phân loại lỗi thủ công và viết kết luận có bằng chứng.
+        2. Chia train/dev theo `sample_id`, không dùng test để chọn thiết kế.
+        3. Đo CER/WER/chrF và NLL familiarity gap; dùng CER làm primary metric.
+        4. Fine-tune **cùng private mBART checkpoint** bằng LoRA và chọn best checkpoint
+           theo dev CER.
+        5. Đánh giá baseline và LoRA đúng một lần trên cùng test split.
+        6. Đo downstream recovery trên một task phân loại và phân tích lỗi thủ công.
         """),
         md("""
         ## Khái niệm: text normalization là gì?
@@ -894,8 +927,9 @@ def build_normalization() -> dict:
         | Phù hợp | phân loại, embedding | dịch, tóm tắt, **normalization** |
 
         Vì bài toán normalization cần **sinh chuỗi**, mBERT (encoder-only) không làm được
-        trực tiếp. mBART có decoder nên gán được `p(standard | dialect)`. Đây là lý do
-        checkpoint tốt nhất trong benchmark là mBART, không phải mBERT.
+        trực tiếp. mBART có decoder nên gán được `p(standard | dialect)`. Repo chưa công
+        bố bảng so sánh đủ để tuyên bố checkpoint private là tốt nhất; kết quả rehearsal
+        phải được ghi vào `data/model_results/normalization_model_comparison.csv`.
 
         > **Lưu ý giảng dạy:** Tên hai mô hình dễ nhầm. Nếu đọc "mBERT" trong tài liệu cũ,
         > hãy kiểm tra kiến trúc: nếu nó dịch được chuỗi, đó là mBART.
@@ -921,18 +955,40 @@ def build_normalization() -> dict:
         import matplotlib.pyplot as plt
         import seaborn as sns
 
-        from vialect_seas.data import DIALECTS, TASKS, load_jsonl
-        from vialect_seas.metrics import character_error_rate, word_error_rate, exact_match
+        from vialect_seas.data import (
+            DIALECTS, TASKS, load_jsonl, split_train_dev_by_source,
+        )
+        from vialect_seas.metrics import evaluate_predictions, metric_summary
         from vialect_seas.normalization import (
-            BASE_MODEL_ID, PRIVATE_NORMALIZER_ID,
-            get_hf_token, load_seq2seq_model, generate_normalizations,
-            attach_lora, make_preprocess_function,
+            EXPERIMENT_START_MODEL_ID, get_hf_token, load_experiment_start_model,
+            generate_normalizations, attach_lora, make_preprocess_function,
         )
 
         sns.set_theme(style="whitegrid", context="notebook")
-        train = load_jsonl(ROOT / "data" / "train_240.jsonl")
-        test = load_jsonl(ROOT / "data" / "test_300.jsonl")
-        print(f"train={len(train)}  test={len(test)}")
+        train_pool = load_jsonl(ROOT / "data" / "train_240.jsonl")
+        test_path = ROOT / "data" / "test_300.jsonl"
+        test_row_count = sum(1 for line in test_path.open(encoding="utf-8") if line.strip())
+        train, dev = split_train_dev_by_source(
+            train_pool, dev_sources_per_task=4, seed=2026
+        )
+        print(f"train={len(train)}  dev={len(dev)}  held-out test rows={test_row_count}")
+        print("Source overlap:", {
+            "train-dev": len(set(train.sample_id) & set(dev.sample_id)),
+        })
+        display(train.groupby(["task", "target_dialect"], observed=True).size().unstack())
+        assert len(train) == 192 and len(dev) == 48 and test_row_count == 300
+        """),
+        md("""
+        ## Protocol cố định
+
+        | Split | Source/task | Rows | Vai trò |
+        |---|---:|---:|---|
+        | Train | 16 | 192 | cập nhật LoRA |
+        | Dev | 4 | 48 | chọn rank, epoch, checkpoint và decoding |
+        | Test | 25 | 300 | đánh giá cuối sau khi khóa thiết kế |
+
+        Baseline và LoRA cùng bắt đầu từ `EXPERIMENT_START_MODEL_ID`. Không dùng test để
+        quyết định có fine-tune, chọn hyperparameter hoặc chọn checkpoint.
         """),
         md("""
         ### STUDENT TASK 0 — Kế hoạch thí nghiệm
@@ -944,25 +1000,28 @@ def build_normalization() -> dict:
         # HINT: RQ nên nêu rõ (1) input, (2) yếu tố so sánh, (3) metric.
         \"\"\"Your code here\"\"\"
         TEAM_NAME = "TODO"
-        NORM_RQ = "TODO: ví dụ - bản dịch mBART có gần chuẩn vàng hơn câu dialect gốc không, về độ dài và perplexity?"
-        # Dự đoán hướng của hai phép so sánh (tăng/giảm/không đổi).
-        PRED_LENGTH = "TODO: normalized so với dialect — dài hơn, ngắn hơn hay xấp xỉ?"
-        PRED_PERPLEXITY = "TODO: PPL(normalized) so với PPL(dialect) — cao hơn, thấp hơn hay xấp xỉ?"
-        # Nếu gap giữa normalized và standard còn lớn, có nên fine-tune không?
-        FINETUNE_DECISION_RULE = "TODO: ví dụ - fine-tune nếu PPL(normalized) - PPL(standard) > 0.5"
+        NORM_RQ = "TODO: LoRA adaptation có giảm dev CER và phục hồi task accuracy không?"
+        PRIMARY_METRIC = "dev CER"
+        PRED_CER = "TODO: LoRA CER so với baseline trên dev"
+        PRED_NLL_RECOVERY = "TODO: dương / xấp xỉ 0 / âm"
+        SUCCESS_CRITERION = "TODO: ngưỡng giảm dev CER định lượng trước training"
+        DOWNSTREAM_TASK = "SENT"
 
         print({
             "team": TEAM_NAME,
             "rq": NORM_RQ,
-            "pred_length": PRED_LENGTH,
-            "pred_perplexity": PRED_PERPLEXITY,
-            "finetune_rule": FINETUNE_DECISION_RULE,
+            "primary_metric": PRIMARY_METRIC,
+            "pred_cer": PRED_CER,
+            "pred_nll_recovery": PRED_NLL_RECOVERY,
+            "success_criterion": SUCCESS_CRITERION,
+            "downstream_task": DOWNSTREAM_TASK,
         })
         """),
         md("""
-        ## Tải mô hình baseline
+        ## Baseline trên development split
 
-        Checkpoint `tarudesu/mbart-large-50` là private. Token **không được hardcode**
+        Experiment checkpoint là `EXPERIMENT_START_MODEL_ID` (private mBART). Token
+        **không được hardcode**
         trong notebook. Đặt `HF_TOKEN` trong biến môi trường hoặc Colab Secrets:
 
         ```python
@@ -982,34 +1041,31 @@ def build_normalization() -> dict:
             print("Token length:", len(token), "(không in giá trị)")
         """),
         code("""
-        RUN_BASELINE = False  # Đổi True khi đã có GPU và token.
-        # Dùng subset nhỏ để demo; tăng N_EVAL khi đã kiểm tra thời gian chạy.
-        N_EVAL = 24  # 8 câu/dialect × 3 dialect
-
-        eval_frame = (
-            test.sort_values(["target_dialect", "task", "sample_id"])
-            .groupby(["target_dialect"], observed=True, group_keys=False)
-            .head(N_EVAL // 3)
-            .reset_index(drop=True)
-        )
-        print("Eval rows:", len(eval_frame))
-        display(eval_frame[["sample_id", "task", "target_dialect", "dialect_text", "standard_text"]].head())
+        RUN_DEV_BASELINE = False  # Đổi True khi đã có GPU và token.
+        dev_frame = dev.sort_values(
+            ["task", "target_dialect", "sample_id"]
+        ).reset_index(drop=True)
+        print("Development rows:", len(dev_frame))
+        display(dev_frame[[
+            "sample_id", "task", "target_dialect", "dialect_text", "standard_text"
+        ]].head())
         """),
         code("""
-        output_path = ROOT / "outputs" / "normalization_baseline.csv"
+        output_path = ROOT / "outputs" / "dev_baseline_predictions.csv"
         output_path.parent.mkdir(exist_ok=True)
 
-        if RUN_BASELINE:
-            tokenizer, model, device = load_seq2seq_model(PRIVATE_NORMALIZER_ID, private=True)
-            print(f"Loaded {PRIVATE_NORMALIZER_ID} on {device}")
+        if RUN_DEV_BASELINE:
+            tokenizer, model, device = load_experiment_start_model()
+            print(f"Loaded {EXPERIMENT_START_MODEL_ID} on {device}")
             normalized = generate_normalizations(
-                eval_frame["dialect_text"].tolist(),
+                dev_frame["dialect_text"].tolist(),
                 tokenizer, model, device,
                 max_length=192, batch_size=8,
             )
-            baseline = eval_frame.copy()
-            baseline["normalized_text"] = normalized
-            baseline.to_csv(output_path, index=False)
+            dev_baseline = dev_frame.copy()
+            dev_baseline["prediction"] = normalized
+            dev_baseline = evaluate_predictions(dev_baseline)
+            dev_baseline.to_csv(output_path, index=False)
             print("Saved", output_path)
             # Giải phóng VRAM trước khi tải LM ở dưới.
             import gc, torch
@@ -1018,47 +1074,47 @@ def build_normalization() -> dict:
             if torch.cuda.is_available():
                 torch.cuda.empty_cache()
         elif output_path.exists():
-            baseline = pd.read_csv(output_path)
+            dev_baseline = pd.read_csv(output_path)
             print("Loaded existing", output_path)
         else:
-            baseline = pd.DataFrame()
-            print("Set RUN_BASELINE=True (cần GPU + HF_TOKEN) để tạo baseline")
+            dev_baseline = pd.DataFrame()
+            print("Set RUN_DEV_BASELINE=True (cần GPU + HF_TOKEN) để tạo dev baseline")
         """),
         md("""
-        ## Thí nghiệm trung tâm: so sánh câu gốc và câu dịch
+        ## Diagnostic: độ dài và NLL familiarity
 
         Đây là phần quan trọng nhất của notebook. Với mỗi cặp, ta có **ba phiên bản** của
         cùng một ý nghĩa:
 
         1. **`dialect_text`** — câu gốc (input phương ngữ đưa vào normalizer).
-        2. **`normalized_text`** — câu dịch (output của mBART).
+        2. **`prediction`** — câu chuẩn hóa (output của mBART).
         3. **`standard_text`** — bản chuẩn vàng (reference).
 
-        Ta so sánh ba phiên bản trên hai tiêu chí:
+        Ta so sánh ba phiên bản bằng độ dài và token NLL từ một reference LM:
 
         - **Độ dài** (số từ): bản dịch có dài/ngắn bất thường so với gốc và chuẩn không?
-        - **Độ phức tạp (perplexity)**: một LM tham chiếu (Qwen2.5-0.5B) gán xác suất
-          bao nhiêu cho mỗi phiên bản? PPL thấp hơn = LM "quen" hơn với câu đó.
+        - **NLL familiarity:** NLL thấp hơn nghĩa là reference scorer thấy chuỗi quen hơn.
+          Nó không đo chất lượng, độ khó ngôn ngữ, ngữ pháp hay bảo toàn nghĩa.
 
         ```text
-        PPL(text) = exp(NLL(text))
         NLL(text) = -(1/(T-1)) * Σ log p(x_t | x_<t)
+        g_dialect = NLL(dialect) - NLL(standard)
+        g_normalized = NLL(normalized) - NLL(standard)
+        NLLRecovery = g_dialect - g_normalized
         ```
 
-        **Câu hỏi then chốt:** bản dịch (normalized) có **gần chuẩn vàng hơn** câu gốc
-        (dialect) về độ dài và perplexity không? Nếu PPL(normalized) vẫn cao hơn nhiều
-        PPL(standard), nghĩa là mBART chưa đưa câu về vùng "quen thuộc" của LM → động lực
-        để fine-tune.
+        `NLLRecovery > 0` nghĩa là output đã tiến gần hơn tới phân phối của standard dưới
+        scorer này. Đây chỉ là diagnostic; chọn model vẫn dựa trên **dev CER**.
         """),
         code("""
-        RUN_PERPLEXITY_COMPARE = False  # Đổi True khi đã có baseline + GPU.
+        RUN_NLL_DIAGNOSTIC = False  # Đổi True khi đã có dev baseline + GPU.
 
-        if not baseline.empty:
+        if not dev_baseline.empty:
             # --- Độ dài: số từ của ba phiên bản ---
-            length_frame = baseline.assign(
-                dialect_words=baseline["dialect_text"].str.split().str.len(),
-                normalized_words=baseline["normalized_text"].str.split().str.len(),
-                standard_words=baseline["standard_text"].str.split().str.len(),
+            length_frame = dev_baseline.assign(
+                dialect_words=dev_baseline["dialect_text"].str.split().str.len(),
+                normalized_words=dev_baseline["prediction"].str.split().str.len(),
+                standard_words=dev_baseline["standard_text"].str.split().str.len(),
             )
             length_long = length_frame.melt(
                 id_vars=["sample_id", "task", "target_dialect"],
@@ -1094,144 +1150,117 @@ def build_normalization() -> dict:
         - **Caveat:** độ dài gần nhau không chứng minh nghĩa đã được chuẩn hóa đúng.
         """),
         code("""
-        # --- Độ phức tạp (perplexity) của ba phiên bản bằng LM tham chiếu ---
+        # --- NLL familiarity của ba phiên bản bằng LM tham chiếu ---
         from vialect_seas.probing import load_causal_lm, score_texts
 
-        REFERENCE_LM = "Qwen/Qwen2.5-0.5B"  # LM nhỏ, đa ngữ, dùng làm thước "quen thuộc"
+        REFERENCE_LM = "Qwen/Qwen2.5-0.5B"
+        nll_path = ROOT / "outputs" / "dev_normalization_nll.csv"
 
-        ppl_path = ROOT / "outputs" / "normalization_perplexity.csv"
-
-        if RUN_PERPLEXITY_COMPARE and not baseline.empty:
+        if RUN_NLL_DIAGNOSTIC and not dev_baseline.empty:
             tok, lm, lm_device = load_causal_lm(REFERENCE_LM)
             print(f"Loaded {REFERENCE_LM} on {lm_device}")
 
-            ppl_dialect = score_texts(baseline["dialect_text"], tok, lm, lm_device)
-            ppl_normalized = score_texts(baseline["normalized_text"], tok, lm, lm_device)
-            ppl_standard = score_texts(baseline["standard_text"], tok, lm, lm_device)
+            scored_dialect = score_texts(dev_baseline["dialect_text"], tok, lm, lm_device)
+            scored_normalized = score_texts(dev_baseline["prediction"], tok, lm, lm_device)
+            scored_standard = score_texts(dev_baseline["standard_text"], tok, lm, lm_device)
 
-            ppl_frame = baseline[["sample_id", "task", "target_dialect"]].copy()
-            ppl_frame["ppl_dialect"] = ppl_dialect["ppl"].values
-            ppl_frame["ppl_normalized"] = ppl_normalized["ppl"].values
-            ppl_frame["ppl_standard"] = ppl_standard["ppl"].values
-            ppl_frame["nll_dialect"] = ppl_dialect["nll"].values
-            ppl_frame["nll_normalized"] = ppl_normalized["nll"].values
-            ppl_frame["nll_standard"] = ppl_standard["nll"].values
-            ppl_frame.to_csv(ppl_path, index=False)
-            print("Saved", ppl_path)
+            nll_frame = dev_baseline[["sample_id", "task", "target_dialect"]].copy()
+            nll_frame["nll_dialect"] = scored_dialect["nll"].values
+            nll_frame["nll_normalized"] = scored_normalized["nll"].values
+            nll_frame["nll_standard"] = scored_standard["nll"].values
+            nll_frame["g_dialect"] = nll_frame["nll_dialect"] - nll_frame["nll_standard"]
+            nll_frame["g_normalized"] = nll_frame["nll_normalized"] - nll_frame["nll_standard"]
+            nll_frame["nll_recovery"] = nll_frame["g_dialect"] - nll_frame["g_normalized"]
+            nll_frame.to_csv(nll_path, index=False)
+            print("Saved", nll_path)
 
             import gc, torch
             del lm, tok
             gc.collect()
             if torch.cuda.is_available():
                 torch.cuda.empty_cache()
-        elif ppl_path.exists():
-            ppl_frame = pd.read_csv(ppl_path)
-            print("Loaded existing", ppl_path)
+        elif nll_path.exists():
+            nll_frame = pd.read_csv(nll_path)
+            print("Loaded existing", nll_path)
         else:
-            ppl_frame = pd.DataFrame()
-            print("Set RUN_PERPLEXITY_COMPARE=True (cần baseline + GPU) để tính perplexity")
+            nll_frame = pd.DataFrame()
+            print("Set RUN_NLL_DIAGNOSTIC=True để tính NLL diagnostic trên dev")
         """),
         code("""
-        if not ppl_frame.empty:
-            ppl_long = ppl_frame.melt(
+        if not nll_frame.empty:
+            gap_long = nll_frame.melt(
                 id_vars=["sample_id", "task", "target_dialect"],
-                value_vars=["ppl_dialect", "ppl_normalized", "ppl_standard"],
-                var_name="variant", value_name="perplexity",
+                value_vars=["g_dialect", "g_normalized"],
+                var_name="comparison", value_name="nll_gap",
             )
-            # Cắt giá trị cực đại để biểu đồ không bị một điểm outliers kéo giật.
-            ppl_long_capped = ppl_long.copy()
-            upper = ppl_long["perplexity"].quantile(0.95)
-            ppl_long_capped["perplexity"] = ppl_long_capped["perplexity"].clip(upper=upper)
 
             fig, axes = plt.subplots(1, 2, figsize=(13, 4.5))
-            sns.boxplot(data=ppl_long_capped, x="target_dialect", y="perplexity",
-                        hue="variant", ax=axes[0])
-            axes[0].set(title="Perplexity: câu gốc vs câu dịch vs chuẩn vàng",
-                        xlabel="Dialect", ylabel="Perplexity (capped 95%)")
-
-            # Delta perplexity so với chuẩn vàng.
-            ppl_frame["delta_ppl_norm_vs_std"] = ppl_frame["ppl_normalized"] - ppl_frame["ppl_standard"]
-            ppl_frame["delta_ppl_dia_vs_std"] = ppl_frame["ppl_dialect"] - ppl_frame["ppl_standard"]
-            delta_long = ppl_frame.melt(
-                id_vars=["sample_id", "task", "target_dialect"],
-                value_vars=["delta_ppl_dia_vs_std", "delta_ppl_norm_vs_std"],
-                var_name="comparison", value_name="delta_ppl",
+            sns.boxplot(data=gap_long, x="target_dialect", y="nll_gap",
+                        hue="comparison", ax=axes[0])
+            axes[0].axhline(0, color="black", linestyle="--", linewidth=1)
+            axes[0].set(
+                title="NLL gap relative to Standard",
+                xlabel="Dialect",
+                ylabel="NLL(input) - NLL(Standard)",
             )
-            delta_capped = delta_long.copy()
-            delta_capped["delta_ppl"] = delta_capped["delta_ppl"].clip(
-                lower=delta_long["delta_ppl"].quantile(0.05),
-                upper=delta_long["delta_ppl"].quantile(0.95),
+            sns.barplot(
+                data=nll_frame, x="target_dialect", y="nll_recovery", ax=axes[1]
             )
-            sns.boxplot(data=delta_capped, x="target_dialect", y="delta_ppl",
-                        hue="comparison", ax=axes[1])
             axes[1].axhline(0, color="black", linestyle="--", linewidth=1)
-            axes[1].set(title="Delta PPL so với chuẩn vàng (<0 = tốt hơn chuẩn)",
-                        xlabel="Dialect", ylabel="PPL - PPL(standard)")
+            axes[1].set(
+                title="NLL recovery after normalization",
+                xlabel="Dialect",
+                ylabel="g_dialect - g_normalized",
+            )
             plt.tight_layout()
             plt.show()
 
-            ppl_summary = ppl_frame.groupby("target_dialect", observed=True).agg(
-                ppl_dialect=("ppl_dialect", "mean"),
-                ppl_normalized=("ppl_normalized", "mean"),
-                ppl_standard=("ppl_standard", "mean"),
-                gap_norm_vs_std=("delta_ppl_norm_vs_std", "mean"),
-                gap_dia_vs_std=("delta_ppl_dia_vs_std", "mean"),
+            nll_summary = nll_frame.groupby("target_dialect", observed=True).agg(
+                g_dialect=("g_dialect", "mean"),
+                g_normalized=("g_normalized", "mean"),
+                nll_recovery=("nll_recovery", "mean"),
             )
-            display(ppl_summary.round(3))
+            display(nll_summary.round(3))
         """),
         md("""
-        ### Insight (perplexity) — phần bắt buộc
+        ### Insight (NLL diagnostic)
 
         Trả lời các câu sau bằng số từ biểu đồ:
 
-        1. **PPL(dialect) vs PPL(standard):** câu gốc phương ngữ có perplexity cao hơn
-           chuẩn vàng không? (khoảng cách bao nhiêu?)
-        2. **PPL(normalized) vs PPL(standard):** bản dịch có tiệm cận chuẩn vàng không?
-           khoảng cách còn lại bao nhiêu?
-        3. **PPL(normalized) vs PPL(dialect):** normalization có giảm perplexity so với
-           câu gốc không?
-        4. **Quyết định fine-tune:** theo rule nhóm đặt ở STUDENT TASK 0, gap còn lại có
-           đủ lớn để fine-tune không?
+        1. `g_dialect` có dương không và dialect nào lớn nhất?
+        2. `g_normalized` có nhỏ hơn `g_dialect` không?
+        3. `NLLRecovery` có dương nhất quán theo dialect không?
 
-        **Caveat:** PPL đo "quen thuộc" với LM tham chiếu, không phải đúng/sai semantic.
-        Một câu có thể PPL thấp nhưng sai nghĩa. Luôn kết hợp với CER/WER ở phần sau.
+        **Caveat:** NLL chỉ đo familiarity dưới reference scorer. Không dùng NLL recovery
+        để chọn checkpoint và không gọi chuỗi có NLL thấp hơn là “tốt hơn”.
         """),
         md("""
         ## Đánh giá bản dịch bằng metric dịch máy
 
-        Ngoài độ dài và perplexity, đo khoảng cách giữa bản dịch và chuẩn vàng bằng:
+        Primary metric là CER trên dev. Báo cáo thêm:
 
         - **CER (Character Error Rate)** = edit distance / ký tự reference.
         - **WER (Word Error Rate)** = edit distance / từ reference.
+        - **chrF** = character n-gram F-score; cao hơn tốt hơn.
         - **Exact match** = 1 nếu bản dịch == chuẩn vàng (sau khi strip).
 
         CER thấp = bản dịch giống chuẩn vàng về bề mặt. Nhưng CER không thưởng nghĩa;
         dùng kèm kiểm tra thủ công.
         """),
         code("""
-        if not baseline.empty:
-            baseline = baseline.assign(
-                cer=[character_error_rate(ref, hyp)
-                     for ref, hyp in zip(baseline["standard_text"], baseline["normalized_text"])],
-                wer=[word_error_rate(ref, hyp)
-                     for ref, hyp in zip(baseline["standard_text"], baseline["normalized_text"])],
-                exact_match=[exact_match(ref, hyp)
-                             for ref, hyp in zip(baseline["standard_text"], baseline["normalized_text"])],
-            )
-            metric_by_dialect = (
-                baseline.groupby("target_dialect", observed=True)
-                .agg(mean_cer=("cer", "mean"),
-                     mean_wer=("wer", "mean"),
-                     exact_match_rate=("exact_match", "mean"))
-                .reset_index()
+        if not dev_baseline.empty:
+            dev_baseline = evaluate_predictions(dev_baseline)
+            metric_by_dialect = metric_summary(
+                dev_baseline, by=["target_dialect"]
             )
             fig, ax = plt.subplots(figsize=(8, 4))
-            sns.barplot(data=metric_by_dialect, x="target_dialect", y="mean_cer", ax=ax)
-            ax.set(title="CER giữa bản dịch mBART và chuẩn vàng",
+            sns.barplot(data=metric_by_dialect, x="target_dialect", y="cer", ax=ax)
+            ax.set(title="Development CER của mBART baseline",
                    xlabel="Dialect", ylabel="Character Error Rate")
             plt.tight_layout()
             plt.show()
             display(metric_by_dialect.round(3))
+            display(metric_summary(dev_baseline).round(3))
         """),
         md("""
         ### STUDENT TASK 1 — Phân tích lỗi thủ công
@@ -1244,9 +1273,9 @@ def build_normalization() -> dict:
         code("""
         RUN_ERROR_ANALYSIS = False
 
-        if RUN_ERROR_ANALYSIS and not baseline.empty:
+        if RUN_ERROR_ANALYSIS and not dev_baseline.empty:
             # HINT 1: sort theo CER giảm dần, lấy top 10-15 câu.
-            # HINT 2: với mỗi câu, in dialect_text / normalized_text / standard_text cạnh nhau.
+            # HINT 2: với mỗi câu, in dialect_text / prediction / standard_text cạnh nhau.
             # HINT 3: gán nhãn lỗi vào cột `error_type`; đếm tần suất theo error_type.
             \"\"\"Your code here\"\"\"
             top_errors = None  # thay bằng DataFrame của nhóm
@@ -1256,15 +1285,14 @@ def build_normalization() -> dict:
             assert "error_type" in top_errors.columns
             assert len(top_errors) >= 10
             display(top_errors[["sample_id", "target_dialect", "dialect_text",
-                                "normalized_text", "standard_text", "cer", "error_type"]].head(12))
+                                "prediction", "standard_text", "cer", "error_type"]].head(12))
         """),
         md("""
         ## Fine-tune bằng LoRA
 
-        Nếu gap perplexity giữa bản dịch và chuẩn vàng còn lớn (theo rule ở TASK 0),
-        ta fine-tune mBART. Nhưng mBART-large có hàng trăm triệu tham số; train full
-        tốn VRAM lớn. **LoRA** (Low-Rank Adaptation) thêm ma trận thấp hạng vào weight
-        có sẵn, chỉ train phần nhỏ đó.
+        Ta kiểm tra giả thuyết LoRA đã đăng ký bằng train/dev, không dùng NLL/PPL để
+        quyết định sau khi nhìn test. mBART-large có hàng trăm triệu tham số; LoRA
+        (Low-Rank Adaptation) chỉ cập nhật các ma trận thấp hạng.
 
         ```text
         W' = W + (alpha / r) * B @ A
@@ -1280,181 +1308,368 @@ def build_normalization() -> dict:
         tác vụ).
         """),
         md("""
-        ### Cài đặt training arguments
+        ### Cấu hình và model selection
 
-        Trừ `fp16` và `predict_with_generate` ra, thì những giá trị còn lại các em có nên
-        thay đổi không? Điền cột **Giải thích ý nghĩa** và điều chỉnh **Giá trị Gợi ý**
-        nếu thấy cần (ghi rõ lý do vào báo cáo).
+        Điền cột **Giải thích ý nghĩa** trước khi train. Mọi thay đổi phải chọn bằng dev;
+        test vẫn đóng.
 
         | Argument | Giá trị Gợi ý | Giải thích ý nghĩa |
         | --- | --- | --- |
         | `output_dir` | `"outputs/lora_run"` | VD: đường dẫn thư mục lưu kết quả training |
         | `num_train_epochs` | `3` | |
         | `per_device_train_batch_size` | `4` | |
-        | `per_device_eval_batch_size` | `8` | |
+        | `per_device_eval_batch_size` | `4` | |
         | `learning_rate` | `2e-4` | |
         | `warmup_ratio` | `0.05` | |
         | `weight_decay` | `0.01` | |
-        | `save_strategy` | `"no"` | |
+        | `eval_strategy` | `"epoch"` | đánh giá trên dev mỗi epoch |
+        | `save_strategy` | `"epoch"` | lưu ứng viên checkpoint |
         | `logging_steps` | `10` | |
         | `report_to` | `[]` | |
         | `fp16` | **True** (nếu có GPU) | |
-        | `predict_with_generate` | **False** | |
-        | `gradient_accumulation_steps` | `2` | |
+        | `predict_with_generate` | **True** | sinh chuỗi để tính dev CER |
+        | `metric_for_best_model` | `"cer"` | primary selection metric |
+        | `greater_is_better` | `False` | CER thấp hơn tốt hơn |
+        | `gradient_accumulation_steps` | `4` | |
         """),
         code("""
-        RUN_FINETUNE = False  # Đổi True khi đã có GPU >= T4 và đã chạy baseline.
-        LORA_RANK = 8
-        LORA_ALPHA = 16
-        LORA_DROPOUT = 0.05
+        RUN_FINETUNE = False
+        EXPERIMENT_CONFIG = {
+            "lora_rank": 8,
+            "lora_alpha": 16,
+            "lora_dropout": 0.05,
+            "epochs": 3,
+            "train_batch_size": 4,
+            "eval_batch_size": 4,
+            "gradient_accumulation": 4,
+            "learning_rate": 2e-4,
+            "max_length": 192,
+        }
+        # STUDENT TASK: giải thích trade-off của từng giá trị trước khi bật training.
+        # HINT: nêu giới hạn dữ liệu/VRAM và giả thuyết overfitting.
+        HYPERPARAMETER_RATIONALE = {
+            key: "TODO" for key in EXPERIMENT_CONFIG
+        }
+        \"\"\"Your code here\"\"\"
 
-        # Cell này chỉ chạy khi RUN_FINETUNE = True. Điền các chỗ ______ trước khi chạy.
         if RUN_FINETUNE:
             import torch
             from datasets import Dataset
-            from transformers import (AutoModelForSeq2SeqLM, AutoTokenizer,
-                                      DataCollatorForSeq2Seq, Seq2SeqTrainer,
-                                      Seq2SeqTrainingArguments)
+            from transformers import (
+                DataCollatorForSeq2Seq, Seq2SeqTrainer, Seq2SeqTrainingArguments,
+            )
 
-            # CODE: Lấy HF token (không hardcode) qua get_hf_token(required=False)
-            token = get_hf_token(required=False)
-            kwargs = {"token": token} if token else {}
+            unresolved = [
+                key for key, value in HYPERPARAMETER_RATIONALE.items()
+                if value == "TODO"
+            ]
+            if unresolved:
+                raise ValueError(f"Giải thích hyperparameter trước khi train: {unresolved}")
 
-            # CODE: Tải tokenizer và base model từ BASE_MODEL_ID
-            tokenizer = ______
-            base_model = ______
-
-            # CODE: Đặt src_lang và tgt_lang = "vi_VN" cho mBART (nếu tokenizer hỗ trợ)
-            # HINT: dùng hasattr(tokenizer, "src_lang") để kiểm tra trước khi gán.
-            if hasattr(tokenizer, "src_lang"):
-                tokenizer.src_lang = ______
-            if hasattr(tokenizer, "tgt_lang"):
-                tokenizer.tgt_lang = ______
-
-            # CODE: Gắn LoRA vào base_model (q_proj, v_proj) bằng attach_lora()
-            # HINT: truyền rank=LORA_RANK, alpha=LORA_ALPHA, dropout=LORA_DROPOUT.
-            model = attach_lora(______, rank=______, alpha=______, dropout=______)
+            # Controlled comparison: exact same checkpoint as baseline.
+            tokenizer, base_model, device = load_experiment_start_model()
+            model = attach_lora(
+                base_model,
+                rank=EXPERIMENT_CONFIG["lora_rank"],
+                alpha=EXPERIMENT_CONFIG["lora_alpha"],
+                dropout=EXPERIMENT_CONFIG["lora_dropout"],
+            )
             model.print_trainable_parameters()
 
-            # CODE: Tạo Dataset từ train (không dùng test) và tokenize bằng make_preprocess_function
-            # HINT: Dataset.from_pandas(train.reset_index(drop=True)); map(preprocess, batched=True, remove_columns=...)
-            train_ds = ______
-            preprocess = make_preprocess_function(tokenizer, max_length=192)
-            tokenized = ______
-
-            # CODE: Tạo DataCollatorForSeq2Seq (padding, label_pad_token_id=-100)
-            data_collator = ______
-
-            # CODE: Thiết lập Seq2SeqTrainingArguments với các giá trị ở bảng trên
-            # HINT: dùng fp16=torch.cuda.is_available() và predict_with_generate=False.
-            args = Seq2SeqTrainingArguments(
-                output_dir=______,
-                num_train_epochs=______,
-                per_device_train_batch_size=______,
-                per_device_eval_batch_size=______,
-                learning_rate=______,
-                save_strategy=______,
-                logging_steps=______,
-                report_to=______,
-                fp16=______,
-                predict_with_generate=______,
+            preprocess = make_preprocess_function(
+                tokenizer, max_length=EXPERIMENT_CONFIG["max_length"]
+            )
+            train_ds = Dataset.from_pandas(
+                train[["dialect_text", "standard_text"]], preserve_index=False
+            )
+            dev_ds = Dataset.from_pandas(
+                dev[["dialect_text", "standard_text"]], preserve_index=False
+            )
+            train_tok = train_ds.map(
+                preprocess, batched=True, remove_columns=train_ds.column_names
+            )
+            dev_tok = dev_ds.map(
+                preprocess, batched=True, remove_columns=dev_ds.column_names
+            )
+            data_collator = DataCollatorForSeq2Seq(
+                tokenizer=tokenizer, model=model, label_pad_token_id=-100
             )
 
-            # CODE: Tạo Seq2SeqTrainer và bắt đầu training
-            # HINT: truyền model, args, train_dataset, tokenizer, data_collator.
+            def compute_generation_metrics(eval_pred):
+                predictions, labels = eval_pred
+                if isinstance(predictions, tuple):
+                    predictions = predictions[0]
+                labels = np.where(labels != -100, labels, tokenizer.pad_token_id)
+                decoded_predictions = tokenizer.batch_decode(
+                    predictions, skip_special_tokens=True
+                )
+                decoded_labels = tokenizer.batch_decode(
+                    labels, skip_special_tokens=True
+                )
+                scored = pd.DataFrame({
+                    "standard_text": decoded_labels,
+                    "prediction": decoded_predictions,
+                })
+                return metric_summary(evaluate_predictions(scored)).iloc[0].to_dict()
+
+            args = Seq2SeqTrainingArguments(
+                output_dir=str(ROOT / "outputs" / "lora_run"),
+                num_train_epochs=EXPERIMENT_CONFIG["epochs"],
+                per_device_train_batch_size=EXPERIMENT_CONFIG["train_batch_size"],
+                per_device_eval_batch_size=EXPERIMENT_CONFIG["eval_batch_size"],
+                gradient_accumulation_steps=EXPERIMENT_CONFIG["gradient_accumulation"],
+                learning_rate=EXPERIMENT_CONFIG["learning_rate"],
+                warmup_ratio=0.05,
+                weight_decay=0.01,
+                eval_strategy="epoch",
+                save_strategy="epoch",
+                load_best_model_at_end=True,
+                metric_for_best_model="cer",
+                greater_is_better=False,
+                predict_with_generate=True,
+                generation_max_length=EXPERIMENT_CONFIG["max_length"],
+                save_total_limit=1,
+                logging_steps=10,
+                report_to=[],
+                fp16=torch.cuda.is_available(),
+                seed=2026,
+                data_seed=2026,
+            )
+
             trainer = Seq2SeqTrainer(
-                model=______,
-                args=______,
-                train_dataset=______,
-                tokenizer=______,
-                data_collator=______,
+                model=model,
+                args=args,
+                train_dataset=train_tok,
+                eval_dataset=dev_tok,
+                processing_class=tokenizer,
+                data_collator=data_collator,
+                compute_metrics=compute_generation_metrics,
             )
             trainer.train()
-
-            # CODE: Lưu LoRA adapter vào outputs/lora_adapter
-            # HINT: model.save_pretrained(...) và tokenizer.save_pretrained(...)
-            ______
+            trainer.save_model(str(ROOT / "outputs" / "lora_adapter"))
+            tokenizer.save_pretrained(str(ROOT / "outputs" / "lora_adapter"))
             print("Saved LoRA adapter to outputs/lora_adapter")
         else:
-            print("Set RUN_FINETUNE=True (cần GPU) để fine-tune. Đọc code và điền ______ trước khi chạy.")
+            print("Set RUN_FINETUNE=True after completing the experiment plan.")
         """),
         md("""
-        ### STUDENT TASK 2 — Đánh giá fine-tuned vs baseline
+        ## Final test — chỉ mở sau khi khóa thiết kế
 
-        Tải lại base model, gắn LoRA adapter đã train, sinh bản dịch trên cùng eval_frame
-        ở trên, rồi so sánh CER/WER/perplexity với baseline. Bảng so sánh phải dùng cùng
-        test split và cùng metric.
+        Đây là lần đầu test 300 được dùng để sinh prediction. Baseline và LoRA:
+
+        - bắt đầu từ cùng `EXPERIMENT_START_MODEL_ID`;
+        - dùng cùng 300 dòng, thứ tự và decoding;
+        - khác nhau duy nhất ở LoRA adapter;
+        - được báo cáo bằng CER/WER/chrF/exact match.
         """),
         code("""
-        RUN_EVAL_FINETUNED = False
+        RUN_FINAL_TEST = False
+        CONFIG_LOCKED = False  # Chỉ đổi True sau khi chọn checkpoint bằng dev CER.
+        adapter_path = ROOT / "outputs" / "lora_adapter"
+        final_path = ROOT / "outputs" / "test_baseline_vs_lora.csv"
 
-        def load_finetuned_and_generate(eval_df):
-            # HINT 1: AutoModelForSeq2SeqLM.from_pretrained(BASE_MODEL_ID) rồi PeftModel.from_pretrained(model, adapter_path).
-            # HINT 2: Dùng generate_normalizations() với model đã gắn adapter.
-            # HINT 3: Trả về DataFrame có thêm cột normalized_finetuned, cer_finetuned, wer_finetuned.
-            \"\"\"Your code here\"\"\"
-            return None
+        if RUN_FINAL_TEST:
+            assert CONFIG_LOCKED, "Khóa hyperparameter/checkpoint bằng dev trước khi mở test"
+            assert adapter_path.exists(), "Chưa có LoRA adapter"
+            import gc
+            import torch
+            from peft import PeftModel
 
-        if RUN_EVAL_FINETUNED:
-            comparison = load_finetuned_and_generate(eval_frame)
-            if comparison is None:
-                raise NotImplementedError("Hoàn thành load_finetuned_and_generate trước khi bật cờ")
-            # SELF-CHECK: phải có cả cột baseline và finetuned để so sánh công bằng.
-            required_cols = {"normalized_text", "normalized_finetuned",
-                             "cer", "cer_finetuned", "wer", "wer_finetuned"}
-            assert required_cols.issubset(comparison.columns)
-            assert len(comparison) == len(eval_frame), "Phải đánh giá trên cùng eval_frame"
-            display(comparison[["sample_id", "target_dialect", "cer", "cer_finetuned"]].head())
+            test = load_jsonl(test_path)
+            baseline_tokenizer, baseline_model, baseline_device = load_experiment_start_model()
+            normalized_baseline = generate_normalizations(
+                test["dialect_text"].tolist(),
+                baseline_tokenizer, baseline_model, baseline_device,
+                max_length=EXPERIMENT_CONFIG["max_length"], batch_size=4,
+            )
+            del baseline_model, baseline_tokenizer
+            gc.collect()
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+
+            lora_tokenizer, lora_base, lora_device = load_experiment_start_model()
+            lora_model = PeftModel.from_pretrained(lora_base, adapter_path).to(lora_device)
+            lora_model.eval()
+            normalized_lora = generate_normalizations(
+                test["dialect_text"].tolist(),
+                lora_tokenizer, lora_model, lora_device,
+                max_length=EXPERIMENT_CONFIG["max_length"], batch_size=4,
+            )
+
+            comparison = test.copy()
+            comparison["normalized_baseline"] = normalized_baseline
+            comparison["normalized_lora"] = normalized_lora
+            for variant, column in {
+                "baseline": "normalized_baseline",
+                "lora": "normalized_lora",
+            }.items():
+                scored = evaluate_predictions(
+                    comparison, prediction_column=column
+                )
+                for metric in ["cer", "wer", "chrf", "exact_match", "length_ratio"]:
+                    comparison[f"{variant}_{metric}"] = scored[metric]
+            comparison.to_csv(final_path, index=False)
+            print("Saved", final_path)
+        elif final_path.exists():
+            comparison = pd.read_csv(final_path)
+            print("Loaded existing locked-test results", final_path)
+        else:
+            comparison = pd.DataFrame()
+            print("Test remains closed. Lock config before RUN_FINAL_TEST=True.")
+
+        if not comparison.empty:
+            required = {
+                "normalized_baseline", "normalized_lora",
+                "baseline_cer", "lora_cer", "baseline_chrf", "lora_chrf",
+            }
+            assert required.issubset(comparison.columns)
+            assert len(comparison) == 300
+            summary_rows = []
+            for variant in ["baseline", "lora"]:
+                for dialect, group in comparison.groupby("target_dialect", observed=True):
+                    summary_rows.append({
+                        "variant": variant,
+                        "target_dialect": dialect,
+                        "cer": group[f"{variant}_cer"].mean(),
+                        "wer": group[f"{variant}_wer"].mean(),
+                        "chrf": group[f"{variant}_chrf"].mean(),
+                        "exact_match": group[f"{variant}_exact_match"].mean(),
+                    })
+            final_summary = pd.DataFrame(summary_rows)
+            display(final_summary.round(4))
         """),
         md("""
-        ### Insight (fine-tune)
+        ### Insight (final normalization)
 
         Trả lời:
 
-        1. CER/WER có giảm sau fine-tune không? Giảm bao nhiêu (trung bình + theo dialect)?
-        2. Perplexity của bản dịch fine-tuned có tiệm cận chuẩn vàng hơn không?
-        3. Có dialect nào được lợi nhiều hơn từ fine-tune không? Vì sao?
-        4. **Caveat:** train_240 rất nhỏ (240 cặp). Overfitting có thể làm CER giảm trên
-           eval mẫu nhưng không khái quát. Báo cáo cả eval trong-sample và out-of-sample.
+        1. LoRA giảm test CER bao nhiêu so với đúng starting checkpoint?
+        2. Kết quả có nhất quán trên PNB/PNT2/PNT3 và chrF/WER không?
+        3. Dev improvement có chuyển sang test không?
+        4. Caveat: 192 training rows, target noise và identity pairs.
+        """),
+        md("""
+        ## Diagnostic cuối: LoRA có giảm NLL gap không?
 
-        **Quy tắc công bằng:** luôn giữ cùng test split, cùng metric, cùng decoding config
-        (`do_sample=False, num_beams=1`) khi so baseline vs fine-tuned.
+        Phần này báo `NLLRecovery` cho baseline và LoRA trên cùng test rows. Đây là
+        diagnostic phụ, không thay đổi model đã chọn.
+        """),
+        code("""
+        RUN_FINAL_NLL_DIAGNOSTIC = False
+        final_nll_path = ROOT / "outputs" / "test_nll_recovery.csv"
+
+        if RUN_FINAL_NLL_DIAGNOSTIC and not comparison.empty:
+            tok, lm, lm_device = load_causal_lm(REFERENCE_LM)
+            variant_columns = {
+                "standard": "standard_text",
+                "dialect": "dialect_text",
+                "baseline": "normalized_baseline",
+                "lora": "normalized_lora",
+            }
+            scored_variants = {
+                name: score_texts(comparison[column], tok, lm, lm_device)["nll"].values
+                for name, column in variant_columns.items()
+            }
+            final_nll = comparison[["sample_id", "task", "target_dialect"]].copy()
+            for name, values in scored_variants.items():
+                final_nll[f"nll_{name}"] = values
+            final_nll["baseline_nll_recovery"] = (
+                final_nll["nll_dialect"] - final_nll["nll_baseline"]
+            )
+            final_nll["lora_nll_recovery"] = (
+                final_nll["nll_dialect"] - final_nll["nll_lora"]
+            )
+            final_nll.to_csv(final_nll_path, index=False)
+            display(final_nll.groupby("target_dialect")[[
+                "baseline_nll_recovery", "lora_nll_recovery"
+            ]].mean().round(4))
+        """),
+        md("""
+        ## Bắt buộc: downstream task recovery
+
+        CER tốt hơn chưa chứng minh model downstream robust hơn. Dùng một LM cố định
+        chấm cùng sample ở bốn input: Standard, Dialect, baseline-normalized và
+        LoRA-normalized. Primary table báo accuracy và:
+
+        ```text
+        Recovery_baseline = Accuracy(normalized_baseline) - Accuracy(dialect)
+        Recovery_LoRA = Accuracy(normalized_lora) - Accuracy(dialect)
+        ```
+        """),
+        code("""
+        RUN_DOWNSTREAM_RECOVERY = False
+        downstream_path = ROOT / "outputs" / "test_downstream_recovery.csv"
+
+        if RUN_DOWNSTREAM_RECOVERY:
+            assert not comparison.empty, "Chạy locked final test trước"
+            from vialect_seas.probing import (
+                load_text_generator, probe_classification_rows,
+            )
+
+            downstream_frame = comparison[
+                comparison["task"].eq(DOWNSTREAM_TASK)
+            ].copy()
+            runner = load_text_generator("Qwen/Qwen2.5-0.5B")
+            downstream_scores = probe_classification_rows(
+                downstream_frame,
+                runner,
+                variants=(
+                    "standard", "dialect",
+                    "normalized_baseline", "normalized_lora",
+                ),
+            )
+            downstream_scores.to_csv(downstream_path, index=False)
+            downstream_accuracy = (
+                downstream_scores.groupby("variant", observed=True)
+                .correct.mean()
+            )
+            recovery_table = pd.DataFrame({
+                "accuracy": downstream_accuracy,
+            })
+            dialect_accuracy = downstream_accuracy["dialect"]
+            recovery_table["recovery_vs_dialect"] = (
+                recovery_table["accuracy"] - dialect_accuracy
+            )
+            display(recovery_table.round(4))
+
+            # SELF-CHECK
+            assert {
+                "standard", "dialect", "normalized_baseline", "normalized_lora"
+            } == set(recovery_table.index)
+            assert downstream_scores["sample_id"].nunique() > 0
         """),
         md("""
         ## IV. Demo
 
-        Phần demo cho thuyết trình: chọn một câu dialect, chạy baseline và model đã
-        fine-tune, in kết quả cạnh nhau và phân tích. Mỗi cell dưới đây là bài tập của
-        nhóm — điền code vào marker `Your code here`.
+        Chọn một dòng từ `comparison`, trình bày dialect/baseline/LoRA/reference và giải
+        thích bằng metric lẫn đọc thủ công. Không chạy lại generation với config khác.
         """),
         code("""
-        # Chọn 1 mẫu dialect từ test set và in câu gốc + chuẩn vàng
-        # HINT: dùng eval_frame.iloc[[idx]] hoặc sample ngẫu nhiên với seed cố định.
+        # Chọn 1 mẫu đã có trong locked test comparison.
+        # HINT: ưu tiên một dòng LoRA cải thiện rõ và một failure case.
 
         \"\"\"Your code here\"\"\"
         """),
         code("""
-        # Load model fine-tuned (base + LoRA adapter) và sinh bản dịch cho mẫu đã chọn
-        # HINT 1: AutoModelForSeq2SeqLM.from_pretrained(BASE_MODEL_ID) rồi PeftModel.from_pretrained(model, "outputs/lora_adapter").
-        # HINT 2: Dùng generate_normalizations() với model đã gắn adapter.
+        # Tạo bảng 4 cột: dialect / baseline / LoRA / standard.
+        # HINT: dùng normalized_baseline và normalized_lora trong comparison.
 
         \"\"\"Your code here\"\"\"
         """),
         code("""
-        # In bản dialect / bản dịch baseline / bản dịch fine-tuned / chuẩn vàng cạnh nhau,
-        # tính CER của từng bản dịch và viết 1-2 câu nhận xét.
+        # In CER/chrF của baseline và LoRA; viết 1-2 câu về bảo toàn nghĩa/task format.
 
         \"\"\"Your code here\"\"\"
         """),
         md("""
         ## Bài tập mở
 
-        1. Thay đổi `LORA_RANK` (4, 8, 16) và đo trade-off VRAM vs CER.
+        1. Thay đổi LoRA rank (4, 8, 16), chọn bằng dev CER và chỉ chạy test cho cấu hình đã khóa.
         2. Thử target modules khác (`k_proj`, `o_proj`) và giải thích vì sao.
         3. So sánh decoding: `num_beams=1` (greedy) vs `num_beams=4` (beam search).
-        4. Tính correlation giữa CER và delta-PPL trên tập eval.
-        5. Kiểm tra: có câu nào CER = 0 nhưng PPL(normalized) >> PPL(standard) không?
-           Tại sao (gợi ý: synonym, ngữ pháp đúng nhưng hiếm)?
+        4. Tính correlation giữa CER và NLL recovery; giải thích vì sao correlation không
+           biến NLL thành quality metric.
+        5. So sánh downstream recovery trên SENT và NLI.
         6. Viết kết luận: normalization có giảm gap phương ngữ không? Fine-tune có giúp
            thêm không? Hạn chế và hướng tiếp theo.
         """),
@@ -1462,15 +1677,15 @@ def build_normalization() -> dict:
         # STUDENT TASK 3 (EXTENSION) — Một thí nghiệm mở do nhóm thiết kế.
         RUN_STUDENT_EXPERIMENT = False
 
-        def student_normalization_experiment(baseline_df, ppl_df):
-            # HINT 1: chọn một biến chưa thử (rank, target module, decoding, eval subset).
-            # HINT 2: giữ một baseline so sánh công bằng trên cùng split + metric.
+        def student_normalization_experiment(dev_baseline_df, nll_df):
+            # HINT 1: chọn một biến chưa thử (rank, target module hoặc decoding).
+            # HINT 2: chọn thiết kế bằng dev, không nhìn test.
             # HINT 3: trả về dict có "summary" (DataFrame) và "figure" (matplotlib Figure).
             \"\"\"Your code here\"\"\"
             return None
 
         if RUN_STUDENT_EXPERIMENT:
-            result = student_normalization_experiment(baseline, ppl_frame)
+            result = student_normalization_experiment(dev_baseline, nll_frame)
             if result is None:
                 raise NotImplementedError("Hoàn thành student_normalization_experiment trước khi bật cờ")
             assert isinstance(result, dict)
@@ -1482,12 +1697,12 @@ def build_normalization() -> dict:
         # Lưu artifact nộp bài.
         output_dir = ROOT / "outputs"
         output_dir.mkdir(exist_ok=True)
-        if not baseline.empty:
-            baseline.to_csv(output_dir / "team_normalization_baseline.csv", index=False)
-            print("Saved", output_dir / "team_normalization_baseline.csv")
-        if not ppl_frame.empty:
-            ppl_frame.to_csv(output_dir / "team_normalization_perplexity.csv", index=False)
-            print("Saved", output_dir / "team_normalization_perplexity.csv")
+        if not dev_baseline.empty:
+            dev_baseline.to_csv(output_dir / "team_dev_baseline.csv", index=False)
+            print("Saved", output_dir / "team_dev_baseline.csv")
+        if not nll_frame.empty:
+            nll_frame.to_csv(output_dir / "team_dev_nll_diagnostic.csv", index=False)
+            print("Saved", output_dir / "team_dev_nll_diagnostic.csv")
         """),
     ]
     return notebook(cells)
