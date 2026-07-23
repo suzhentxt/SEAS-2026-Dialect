@@ -11,19 +11,40 @@ DEFAULT_MODELS = (
     "bigscience/bloom-560m",
     "VietAI/gpt-neo-1.3B-vietnamese-news",
 )
+MODEL_REVISIONS = {
+    "Qwen/Qwen2.5-0.5B": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+    "bigscience/bloom-560m": "ac2ae5fab2ce3f9f40dc79b5ca9f637430d24971",
+    "VietAI/gpt-neo-1.3B-vietnamese-news": "1be2f0c2e4193b525166f1286df874a0cadb0813",
+}
 
 
-def load_causal_lm(model_id: str, device: str | None = None):
+def model_revision(model_id: str, revision: str | None = None) -> str:
+    resolved = revision or MODEL_REVISIONS.get(model_id)
+    if not resolved:
+        raise ValueError(f"No pinned revision configured for {model_id}")
+    return resolved
+
+
+def load_causal_lm(
+    model_id: str,
+    device: str | None = None,
+    revision: str | None = None,
+):
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
+    revision = model_revision(model_id, revision)
     resolved_device = device or ("cuda" if torch.cuda.is_available() else "cpu")
-    tokenizer = AutoTokenizer.from_pretrained(model_id)
+    tokenizer = AutoTokenizer.from_pretrained(model_id, revision=revision)
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
 
     dtype = torch.float16 if resolved_device == "cuda" else torch.float32
-    model = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype=dtype)
+    model = AutoModelForCausalLM.from_pretrained(
+        model_id,
+        revision=revision,
+        torch_dtype=dtype,
+    )
     model = model.to(resolved_device)
     model.eval()
     return tokenizer, model, resolved_device
@@ -65,12 +86,14 @@ def score_pairs(frame: pd.DataFrame, model_id: str, max_length: int = 256) -> pd
     import gc
     import torch
 
-    tokenizer, model, device = load_causal_lm(model_id)
+    revision = model_revision(model_id)
+    tokenizer, model, device = load_causal_lm(model_id, revision=revision)
     standard = score_texts(frame["standard_text"], tokenizer, model, device, max_length)
     dialect = score_texts(frame["dialect_text"], tokenizer, model, device, max_length)
 
     result = frame.reset_index(drop=True).copy()
     result["model_id"] = model_id
+    result["model_revision"] = revision
     result["standard_nll"] = standard["nll"]
     result["dialect_nll"] = dialect["nll"]
     result["delta_nll"] = result["dialect_nll"] - result["standard_nll"]
@@ -96,27 +119,40 @@ def score_pairs(frame: pd.DataFrame, model_id: str, max_length: int = 256) -> pd
 class TextGeneratorRunner:
     """Lightweight container for a loaded causal LM used for generation."""
 
-    def __init__(self, model, tokenizer, device):
+    def __init__(self, model, tokenizer, device, model_id: str, revision: str):
         self.model = model
         self.tokenizer = tokenizer
         self.device = device
+        self.model_id = model_id
+        self.revision = revision
 
 
-def load_text_generator(model_id: str) -> TextGeneratorRunner:
+def load_text_generator(
+    model_id: str,
+    revision: str | None = None,
+) -> TextGeneratorRunner:
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
-    tokenizer = AutoTokenizer.from_pretrained(model_id)
+    revision = model_revision(model_id, revision)
+    tokenizer = AutoTokenizer.from_pretrained(model_id, revision=revision)
     if tokenizer.pad_token_id is None and tokenizer.eos_token_id is not None:
         tokenizer.pad_token = tokenizer.eos_token
     model = AutoModelForCausalLM.from_pretrained(
         model_id,
+        revision=revision,
         device_map="auto",
         torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
     )
     model.eval()
     device = next(model.parameters()).device
-    return TextGeneratorRunner(model=model, tokenizer=tokenizer, device=device)
+    return TextGeneratorRunner(
+        model=model,
+        tokenizer=tokenizer,
+        device=device,
+        model_id=model_id,
+        revision=revision,
+    )
 
 
 def format_chat_prompt(runner: TextGeneratorRunner, prompt: str) -> str:
@@ -153,16 +189,35 @@ def score_completion(
     import torch
 
     chat_prompt = format_chat_prompt(runner, prompt)
-    prompt_ids = runner.tokenizer(
-        chat_prompt, add_special_tokens=True, return_tensors="pt"
-    )["input_ids"][0]
-    completion_ids = runner.tokenizer(
-        completion, add_special_tokens=False, return_tensors="pt"
-    )["input_ids"][0]
-    if completion_ids.numel() == 0:
-        return {"sequence_logprob": float("-inf"), "avg_token_logprob": float("-inf"), "num_tokens": 0}
+    full_text = chat_prompt + completion
+    try:
+        encoded = runner.tokenizer(
+            full_text,
+            add_special_tokens=True,
+            return_offsets_mapping=True,
+            return_tensors="pt",
+        )
+    except (NotImplementedError, ValueError) as exc:
+        raise RuntimeError(
+            "Candidate scoring requires a fast tokenizer with offset mappings "
+            "so prompt and completion are tokenized together."
+        ) from exc
 
-    input_ids = torch.cat([prompt_ids, completion_ids]).unsqueeze(0).to(runner.device)
+    offsets = encoded.pop("offset_mapping")[0].tolist()
+    input_ids = encoded["input_ids"].to(runner.device)
+    boundary = len(chat_prompt)
+    completion_positions = [
+        position
+        for position, (start, end) in enumerate(offsets)
+        if position > 0 and end > boundary and end > start
+    ]
+    if not completion_positions:
+        return {
+            "sequence_logprob": float("-inf"),
+            "avg_token_logprob": float("-inf"),
+            "num_tokens": 0,
+        }
+
     with torch.inference_mode():
         logits = runner.model(input_ids=input_ids).logits
 
@@ -170,15 +225,18 @@ def score_completion(
     labels = input_ids[:, 1:]
     token_log_probs = log_probs.gather(-1, labels.unsqueeze(-1)).squeeze(-1)
 
-    start = prompt_ids.numel() - 1
-    end = start + completion_ids.numel()
-    completion_log_probs = token_log_probs[0, start:end]
+    score_positions = torch.tensor(
+        [position - 1 for position in completion_positions],
+        device=runner.device,
+    )
+    completion_log_probs = token_log_probs[0].index_select(0, score_positions)
     sequence_logprob = float(completion_log_probs.sum().item())
-    avg_token_logprob = sequence_logprob / int(completion_ids.numel())
+    num_tokens = len(completion_positions)
+    avg_token_logprob = sequence_logprob / num_tokens
     return {
         "sequence_logprob": sequence_logprob,
         "avg_token_logprob": avg_token_logprob,
-        "num_tokens": int(completion_ids.numel()),
+        "num_tokens": num_tokens,
     }
 
 
@@ -262,7 +320,8 @@ def probe_classification_rows(
                 "sample_id": row.get("sample_id"),
                 "task": row["task"],
                 "target_dialect": row.get("target_dialect"),
-                "model_id": getattr(runner.model, "name_or_path", ""),
+                "model_id": runner.model_id,
+                "model_revision": runner.revision,
                 "variant": variant,
                 "prediction": dist["prediction"],
                 "gold": dist["gold"],

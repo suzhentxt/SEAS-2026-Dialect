@@ -15,6 +15,10 @@ Script chuẩn bị dữ liệu thực hiện NFC/whitespace normalization và c
 correction được ghi rõ. Identity pair được giữ lại và báo cáo. File dành cho học viên
 không chứa metadata cá nhân của annotator/reviewer.
 
+Khi đánh giá, cả reference và prediction đều được chuẩn hóa NFC và whitespace trước
+khi tính CER/WER/chrF. Confidence interval phải bootstrap theo `sample_id`, vì ba dòng
+phương ngữ của cùng source không phải ba quan sát độc lập.
+
 Đây là tập dữ liệu nhỏ phục vụ giảng dạy, không đại diện cho mọi người nói tiếng Việt,
 khu vực, độ tuổi hoặc bối cảnh xã hội-ngôn ngữ. Không được mô tả phương ngữ như một
 dạng ngôn ngữ khiếm khuyết.

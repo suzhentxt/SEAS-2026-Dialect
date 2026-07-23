@@ -570,10 +570,11 @@ def build_probing() -> dict:
             is_classification, normalize_label, parse_prediction, gold_label,
         )
         from vialect_seas.probing import (
-            DEFAULT_MODELS, load_text_generator, generate,
+            DEFAULT_MODELS, MODEL_REVISIONS, load_text_generator, generate,
             score_completion, score_label_distribution,
             softmax_scores, probe_classification_rows,
         )
+        from vialect_seas.metrics import paired_cluster_bootstrap
 
         sns.set_theme(style="whitegrid", context="notebook")
         train = load_jsonl(ROOT / "data" / "train_240.jsonl")
@@ -581,6 +582,10 @@ def build_probing() -> dict:
         print(f"train={len(train)}  test={len(test)}")
         print("Classification tasks (có nhãn cố định):",
               [t for t in TASKS if is_classification(t)])
+        display(pd.DataFrame([
+            {"model_id": model_id, "revision": MODEL_REVISIONS[model_id]}
+            for model_id in DEFAULT_MODELS
+        ]))
         """),
         md("""
         ### STUDENT TASK 0 — Kế hoạch thí nghiệm (preregistration)
@@ -751,6 +756,16 @@ def build_probing() -> dict:
             plt.tight_layout()
             plt.show()
             display(acc_pivot.round(3))
+
+            accuracy_ci = paired_cluster_bootstrap(
+                probe_scores,
+                value_column="correct",
+                group_by=["model_id", "target_dialect"],
+                n_resamples=2000,
+                seed=2026,
+            )
+            accuracy_ci["metric"] = "accuracy_drop"
+            display(accuracy_ci.round(4))
         """),
         md("""
         ### Insight (accuracy)
@@ -801,6 +816,16 @@ def build_probing() -> dict:
             plt.tight_layout()
             plt.show()
             display(gold_pivot.round(3))
+
+            gold_score_ci = paired_cluster_bootstrap(
+                probe_scores,
+                value_column="gold_candidate_score",
+                group_by=["model_id", "target_dialect"],
+                n_resamples=2000,
+                seed=2026,
+            )
+            gold_score_ci["metric"] = "gold_score_erosion"
+            display(gold_score_ci.round(4))
         """),
         md("""
         ### Insight (candidate score)
@@ -843,7 +868,7 @@ def build_probing() -> dict:
         md("""
         ## Bài tập mở
 
-        1. Tăng `N_PER_CELL` và tính bootstrap CI theo `sample_id` (resample theo source).
+        1. Tăng `N_PER_CELL` và so sánh độ rộng bootstrap CI theo `sample_id`.
         2. So sánh thứ tự khó ở đây với degradation trong Notebook 1 (10 mô hình).
            **Correlation ≠ causation** — giải thích vì sao.
         3. QA là task sinh tự do. Dùng `generate()` để sinh câu trả lời, rồi tính
@@ -958,10 +983,13 @@ def build_normalization() -> dict:
         from vialect_seas.data import (
             DIALECTS, TASKS, load_jsonl, split_train_dev_by_source,
         )
-        from vialect_seas.metrics import evaluate_predictions, metric_summary
+        from vialect_seas.metrics import (
+            evaluate_predictions, identity_metric_summary, metric_summary,
+        )
         from vialect_seas.normalization import (
             EXPERIMENT_START_MODEL_ID, get_hf_token, load_experiment_start_model,
             generate_normalizations, attach_lora, make_preprocess_function,
+            resolved_model_revision, save_experiment_config, load_experiment_config,
         )
 
         sns.set_theme(style="whitegrid", context="notebook")
@@ -1028,17 +1056,30 @@ def build_normalization() -> dict:
         import os
         from google.colab import userdata
         os.environ["HF_TOKEN"] = userdata.get("HF_TOKEN")
+        os.environ["PRIVATE_NORMALIZER_REVISION"] = userdata.get(
+            "PRIVATE_NORMALIZER_REVISION"
+        )
         ```
 
         Hàm `get_hf_token()` đọc token từ env hoặc Colab Secrets. **Không bao giờ in
         token ra output, không commit file `.env`.**
+
+        Mỗi học viên dùng token **read-only của chính mình** sau khi được cấp quyền vào
+        model repo. Không chia sẻ personal token chung trong lớp. TA có thể cấp quyền
+        theo từng tài khoản hoặc dùng organization/gated model; nếu không cấp quyền,
+        TA chạy trước và phát output baseline đã lưu.
         """),
         code("""
         # Kiểm tra token có sẵn không (không in giá trị token).
+        import os
+
         token = get_hf_token(required=False)
+        private_revision = os.environ.get("PRIVATE_NORMALIZER_REVISION")
         print("HF_TOKEN available:", token is not None)
-        if token is not None:
-            print("Token length:", len(token), "(không in giá trị)")
+        print(
+            "Private revision configured:",
+            private_revision is not None and len(private_revision) == 40,
+        )
         """),
         code("""
         RUN_DEV_BASELINE = False  # Đổi True khi đã có GPU và token.
@@ -1345,6 +1386,7 @@ def build_normalization() -> dict:
             "learning_rate": 2e-4,
             "max_length": 192,
         }
+        experiment_config_path = ROOT / "outputs" / "experiment_config.json"
         # STUDENT TASK: giải thích trade-off của từng giá trị trước khi bật training.
         # HINT: nêu giới hạn dữ liệu/VRAM và giả thuyết overfitting.
         HYPERPARAMETER_RATIONALE = {
@@ -1368,6 +1410,7 @@ def build_normalization() -> dict:
 
             # Controlled comparison: exact same checkpoint as baseline.
             tokenizer, base_model, device = load_experiment_start_model()
+            model_revision = resolved_model_revision(base_model)
             model = attach_lora(
                 base_model,
                 rank=EXPERIMENT_CONFIG["lora_rank"],
@@ -1448,7 +1491,20 @@ def build_normalization() -> dict:
             trainer.train()
             trainer.save_model(str(ROOT / "outputs" / "lora_adapter"))
             tokenizer.save_pretrained(str(ROOT / "outputs" / "lora_adapter"))
+            locked_manifest = save_experiment_config(
+                EXPERIMENT_CONFIG,
+                experiment_config_path,
+                model_revision=model_revision,
+                extra={
+                    "seed": 2026,
+                    "train_rows": len(train),
+                    "dev_rows": len(dev),
+                    "selection_metric": "cer",
+                    "best_checkpoint": trainer.state.best_model_checkpoint,
+                },
+            )
             print("Saved LoRA adapter to outputs/lora_adapter")
+            print("Config SHA-256:", locked_manifest["config_sha256"])
         else:
             print("Set RUN_FINETUNE=True after completing the experiment plan.")
         """),
@@ -1467,6 +1523,16 @@ def build_normalization() -> dict:
         CONFIG_LOCKED = False  # Chỉ đổi True sau khi chọn checkpoint bằng dev CER.
         adapter_path = ROOT / "outputs" / "lora_adapter"
         final_path = ROOT / "outputs" / "test_baseline_vs_lora.csv"
+        locked_config = None
+
+        if CONFIG_LOCKED:
+            assert experiment_config_path.exists(), (
+                "Chưa có outputs/experiment_config.json từ training run"
+            )
+            locked_config = load_experiment_config(experiment_config_path)
+            assert locked_config["experiment_config"] == EXPERIMENT_CONFIG, (
+                "EXPERIMENT_CONFIG đã đổi sau khi lưu manifest"
+            )
 
         if RUN_FINAL_TEST:
             assert CONFIG_LOCKED, "Khóa hyperparameter/checkpoint bằng dev trước khi mở test"
@@ -1476,7 +1542,10 @@ def build_normalization() -> dict:
             from peft import PeftModel
 
             test = load_jsonl(test_path)
-            baseline_tokenizer, baseline_model, baseline_device = load_experiment_start_model()
+            locked_revision = locked_config["model_revision"]
+            baseline_tokenizer, baseline_model, baseline_device = (
+                load_experiment_start_model(revision=locked_revision)
+            )
             normalized_baseline = generate_normalizations(
                 test["dialect_text"].tolist(),
                 baseline_tokenizer, baseline_model, baseline_device,
@@ -1487,7 +1556,9 @@ def build_normalization() -> dict:
             if torch.cuda.is_available():
                 torch.cuda.empty_cache()
 
-            lora_tokenizer, lora_base, lora_device = load_experiment_start_model()
+            lora_tokenizer, lora_base, lora_device = (
+                load_experiment_start_model(revision=locked_revision)
+            )
             lora_model = PeftModel.from_pretrained(lora_base, adapter_path).to(lora_device)
             lora_model.eval()
             normalized_lora = generate_normalizations(
@@ -1537,6 +1608,20 @@ def build_normalization() -> dict:
                     })
             final_summary = pd.DataFrame(summary_rows)
             display(final_summary.round(4))
+
+            identity_rows = []
+            for variant, column in {
+                "baseline": "normalized_baseline",
+                "lora": "normalized_lora",
+            }.items():
+                scored = evaluate_predictions(
+                    comparison, prediction_column=column
+                )
+                identity_summary = identity_metric_summary(scored)
+                identity_summary.insert(0, "variant", variant)
+                identity_rows.append(identity_summary)
+            final_identity_summary = pd.concat(identity_rows, ignore_index=True)
+            display(final_identity_summary.round(4))
         """),
         md("""
         ### Insight (final normalization)
@@ -1546,7 +1631,8 @@ def build_normalization() -> dict:
         1. LoRA giảm test CER bao nhiêu so với đúng starting checkpoint?
         2. Kết quả có nhất quán trên PNB/PNT2/PNT3 và chrF/WER không?
         3. Dev improvement có chuyển sang test không?
-        4. Caveat: 192 training rows, target noise và identity pairs.
+        4. CER khác nhau thế nào giữa identity và non-identity pairs?
+        5. Caveat: 192 training rows, target noise và identity pairs.
         """),
         md("""
         ## Diagnostic cuối: LoRA có giảm NLL gap không?

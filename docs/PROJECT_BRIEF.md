@@ -20,8 +20,10 @@
 ## Sản phẩm bắt buộc
 
 - Bảng CER/WER/chrF/exact match trên tập phát triển và tập kiểm thử.
-- Test CER theo PNB, PNT2 và PNT3.
+- Test CER theo PNB, PNT2, PNT3 và identity/non-identity pairs.
 - Accuracy của Standard, Dialect, baseline-normalized và LoRA-normalized.
+- Bootstrap confidence interval theo cluster `sample_id`.
+- `outputs/experiment_config.json` chứa model revision, package version và config hash.
 - Một phân tích NLL recovery kèm lưu ý đúng về mức độ quen thuộc của reference LM.
 - Taxonomy lỗi và phần hạn chế ngắn về dữ liệu/mô hình.
 

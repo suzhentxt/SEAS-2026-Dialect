@@ -1,1 +1,1 @@
-model_id,split,CER,WER,chrF,exact_match
+model_id,model_revision,config_sha256,split,CER,WER,chrF,exact_match

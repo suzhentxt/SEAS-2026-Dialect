@@ -3,9 +3,15 @@
 ## Truy cập và bảo mật
 
 1. Chọn runtime có GPU T4.
-2. Thêm `HF_TOKEN` loại read-only bằng Colab Secrets.
-3. Không dán hoặc in token trong notebook.
-4. Chạy `python scripts/validate_project.py` trước khi tải mô hình.
+2. TA cấp quyền model repo cho từng tài khoản Hugging Face, không chia sẻ personal token.
+3. Mỗi học viên thêm `HF_TOKEN` loại read-only bằng Colab Secrets.
+4. Thêm `PRIVATE_NORMALIZER_REVISION` là full commit SHA do TA công bố.
+5. Không dán hoặc in token trong notebook.
+6. Chạy `python scripts/validate_project.py` trước khi tải mô hình.
+
+Phương án quản trị phù hợp là cấp quyền từng tài khoản hoặc dùng organization/gated
+model. Nếu không cấp quyền trực tiếp, TA chạy baseline và cung cấp file prediction;
+không gửi token cá nhân qua chat nhóm.
 
 ## Rehearsal bắt buộc dành cho TA
 
@@ -41,5 +47,7 @@ Ghi kết quả đo thực tế:
 | Batch size train/eval an toàn | CHƯA ĐO |
 
 Các trường được để ở trạng thái `CHƯA ĐO` để tránh công bố số runtime chưa kiểm chứng.
+Sau rehearsal, thay range trong `requirements.txt` bằng đúng tổ hợp package đã chạy và
+ghi model revision vào bảng kết quả.
 Nếu Colab bị ngắt kết nối, tải lại adapter đã lưu và tiếp tục từ cell đánh giá dev;
 không dùng output test để tái dựng quyết định chọn mô hình.

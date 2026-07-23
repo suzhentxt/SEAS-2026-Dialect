@@ -10,14 +10,16 @@ học, sửa cách nói của người dùng hoặc đưa ra quyết định có
 
 Baseline có đối chứng là mBART private (`tarudesu/mbart-large-50`). LoRA adapter của
 học viên phải bắt đầu từ cùng checkpoint. Quá trình huấn luyện dùng 192 dòng; việc
-chọn checkpoint dùng 48 dòng dev được chia theo source.
+chọn checkpoint dùng 48 dòng dev được chia theo source. Checkpoint được khóa bằng full
+commit SHA, không dùng nhánh `main` biến động để báo cáo kết quả cuối.
 
 ## Đánh giá
 
 Metric chính là Character Error Rate, trong đó giá trị thấp hơn tốt hơn. Các metric
 bổ sung gồm WER, chrF, exact match, kết quả theo phương ngữ, downstream task recovery
-và phân tích lỗi ngữ nghĩa thủ công. NLL recovery chỉ là familiarity diagnostic,
-không phải quality metric.
+và phân tích lỗi ngữ nghĩa thủ công. CER được báo riêng cho identity/non-identity
+pairs; uncertainty dùng bootstrap theo cluster `sample_id`. NLL recovery chỉ là
+familiarity diagnostic, không phải quality metric.
 
 ## Hạn chế
 

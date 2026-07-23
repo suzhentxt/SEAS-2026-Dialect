@@ -17,11 +17,18 @@ không âm thầm làm thay đổi benchmark split.
 ## Mô hình
 
 - Checkpoint bắt đầu của thí nghiệm có đối chứng:
-  `tarudesu/mbart-large-50` (private).
+  `tarudesu/mbart-large-50` (private). TA phải đặt full commit SHA qua
+  `PRIVATE_NORMALIZER_REVISION`; SHA này được ghi vào `experiment_config.json`.
 - Họ kiến trúc: mBART encoder-decoder đa ngôn ngữ.
-- Checkpoint public để tham chiếu kiến trúc: `facebook/mbart-large-50`.
-- Mô hình probing bắt buộc: `Qwen/Qwen2.5-0.5B`.
-- Mô hình probing bonus: `bigscience/bloom-560m` và
-  `VietAI/gpt-neo-1.3B-vietnamese-news`.
+- Checkpoint public tham chiếu: `facebook/mbart-large-50` tại
+  `4ef55a20b36c6903b832e38f0604ab4bdf22c7d6`.
+- Mô hình probing bắt buộc: `Qwen/Qwen2.5-0.5B` tại
+  `060db6499f32faf8b98477b0a26969ef7d8b9987`.
+- Mô hình probing bonus: `bigscience/bloom-560m` tại
+  `ac2ae5fab2ce3f9f40dc79b5ca9f637430d24971` và
+  `VietAI/gpt-neo-1.3B-vietnamese-news` tại
+  `1be2f0c2e4193b525166f1286df874a0cadb0813`.
 
-Mỗi báo cáo nhóm phải ghi model revision, ngày truy cập, phần cứng và runtime đo được.
+Mỗi báo cáo nhóm phải nộp `outputs/experiment_config.json`, model revision, ngày truy
+cập, phần cứng và runtime đo được. Hash trong manifest giúp phát hiện config bị sửa
+sau khi khóa.

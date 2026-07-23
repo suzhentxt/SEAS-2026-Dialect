@@ -71,29 +71,37 @@ test 300 -> chạy một lần sau khi khóa thiết kế
 Baseline và LoRA cùng khởi tạo từ
 `EXPERIMENT_START_MODEL_ID = "tarudesu/mbart-large-50"`. LoRA khác baseline duy nhất
 ở adapter. NLL/PPL chỉ dùng để chẩn đoán mức độ quen thuộc; việc chọn mô hình dùng
-dev CER.
+dev CER. Trước khi chạy, TA phải cung cấp SHA đầy đủ của checkpoint private qua
+`PRIVATE_NORMALIZER_REVISION`; model public dùng revision đã pin trong source.
 
 Kết quả cuối phải gồm:
 
 1. CER, WER, chrF và exact match trên dev/test trước và sau LoRA.
-2. Test CER theo PNB, PNT2 và PNT3.
+2. Test CER theo PNB, PNT2, PNT3 và riêng cho identity/non-identity pairs.
 3. NLL recovery như một phân tích chẩn đoán phụ.
 4. Accuracy của Standard, Dialect, baseline-normalized và LoRA-normalized.
-5. Ít nhất 10 lỗi được phân tích thủ công.
+5. Bootstrap confidence interval theo cluster `sample_id`.
+6. Ít nhất 10 lỗi được phân tích thủ công.
 
 ## Token (bảo mật)
 
-Notebook **không chứa token**. Với checkpoint private, đặt `HF_TOKEN` trong biến môi
-trường hoặc Colab Secrets:
+Notebook **không chứa token**. Mỗi học viên phải được cấp quyền model repo bằng tài
+khoản Hugging Face riêng và tự tạo token **read-only**. Không gửi một personal token
+chung cho cả lớp. Với checkpoint private, đặt `HF_TOKEN` và revision do TA cung cấp
+trong biến môi trường hoặc Colab Secrets:
 
 ```python
 import os
 from google.colab import userdata
 os.environ["HF_TOKEN"] = userdata.get("HF_TOKEN")
+os.environ["PRIVATE_NORMALIZER_REVISION"] = userdata.get(
+    "PRIVATE_NORMALIZER_REVISION"
+)
 ```
 
 Không in token ra output và không commit file `.env`. Validator quét token trong mọi
-file trước khi chấp nhận.
+file trước khi chấp nhận. Có thể thay phương án này bằng quyền theo organization/gated
+model; nếu học viên không được tải checkpoint, TA chạy baseline trước và phát output.
 
 ## Cài đặt
 
@@ -113,6 +121,10 @@ pip install -r requirements.txt
 python scripts/validate_project.py       # dữ liệu + notebook + cú pháp + quét token
 python scripts/smoke_test_notebooks.py   # thực thi mọi cell không cần mô hình/GPU
 ```
+
+GitHub Actions dùng bộ dependency CPU đã pin trong `requirements-ci.txt`. Bộ package
+đầy đủ trong `requirements.txt` chỉ được freeze thành phiên bản chính xác sau rehearsal
+T4, khi đã ghi nhận tổ hợp thực sự chạy được.
 
 ## Kết quả tối thiểu mỗi nhóm phải nộp
 

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import importlib.metadata
 import json
 import sys
 import time
@@ -18,6 +19,7 @@ from vialect_seas.normalization import (  # noqa: E402
     generate_normalizations,
     load_experiment_start_model,
     make_preprocess_function,
+    resolved_model_revision,
 )
 
 
@@ -41,6 +43,7 @@ def main() -> None:
     started = time.perf_counter()
 
     tokenizer, baseline_model, device = load_experiment_start_model()
+    model_revision = resolved_model_revision(baseline_model)
     baseline_started = time.perf_counter()
     baseline_predictions = generate_normalizations(
         rehearsal_dev["dialect_text"], tokenizer, baseline_model, device, batch_size=4
@@ -105,7 +108,12 @@ def main() -> None:
     lora_scored = evaluate_predictions(rehearsal_dev.assign(prediction=after_reload))
     report = {
         "gpu": torch.cuda.get_device_name(0),
+        "model_revision": model_revision,
         "torch_version": torch.__version__,
+        "transformers_version": importlib.metadata.version("transformers"),
+        "datasets_version": importlib.metadata.version("datasets"),
+        "peft_version": importlib.metadata.version("peft"),
+        "accelerate_version": importlib.metadata.version("accelerate"),
         "baseline_rows": len(rehearsal_dev),
         "train_rows": len(rehearsal_train),
         "baseline_seconds": baseline_seconds,

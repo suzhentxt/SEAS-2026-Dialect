@@ -13,6 +13,7 @@ jobs:
         with:
           python-version: "3.10"
           cache: pip
-      - run: pip install pandas numpy sacrebleu
+          cache-dependency-path: requirements-ci.txt
+      - run: pip install -r requirements-ci.txt
       - run: python scripts/validate_project.py
       - run: python scripts/smoke_test_notebooks.py
