@@ -80,7 +80,8 @@ Kết quả cuối phải gồm:
 2. Test CER theo PNB, PNT2, PNT3 và riêng cho identity/non-identity pairs.
 3. NLL recovery như một phân tích chẩn đoán phụ.
 4. Accuracy của Standard, Dialect, baseline-normalized và LoRA-normalized.
-5. Bootstrap confidence interval theo cluster `sample_id`.
+5. Bootstrap confidence interval 95% theo cluster `sample_id`, gồm
+   `CER_baseline - CER_LoRA` tổng thể và theo phương ngữ.
 6. Ít nhất 10 lỗi được phân tích thủ công.
 
 ## Token (bảo mật)

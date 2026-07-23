@@ -110,6 +110,11 @@ def validate_notebooks() -> None:
         "".join(cell.get("source", []))
         for cell in normalization_payload["cells"]
     )
+    normalization_code = "\n".join(
+        "".join(cell.get("source", []))
+        for cell in normalization_payload["cells"]
+        if cell.get("cell_type") == "code"
+    )
     required_protocol = (
         "EXPERIMENT_START_MODEL_ID",
         "split_train_dev_by_source",
@@ -140,6 +145,10 @@ def validate_notebooks() -> None:
     assert "identity_metric_summary" in normalization
     assert "experiment_config.json" in normalization
     assert "model_revision" in normalization
+    assert 'userdata.get(secret_name)' in normalization_code
+    assert '"HF_TOKEN", "PRIVATE_NORMALIZER_REVISION"' in normalization_code
+    assert "cer_improvement_ci" in normalization_code
+    assert "CER_baseline - CER_LoRA" in normalization_code
 
 
 def validate_python() -> None:

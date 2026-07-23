@@ -985,6 +985,7 @@ def build_normalization() -> dict:
         )
         from vialect_seas.metrics import (
             evaluate_predictions, identity_metric_summary, metric_summary,
+            paired_cluster_bootstrap,
         )
         from vialect_seas.normalization import (
             EXPERIMENT_START_MODEL_ID, get_hf_token, load_experiment_start_model,
@@ -1070,9 +1071,29 @@ def build_normalization() -> dict:
         TA chạy trước và phát output baseline đã lưu.
         """),
         code("""
-        # Kiểm tra token có sẵn không (không in giá trị token).
+        # Tự nạp Colab Secrets nếu notebook đang chạy trên Colab.
         import os
 
+        loaded_secrets = []
+        try:
+            from google.colab import userdata
+        except ImportError:
+            print("Không chạy trên Colab; dùng biến môi trường hiện có.")
+        else:
+            for secret_name in ("HF_TOKEN", "PRIVATE_NORMALIZER_REVISION"):
+                if os.environ.get(secret_name):
+                    continue
+                try:
+                    secret_value = userdata.get(secret_name)
+                except Exception:
+                    secret_value = None
+                if secret_value:
+                    os.environ[secret_name] = secret_value
+                    loaded_secrets.append(secret_name)
+            print("Đã nạp Colab Secrets:", loaded_secrets or "không có secret mới")
+        """),
+        code("""
+        # Kiểm tra token có sẵn không (không in giá trị token).
         token = get_hf_token(required=False)
         private_revision = os.environ.get("PRIVATE_NORMALIZER_REVISION")
         print("HF_TOKEN available:", token is not None)
@@ -1609,6 +1630,57 @@ def build_normalization() -> dict:
             final_summary = pd.DataFrame(summary_rows)
             display(final_summary.round(4))
 
+            cer_long = comparison[[
+                "sample_id", "target_dialect", "baseline_cer", "lora_cer",
+            ]].melt(
+                id_vars=["sample_id", "target_dialect"],
+                value_vars=["baseline_cer", "lora_cer"],
+                var_name="variant",
+                value_name="cer",
+            )
+            cer_long["variant"] = cer_long["variant"].map({
+                "baseline_cer": "baseline",
+                "lora_cer": "lora",
+            })
+            overall_cer_ci = paired_cluster_bootstrap(
+                cer_long.assign(scope="overall"),
+                value_column="cer",
+                group_by=["scope"],
+                baseline_variant="baseline",
+                comparison_variant="lora",
+                n_resamples=5000,
+                confidence_level=0.95,
+                seed=2026,
+            )
+            dialect_cer_ci = paired_cluster_bootstrap(
+                cer_long,
+                value_column="cer",
+                group_by=["target_dialect"],
+                baseline_variant="baseline",
+                comparison_variant="lora",
+                n_resamples=5000,
+                confidence_level=0.95,
+                seed=2026,
+            )
+            dialect_cer_ci["scope"] = (
+                "dialect:" + dialect_cer_ci["target_dialect"].astype(str)
+            )
+            cer_improvement_ci = pd.concat(
+                [
+                    overall_cer_ci,
+                    dialect_cer_ci.drop(columns=["target_dialect"]),
+                ],
+                ignore_index=True,
+            )
+            cer_improvement_ci.insert(
+                1, "effect", "CER_baseline - CER_LoRA"
+            )
+            cer_improvement_ci.insert(2, "confidence_level", 0.95)
+            display(cer_improvement_ci[[
+                "scope", "effect", "confidence_level", "mean", "ci_low", "ci_high",
+                "n_sources", "n_resamples",
+            ]].round(4))
+
             identity_rows = []
             for variant, column in {
                 "baseline": "normalized_baseline",
@@ -1629,10 +1701,11 @@ def build_normalization() -> dict:
         Trả lời:
 
         1. LoRA giảm test CER bao nhiêu so với đúng starting checkpoint?
-        2. Kết quả có nhất quán trên PNB/PNT2/PNT3 và chrF/WER không?
-        3. Dev improvement có chuyển sang test không?
-        4. CER khác nhau thế nào giữa identity và non-identity pairs?
-        5. Caveat: 192 training rows, target noise và identity pairs.
+        2. Bootstrap CI 95% của `CER_baseline - CER_LoRA` có chứa 0 không?
+        3. Kết quả có nhất quán trên PNB/PNT2/PNT3 và chrF/WER không?
+        4. Dev improvement có chuyển sang test không?
+        5. CER khác nhau thế nào giữa identity và non-identity pairs?
+        6. Caveat: 192 training rows, target noise và identity pairs.
         """),
         md("""
         ## Diagnostic cuối: LoRA có giảm NLL gap không?
