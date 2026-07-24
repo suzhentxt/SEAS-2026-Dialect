@@ -39,6 +39,9 @@ def code(text: str) -> dict:
 
 
 def notebook(cells: list[dict]) -> dict:
+    for index, cell in enumerate(cells):
+        prefix = "md" if cell["cell_type"] == "markdown" else "code"
+        cell["id"] = f"{prefix}-{index:03d}"
     return {
         "cells": cells,
         "metadata": {
@@ -75,7 +78,7 @@ def build_eda() -> dict:
         md("""
         # Notebook 1 — Phân tích dữ liệu khám phá (EDA) và tiền xử lý
 
-        Notebook này giới thiệu dữ liệu **VialectBench** mà đồ án SEAS 2026 sử dụng.
+        Notebook này giới thiệu dữ liệu **VialectBench**.
         Ta không bắt đầu bằng mô hình; ta bắt đầu bằng schema, split và câu hỏi nghiên cứu.
         Mục tiêu của notebook này là giúp nhóm hiểu rõ dữ liệu trước khi chạy bất kỳ
         thí nghiệm nào với mô hình ngôn ngữ.

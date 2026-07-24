@@ -85,6 +85,11 @@ def validate_notebooks() -> None:
         assert notebook.get("nbformat") == 4
         cells = notebook.get("cells", [])
         assert len(cells) >= 12, f"Notebook {name} is too small"
+        cell_ids = [cell.get("id") for cell in cells]
+        assert all(cell_ids), f"Notebook {name} has cells without an id"
+        assert len(cell_ids) == len(set(cell_ids)), (
+            f"Notebook {name} has duplicate cell ids"
+        )
         assert any(cell.get("cell_type") == "markdown" for cell in cells)
         assert any(cell.get("cell_type") == "code" for cell in cells)
         content = "\n".join("".join(cell.get("source", [])) for cell in cells)
@@ -214,6 +219,7 @@ def validate_repository_contract() -> None:
         assert (PROJECT_ROOT / relative).exists(), f"Missing repository file: {relative}"
     assert (PROJECT_ROOT / "scripts" / "prepare_student_data.py").exists()
     assert (PROJECT_ROOT / "scripts" / "rehearse_t4.py").exists()
+    assert (PROJECT_ROOT / "scripts" / "execute_notebooks.py").exists()
     assert (PROJECT_ROOT / ".github" / "workflows" / "validate.yml").exists()
     ci_requirements = PROJECT_ROOT / "requirements-ci.txt"
     assert ci_requirements.exists()
@@ -224,6 +230,9 @@ def validate_repository_contract() -> None:
         "seaborn",
         "sacrebleu",
         "scikit-learn",
+        "nbclient",
+        "nbformat",
+        "ipykernel",
     }
     installed_ci_packages = {
         line.split("==", 1)[0]
@@ -235,6 +244,7 @@ def validate_repository_contract() -> None:
         PROJECT_ROOT / ".github" / "workflows" / "validate.yml"
     ).read_text(encoding="utf-8")
     assert "pip install -r requirements-ci.txt" in workflow
+    assert "python scripts/execute_notebooks.py" in workflow
 
     probing_source = (
         PROJECT_ROOT / "src" / "vialect_seas" / "probing.py"

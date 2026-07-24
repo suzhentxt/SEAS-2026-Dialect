@@ -4,3 +4,6 @@ matplotlib==3.8.4
 seaborn==0.13.2
 sacrebleu==2.4.3
 scikit-learn==1.4.2
+nbclient==0.10.2
+nbformat==5.10.4
+ipykernel==6.29.5

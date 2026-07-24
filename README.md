@@ -121,6 +121,7 @@ pip install -r requirements.txt
 ```bash
 python scripts/validate_project.py       # dữ liệu + notebook + cú pháp + quét token
 python scripts/smoke_test_notebooks.py   # thực thi mọi cell không cần mô hình/GPU
+python scripts/execute_notebooks.py      # chạy 3 notebook bằng các Jupyter kernel mới
 ```
 
 GitHub Actions dùng bộ dependency CPU đã pin trong `requirements-ci.txt`. Bộ package
